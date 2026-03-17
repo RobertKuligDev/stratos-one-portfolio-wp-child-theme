@@ -1,0 +1,23 @@
+# WordPress core (not part of the theme)
+wp-admin/
+wp-includes/
+
+# Uploads (not part of the theme)
+wp-content/uploads/
+
+# Cache & temp
+wp-content/cache/
+wp-content/backups/
+wp-content/upgrade/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Node / build tools (future-proof)
+node_modules/
+dist/
+build/
+
+# Logs
+*.log
