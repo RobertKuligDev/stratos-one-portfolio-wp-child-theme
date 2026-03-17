@@ -1,0 +1,41 @@
+<!-- wp:group {"className":"projects wrapper"} -->
+<div class="wp-block-group projects wrapper">
+
+    <!-- wp:group {"className":"container"} -->
+    <div class="wp-block-group container">
+
+        <!-- wp:heading {"level":2,"className":"projects__title"} -->
+        <h2 class="projects__title">Projects</h2>
+        <!-- /wp:heading -->
+
+        <!-- wp:query {"query":{"postType":"project","perPage":6},"className":"projects__grid"} -->
+        <div class="wp-block-query projects__grid">
+
+            <!-- wp:post-template -->
+
+                <!-- wp:group {"className":"project-card"} -->
+                <div class="wp-block-group project-card">
+
+                    <!-- wp:post-featured-image {"className":"project-card__image"} /-->
+
+                    <!-- wp:post-title {"className":"project-card__title","level":3} /-->
+
+                    <!-- wp:post-excerpt {"className":"project-card__excerpt"} /-->
+
+                    <!-- wp:post-terms {"term":"technology","className":"project-card__tags"} /-->
+
+                    <!-- wp:read-more {"className":"project-card__button"} /-->
+
+                </div>
+                <!-- /wp:group -->
+
+            <!-- /wp:post-template -->
+
+        </div>
+        <!-- /wp:query -->
+
+    </div>
+    <!-- /wp:group -->
+
+</div>
+<!-- /wp:group -->

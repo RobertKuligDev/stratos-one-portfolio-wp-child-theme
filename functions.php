@@ -16,6 +16,18 @@ add_action('wp_enqueue_scripts', function() {
         [],
         filemtime(get_stylesheet_directory() . '/assets/css/what-i-do.css')
     );
+    wp_enqueue_style(
+        'stratos-one-projects',
+        get_stylesheet_directory_uri() . '/assets/css/projects.css',
+        [],
+        filemtime(get_stylesheet_directory() . '/assets/css/projects.css')
+    );
+    wp_enqueue_style(
+        'stratos-one-project-content',
+        get_stylesheet_directory_uri() . '/assets/css/project-content.css',
+        [],
+        filemtime(get_stylesheet_directory() . '/assets/css/project-content.css')
+    );
 },);
 
 add_action( 'init', function() {
@@ -33,6 +45,22 @@ add_action( 'init', function() {
             'title'       => __( 'What I Do (Portfolio EN)', 'stratos-one' ),
             'categories'  => [ 'stratos-one' ],
             'content'     => file_get_contents( get_stylesheet_directory() . '/patterns/what-i-do.html' ),
+        ]
+    );
+    register_block_pattern(
+        'stratos-one-portfolio/projects',
+        [
+            'title'       => __( 'Projects', 'stratos-one' ),
+            'categories'  => [ 'stratos-one' ],
+            'content'     => file_get_contents( get_stylesheet_directory() . '/patterns/projects.html' ),
+        ]
+    );
+    register_block_pattern(
+        'stratos-one-portfolio/project-content',
+        [
+            'title'      => __( 'Project Content', 'stratos-one' ),
+            'categories' => [ 'stratos-one' ],
+            'content'    => file_get_contents( get_stylesheet_directory() . '/patterns/project-content.html' ),
         ]
     );
 });
