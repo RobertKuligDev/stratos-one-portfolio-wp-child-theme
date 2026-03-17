@@ -34,6 +34,12 @@ add_action('wp_enqueue_scripts', function() {
         [],
         filemtime( get_stylesheet_directory() . '/assets/css/custom-wp-theme.css' )
     );
+    wp_enqueue_style(
+        'stratos-one-about',
+        get_stylesheet_directory_uri() . '/assets/css/about.css',
+        [],
+        filemtime( get_stylesheet_directory() . '/assets/css/about.css' )
+    );
 },);
 
 add_action( 'init', function() {
@@ -75,6 +81,14 @@ add_action( 'init', function() {
             'title'      => __( 'Custom WP Theme (Stratos One)', 'stratos-one' ),
             'categories' => [ 'stratos-one' ],
             'content'    => file_get_contents( get_stylesheet_directory() . '/patterns/custom-wp-theme.html' ),
+        ]
+    );
+    register_block_pattern(
+        'stratos-one-portfolio/about',
+        [
+            'title'      => __( 'About', 'stratos-one' ),
+            'categories' => [ 'stratos-one' ],
+            'content'    => file_get_contents( get_stylesheet_directory() . '/patterns/about.html' ),
         ]
     );
 });
