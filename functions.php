@@ -92,3 +92,28 @@ add_action( 'init', function() {
         ]
     );
 });
+
+/**
+ * Register Stratos One block category
+ * This ensures the category is available for patterns
+ */
+add_filter( 'block_categories_all', function( $categories ) {
+    // Check if category already exists
+    foreach ( $categories as $category ) {
+        if ( $category['slug'] === 'stratos-one' ) {
+            return $categories;
+        }
+    }
+    
+    // Add our category
+    return array_merge(
+        [
+            [
+                'slug'  => 'stratos-one',
+                'title' => __( 'Stratos One Patterns', 'stratos-one' ),
+            ],
+        ],
+        $categories
+    );
+}, 1 );
+
