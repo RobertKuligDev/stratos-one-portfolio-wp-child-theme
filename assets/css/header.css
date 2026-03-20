@@ -1,0 +1,233 @@
+/**
+ * Header Component - Stratos One Portfolio
+ * Premium header with scroll effect and responsive navigation
+ *
+ * @package Stratos_One_Portfolio
+ */
+
+/* ================================
+   Site Header - Base Styles
+   ================================ */
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: transparent;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.site-header.scrolled {
+    background: rgba(11, 13, 17, 0.92);
+    backdrop-filter: blur(20px) saturate(1.4);
+    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    border-bottom-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06), 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* ================================
+   Header Content
+   ================================ */
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    height: 68px;
+    gap: 2rem;
+}
+
+/* ================================
+   Site Branding
+   ================================ */
+
+.site-branding a {
+    color: #d0d0d0;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: opacity 0.2s ease;
+}
+
+.site-branding a:hover {
+    opacity: 0.82;
+}
+
+.brand-logo {
+    width: 240px;
+    height: 48px;
+    display: block;
+}
+
+/* ================================
+   Main Navigation
+   ================================ */
+
+.main-navigation ul {
+    display: flex;
+    gap: 2px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-navigation a {
+    display: block;
+    padding: 6px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #d0d0d0;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    letter-spacing: -0.01em;
+}
+
+.main-navigation a:hover {
+    color: #4da6ff;
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+.main-navigation .current-menu-item a {
+    color: #4da6ff;
+}
+
+/* ================================
+   Header CTA Buttons
+   ================================ */
+
+.header-cta-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.header-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    letter-spacing: -0.01em;
+}
+
+.header-cta-secondary {
+    background-color: transparent;
+    color: #d0d0d0;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.header-cta-secondary:hover {
+    color: #fff;
+    border-color: #4da6ff;
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+.header-cta-primary {
+    background-color: #4da6ff;
+    color: #fff;
+    border: 1px solid transparent;
+    box-shadow: 0 2px 8px rgba(77, 166, 255, 0.3);
+}
+
+.header-cta-primary:hover {
+    background-color: #3d96ef;
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(77, 166, 255, 0.4);
+    transform: translateY(-1px);
+}
+
+/* ================================
+   Mobile Menu Toggle
+   ================================ */
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #d0d0d0;
+    cursor: pointer;
+    padding: 7px 10px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    font-size: 1.4rem;
+    line-height: 1;
+}
+
+.menu-toggle:hover {
+    border-color: #4da6ff;
+    color: #4da6ff;
+}
+
+/* ================================
+   Responsive Breakpoints
+   ================================ */
+
+/* Tablet: Hide CTAs */
+@media (max-width: 992px) {
+    .header-cta-group {
+        display: none;
+    }
+}
+
+/* Mobile: Show toggle, dropdown menu */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .main-navigation {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: rgba(11, 13, 17, 0.97);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 1rem 1.5rem;
+        display: none;
+    }
+
+    .main-navigation.active {
+        display: block;
+    }
+
+    .main-navigation ul {
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .brand-logo {
+        width: 200px;
+        height: 42px;
+    }
+
+    .header-content {
+        height: 60px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .brand-logo {
+        width: 170px;
+        height: 36px;
+    }
+
+    .header-content {
+        padding: 0 1rem;
+    }
+}
