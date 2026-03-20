@@ -39,7 +39,12 @@ if (!defined('ABSPATH')) {
             </div>
         </div>
         <div class="contact-form contact-form--premium">
-            <!-- wp:stratos-one/contact /-->
+            <?php
+            // Render the Stratos One contact form block
+            if (function_exists('stratos_one_render_contact_form')) {
+                echo stratos_one_render_contact_form();
+            }
+            ?>
         </div>
     </div>
 </section>
