@@ -5,6 +5,12 @@ add_action('wp_enqueue_scripts', function() {
         get_stylesheet_uri()
     );
     wp_enqueue_style(
+        'stratos-one-header',
+        get_stylesheet_directory_uri() . '/assets/css/header.css',
+        [],
+        filemtime(get_stylesheet_directory() . '/assets/css/header.css')
+    );
+    wp_enqueue_style(
         'stratos-one-hero',
         get_stylesheet_directory_uri() . '/assets/css/hero.css',
         [],
@@ -130,3 +136,26 @@ add_filter( 'block_categories_all', function( $categories ) {
         $categories
     );
 }, 1 );
+
+/**
+ * Enqueue header scripts
+ */
+add_action('wp_enqueue_scripts', function() {
+    // Header scroll effect
+    wp_enqueue_script(
+        'stratos-one-header-scroll',
+        get_stylesheet_directory_uri() . '/assets/js/header-scroll.js',
+        [],
+        filemtime(get_stylesheet_directory() . '/assets/js/header-scroll.js'),
+        true
+    );
+
+    // Mobile menu toggle
+    wp_enqueue_script(
+        'stratos-one-menu-toggle',
+        get_stylesheet_directory_uri() . '/assets/js/menu-toggle.js',
+        [],
+        filemtime(get_stylesheet_directory() . '/assets/js/menu-toggle.js'),
+        true
+    );
+});
