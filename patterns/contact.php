@@ -3,6 +3,7 @@
  * Contact pattern
  *
  * @package Stratos_One_Portfolio
+ * Slug: stratos-one-portfolio-contact
  */
 
 return [
