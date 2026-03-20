@@ -40,6 +40,12 @@ add_action('wp_enqueue_scripts', function() {
         [],
         filemtime( get_stylesheet_directory() . '/assets/css/about.css' )
     );
+    wp_enqueue_style(
+        'stratos-one-contact',
+        get_stylesheet_directory_uri() . '/assets/css/contact.css',
+        [],
+        filemtime( get_stylesheet_directory() . '/assets/css/contact.css' )
+    );
 },);
 
 add_action( 'init', function() {
@@ -91,6 +97,14 @@ add_action( 'init', function() {
             'content'    => file_get_contents( get_stylesheet_directory() . '/patterns/about.html' ),
         ]
     );
+    register_block_pattern(
+        'stratos-one-portfolio/contact',
+        [
+            'title'      => __( 'Contact (Portfolio)', 'stratos-one' ),
+            'categories' => [ 'stratos-one' ],
+            'content'    => ( require get_stylesheet_directory() . '/patterns/contact.php' )['content'],
+        ]
+    );
 });
 
 /**
@@ -104,7 +118,7 @@ add_filter( 'block_categories_all', function( $categories ) {
             return $categories;
         }
     }
-    
+
     // Add our category
     return array_merge(
         [
@@ -116,4 +130,3 @@ add_filter( 'block_categories_all', function( $categories ) {
         $categories
     );
 }, 1 );
-
