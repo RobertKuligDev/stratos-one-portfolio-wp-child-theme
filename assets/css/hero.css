@@ -35,20 +35,42 @@
 }
 
 /* BUTTONS */
-.so-btn-primary a {
-    background: #4ea8ff;
-    color: #000;
-    padding: 12px 24px;
-    border-radius: 6px;
-    font-weight: 600;
+.hero__buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
 }
 
-.so-btn-secondary a {
-    background: rgba(255,255,255,0.1);
-    color: #fff;
+.so-btn {
+    display: inline-block;
     padding: 12px 24px;
     border-radius: 6px;
     font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.so-btn-primary {
+    background: #4ea8ff;
+    color: #0d0f12;
+}
+
+.so-btn-primary:hover {
+    background: #3d96ef;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(78, 168, 255, 0.3);
+}
+
+.so-btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.so-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 /* GRID */
