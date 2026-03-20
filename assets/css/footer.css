@@ -1,0 +1,205 @@
+/**
+ * Site Footer - Stratos One Portfolio
+ * Premium footer styling
+ *
+ * @package Stratos_One_Portfolio
+ */
+
+/* ================================
+   Site Footer Base
+   ================================ */
+
+.site-footer {
+    background: #0b0d11;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 3rem 0 2rem;
+    color: #9ca3af;
+    position: relative;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* ================================
+   Footer Left (Copyright + Tagline)
+   ================================ */
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-copyright {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #d1d5db;
+}
+
+.footer-copyright strong {
+    color: #4da6ff;
+}
+
+.footer-tagline {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+/* ================================
+   Footer Menu
+   ================================ */
+
+.footer-menu {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-menu ul {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-menu a {
+    color: #9ca3af;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.footer-menu a:hover {
+    color: #4da6ff;
+}
+
+/* ================================
+   Social Links
+   ================================ */
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #9ca3af;
+    transition: all 0.2s ease;
+}
+
+.social-link:hover {
+    background: rgba(77, 166, 255, 0.15);
+    border-color: #4da6ff;
+    color: #4da6ff;
+    transform: translateY(-2px);
+}
+
+.social-link svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ================================
+   Back to Top Button
+   ================================ */
+
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #4da6ff;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(77, 166, 255, 0.3);
+    z-index: 99;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: #3d96ef;
+    box-shadow: 0 6px 16px rgba(77, 166, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.back-to-top svg {
+    width: 22px;
+    height: 22px;
+}
+
+/* ================================
+   Responsive
+   ================================ */
+
+/* Tablet */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .footer-left {
+        align-items: center;
+    }
+
+    .footer-menu ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .site-footer {
+        padding: 2rem 0 1.5rem;
+    }
+
+    .footer-content {
+        padding: 0 1rem;
+    }
+
+    .back-to-top {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 40px;
+        height: 40px;
+    }
+}

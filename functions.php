@@ -52,6 +52,14 @@ add_action('wp_enqueue_scripts', function() {
         [],
         filemtime( get_stylesheet_directory() . '/assets/css/contact.css' )
     );
+
+    // Footer styles
+    wp_enqueue_style(
+        'stratos-one-footer',
+        get_stylesheet_directory_uri() . '/assets/css/footer.css',
+        [],
+        filemtime(get_stylesheet_directory() . '/assets/css/footer.css')
+    );
 },);
 
 add_action( 'init', function() {
@@ -156,6 +164,15 @@ add_action('wp_enqueue_scripts', function() {
         get_stylesheet_directory_uri() . '/assets/js/menu-toggle.js',
         [],
         filemtime(get_stylesheet_directory() . '/assets/js/menu-toggle.js'),
+        true
+    );
+
+    // Back to top button
+    wp_enqueue_script(
+        'stratos-one-back-to-top',
+        get_stylesheet_directory_uri() . '/assets/js/back-to-top.js',
+        [],
+        filemtime(get_stylesheet_directory() . '/assets/js/back-to-top.js'),
         true
     );
 });
