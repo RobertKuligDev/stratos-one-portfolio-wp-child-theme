@@ -328,3 +328,135 @@
         font-size: 0.85rem;
     }
 }
+
+/* ================================
+   Modal Content Styles
+   ================================ */
+
+/* Code blocks in modal */
+.modal-code {
+    background: #0d0f12;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+    overflow-x: auto;
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #e5e7eb;
+}
+
+.modal-code code {
+    background: none;
+    padding: 0;
+}
+
+/* Performance grid */
+.performance-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.performance-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(77, 166, 255, 0.1);
+    border: 1px solid rgba(77, 166, 255, 0.3);
+    border-radius: 8px;
+}
+
+.performance-value {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #4da6ff;
+    margin-bottom: 0.5rem;
+}
+
+.performance-label {
+    display: block;
+    font-size: 0.85rem;
+    color: #9ca3af;
+    line-height: 1.4;
+}
+
+.performance-grid h4 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.performance-grid ul {
+    list-style: none;
+    padding: 0;
+}
+
+.performance-grid ul li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #d1d5db;
+}
+
+.performance-grid ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #4da6ff;
+    font-weight: bold;
+}
+
+/* Modal lists */
+#modal-blocks ul,
+#modal-security ul {
+    list-style: none;
+    padding: 0;
+}
+
+#modal-blocks ul li,
+#modal-security ul li {
+    padding: 0.75rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #d1d5db;
+    line-height: 1.6;
+}
+
+#modal-blocks ul li::before,
+#modal-security ul li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #4da6ff;
+    font-weight: bold;
+}
+
+#modal-blocks strong,
+#modal-security strong {
+    color: #4da6ff;
+}
+
+/* Responsive modal content */
+@media (max-width: 768px) {
+    .performance-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .performance-value {
+        font-size: 2rem;
+    }
+
+    .modal-code {
+        padding: 1rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .performance-grid {
+        grid-template-columns: 1fr;
+    }
+}
