@@ -312,7 +312,7 @@
         flex-direction: column;
     }
 
-    /* width: 100%; - commented out to prevent edge-to-edge */
+    /* Prevent buttons from touching screen edges */
     .btn {
         max-width: 100%;
     }
@@ -348,4 +348,28 @@
     .hero-headline {
         font-size: 1.8rem;
     }
+}
+
+/* ================================
+   Modal Diagram Styles
+   ================================ */
+
+.modal-diagram-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background: rgba(13, 15, 18, 0.95);
+    border-radius: 12px;
+}
+
+.modal-hero-diagram {
+    max-width: 100%;
+    height: auto;
+    max-height: 70vh;
+}
+
+/* Modal overrides for diagram */
+.stratos-modal:has(.modal-diagram-wrapper) {
+    max-width: 900px;
 }
