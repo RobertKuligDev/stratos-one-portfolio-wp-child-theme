@@ -312,9 +312,10 @@
         flex-direction: column;
     }
 
-    /* .btn {
-        width: 100%;
-    } */
+    /* width: 100%; - commented out to prevent edge-to-edge */
+    .btn {
+        max-width: 100%;
+    }
 
     /* Hide entire diagram container on mobile */
     .hero-visual {
