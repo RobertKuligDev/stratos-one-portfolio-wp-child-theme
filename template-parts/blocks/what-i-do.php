@@ -2,6 +2,8 @@
 /**
  * What I Do section template part
  *
+ * Services grid with 3 cards - hybrid layout (desktop full, mobile accordion)
+ *
  * @package Stratos_One_Portfolio
  * @version 1.0.0
  */
@@ -11,32 +13,134 @@ if (!defined('ABSPATH')) {
 }
 
 ?>
-<!-- What I Do Section -->
-<section class="what-i-do wrapper" id="what-i-do">
+<!-- Services Section -->
+<section class="services" id="services">
     <div class="container">
-        <h2 class="what-i-do__title">What I Do</h2>
-        <div class="what-i-do__grid">
-            <div class="what-i-do__card">
-                <span class="what-i-do__icon">🧩</span>
-                <h3 class="what-i-do__card-title">Backend Architecture</h3>
-                <p class="what-i-do__card-text">
-                    I design scalable, maintainable backend systems using .NET, clean architecture and domain‑driven design.
-                </p>
+        <h2 class="section-title">What I Do</h2>
+        <div class="services-grid">
+            
+            <!-- Card 1: Backend Architecture -->
+            <div class="service-card" data-service="backend">
+                <div class="service-card-header">
+                    <span class="service-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <path d="M3 9h18"/>
+                            <path d="M9 21V9"/>
+                        </svg>
+                    </span>
+                    <h3 class="service-card-title">Backend Architecture</h3>
+                    <p class="service-card-text">
+                        I design scalable, maintainable backend systems using .NET, clean architecture and domain‑driven design.
+                    </p>
+                </div>
+                
+                <div class="service-card-body">
+                    <ul class="service-features">
+                        <li>.NET API & backend logic</li>
+                        <li>Clean architecture & DDD</li>
+                        <li>Database design (SQL/NoSQL)</li>
+                        <li>Caching & performance optimization</li>
+                        <li>Security & authentication</li>
+                    </ul>
+                    
+                    <div class="service-tech" aria-label="Technologies">
+                        <span class="tech-badge">.NET</span>
+                        <span class="tech-badge">C#</span>
+                        <span class="tech-badge">SQL</span>
+                        <span class="tech-badge">Redis</span>
+                        <span class="tech-badge">RabbitMQ</span>
+                    </div>
+                </div>
+                
+                <button class="service-card-toggle" aria-label="Toggle service details" aria-expanded="false" type="button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
             </div>
-            <div class="what-i-do__card">
-                <span class="what-i-do__icon">⚡</span>
-                <h3 class="what-i-do__card-title">Frontend Engineering</h3>
-                <p class="what-i-do__card-text">
-                    I build fast, responsive and production‑ready Angular applications with modular architecture.
-                </p>
+            
+            <!-- Card 2: Frontend Engineering -->
+            <div class="service-card" data-service="frontend">
+                <div class="service-card-header">
+                    <span class="service-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1m15.5-6.5l-4.5 4.5m-4 4L7.5 16.5"/>
+                        </svg>
+                    </span>
+                    <h3 class="service-card-title">Frontend Engineering</h3>
+                    <p class="service-card-text">
+                        I build fast, responsive and production‑ready Angular applications with modular architecture.
+                    </p>
+                </div>
+                
+                <div class="service-card-body">
+                    <ul class="service-features">
+                        <li>Angular SPA applications</li>
+                        <li>Component-based architecture</li>
+                        <li>State management (NgRx)</li>
+                        <li>Performance optimization</li>
+                        <li>Accessibility (WCAG 2.1)</li>
+                    </ul>
+                    
+                    <div class="service-tech" aria-label="Technologies">
+                        <span class="tech-badge">Angular</span>
+                        <span class="tech-badge">TypeScript</span>
+                        <span class="tech-badge">RxJS</span>
+                        <span class="tech-badge">NgRx</span>
+                        <span class="tech-badge">SCSS</span>
+                    </div>
+                </div>
+                
+                <button class="service-card-toggle" aria-label="Toggle service details" aria-expanded="false" type="button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
             </div>
-            <div class="what-i-do__card">
-                <span class="what-i-do__icon">🛠️</span>
-                <h3 class="what-i-do__card-title">DevOps & Infrastructure</h3>
-                <p class="what-i-do__card-text">
-                    I create Docker‑based environments, CI/CD pipelines and production‑grade deployments.
-                </p>
+            
+            <!-- Card 3: DevOps & Infrastructure -->
+            <div class="service-card" data-service="devops">
+                <div class="service-card-header">
+                    <span class="service-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </span>
+                    <h3 class="service-card-title">DevOps & Infrastructure</h3>
+                    <p class="service-card-text">
+                        I create Docker‑based environments, CI/CD pipelines and production‑grade deployments.
+                    </p>
+                </div>
+                
+                <div class="service-card-body">
+                    <ul class="service-features">
+                        <li>Docker containerization</li>
+                        <li>CI/CD pipelines (GitHub Actions)</li>
+                        <li>Traefik reverse proxy</li>
+                        <li>Linux server management</li>
+                        <li>Monitoring & logging</li>
+                    </ul>
+                    
+                    <div class="service-tech" aria-label="Technologies">
+                        <span class="tech-badge">Docker</span>
+                        <span class="tech-badge">Traefik</span>
+                        <span class="tech-badge">Linux</span>
+                        <span class="tech-badge">GitHub Actions</span>
+                        <span class="tech-badge">Cloudflare</span>
+                    </div>
+                </div>
+                
+                <button class="service-card-toggle" aria-label="Toggle service details" aria-expanded="false" type="button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
             </div>
+            
         </div>
     </div>
 </section>

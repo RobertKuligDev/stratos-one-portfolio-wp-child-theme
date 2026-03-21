@@ -1,169 +1,298 @@
+/**
+ * Contact Section - Stratos One Portfolio
+ * Compact layout with form and highlights
+ *
+ * @package Stratos_One_Portfolio
+ */
+
 /* ================================
-   PREMIUM CONTACT SECTION
+   Contact Section Base
    ================================ */
 
-.contact-section--premium {
-    padding: 6rem 0;
+.contact {
+    padding: 5rem 0;
     background: #0b0d11;
     color: #e5e7eb;
     position: relative;
 }
 
-/* Subtle gradient glow behind the section */
-.contact-section--premium::before {
+/* Subtle gradient glow */
+.contact::before {
     content: "";
     position: absolute;
     inset: 0;
     background: radial-gradient(
         circle at 50% 0%,
-        rgba(77, 166, 255, 0.12),
+        rgba(77, 166, 255, 0.12) 0%,
         transparent 70%
     );
     pointer-events: none;
 }
 
-/* Container */
-.contact-section--premium .container {
-    max-width: 820px;
+.contact * {
+    position: relative;
+    z-index: 1;
+}
+
+.container {
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1.5rem;
-}
-
-/* Title */
-.contact-title--premium {
-    text-align: center;
-    font-size: 2.4rem;
-    font-weight: 700;
-    margin-bottom: 1.2rem;
-    color: #ffffff;
-    letter-spacing: -0.5px;
-}
-
-/* Subtitle */
-.contact-subtitle--premium {
-    text-align: center;
-    margin: 0 auto 3rem;
-    max-width: 650px;
-    color: #c7c9d1;
-    font-size: 1.1rem;
-    line-height: 1.65;
+    padding: 0 2rem;
 }
 
 /* ================================
-   HIGHLIGHTS (3 cards)
+   Contact Grid (2 columns)
+   ================================ */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+/* ================================
+   Contact Content (Left Column)
+   ================================ */
+
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Section Title & Subtitle */
+.section-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #c7c9d1;
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* ================================
+   Desktop: 3 Cards Stacked
    ================================ */
 
 .contact-highlights {
     display: flex;
-    gap: 1.5rem;
-    margin-bottom: 3.5rem;
+    flex-direction: column;
+    gap: 1rem;
 }
 
-.contact-highlight {
+.highlight-card {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 1.6rem 1.4rem;
-    border-radius: 12px;
-    width: 100%;
-    max-width: 240px;
-    text-align: center;
-    transition: transform .25s ease, border-color .25s ease;
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    transition: all 0.2s ease;
 }
 
-.contact-highlight:hover {
-    transform: translateY(-4px);
-    border-color: rgba(77, 166, 255, 0.4);
+.highlight-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(77, 166, 255, 0.3);
 }
 
-.contact-highlight h3 {
+.highlight-card-title {
+    font-size: 1rem;
+    font-weight: 600;
     color: #ffffff;
-    font-size: 1.15rem;
-    margin-bottom: .6rem;
+    margin: 0 0 0.5rem 0;
 }
 
-.contact-highlight p {
-    color: #bfc2c9;
-    font-size: .95rem;
+.highlight-card-text {
+    font-size: 0.95rem;
+    color: #9ca3af;
+    margin: 0;
     line-height: 1.5;
 }
 
 /* ================================
-   FORM (dynamic block)
+   Mobile: 3 Points List (hidden on desktop)
    ================================ */
 
-.contact-form--premium form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
+.contact-points {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-.contact-form--premium label {
-    font-size: .95rem;
-    color: #d1d5db;
+.contact-points li {
+    margin-bottom: 1.5rem;
 }
 
-.contact-form--premium input,
-.contact-form--premium textarea,
-.contact-form--premium select {
-    width: 100%;
-    padding: .9rem 1rem;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 8px;
-    color: #fff;
+.contact-points strong {
+    display: block;
     font-size: 1rem;
-    transition: border-color .2s ease, background .2s ease;
-}
-
-.contact-form--premium input:focus,
-.contact-form--premium textarea:focus,
-.contact-form--premium select:focus {
-    border-color: #4da6ff;
-    background: rgba(255,255,255,0.07);
-    outline: none;
-}
-
-/* Button */
-.contact-form--premium button {
-    padding: 1rem 1.2rem;
-    background: #4da6ff;
-    border: none;
-    border-radius: 8px;
-    color: #fff;
     font-weight: 600;
-    cursor: pointer;
-    font-size: 1.05rem;
-    transition: background .2s ease, transform .2s ease;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
 }
 
-.contact-form--premium button:hover {
-    background: #6bb8ff;
-    transform: translateY(-2px);
-}
-
-/* Response text */
-.contact-form--premium .contact__response {
-    font-size: .95rem;
-    color: #a8a8a8;
-    min-height: 1.2rem;
-    margin-top: .5rem;
+.contact-points span {
+    display: block;
+    font-size: 0.95rem;
+    color: #9ca3af;
+    line-height: 1.5;
 }
 
 /* ================================
-   RESPONSIVE
+   Contact Form Wrapper (Right Column)
    ================================ */
 
-@media (max-width: 768px) {
-    .contact-highlights {
-        flex-direction: column;
-        align-items: center;
+.contact-form-wrapper {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 2.5rem;
+}
+
+/* Stratos One Contact Form Styles */
+#stratos-contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#stratos-contact-form label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #d1d5db;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+#stratos-contact-form input[type="text"],
+#stratos-contact-form input[type="email"],
+#stratos-contact-form textarea {
+    /* width: 100%; - commented out to prevent edge-to-edge */
+    max-width: 100%;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+#stratos-contact-form input:focus,
+#stratos-contact-form textarea:focus {
+    outline: none;
+    border-color: #4da6ff;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(77, 166, 255, 0.1);
+}
+
+#stratos-contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+#stratos-contact-form button[type="submit"] {
+    background: #4da6ff;
+    color: #0d0f12;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    align-self: flex-start;
+}
+
+#stratos-contact-form button[type="submit"]:hover {
+    background: #3d96ef;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(77, 166, 255, 0.3);
+}
+
+#stratos-contact-form .contact__response {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+/* ================================
+   Responsive
+   ================================ */
+
+/* Mobile: Single column, list instead of cards */
+@media (max-width: 992px) {
+    .contact {
+        padding: 4rem 0;
     }
 
-    .contact-highlight {
-        max-width: 100%;
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
     }
 
-    .contact-title--premium {
+    .contact-content {
+        gap: 1.5rem;
+    }
+
+    .section-title {
         font-size: 2rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+    }
+
+    /* Hide desktop cards on mobile */
+    .contact-highlights {
+        display: none;
+    }
+
+    /* Show mobile list */
+    .contact-points {
+        display: block;
+    }
+
+    .contact-form-wrapper {
+        padding: 2rem 1.5rem;
+    }
+
+    /* Mobile: inputs full width */
+    #stratos-contact-form input[type="text"],
+    #stratos-contact-form input[type="email"],
+    #stratos-contact-form textarea,
+    #stratos-contact-form button[type="submit"] {
+        width: 100%;
+    }
+
+    #stratos-contact-form button[type="submit"] {
+        align-self: stretch;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .contact {
+        padding: 3.5rem 0;
+    }
+
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+
+    .contact-form-wrapper {
+        padding: 1.5rem 1.25rem;
     }
 }

@@ -1,175 +1,351 @@
+/**
+ * Hero Section - Stratos One Portfolio
+ * Premium hero with architecture diagram
+ *
+ * @package Stratos_One_Portfolio
+ */
 
-/* HERO SECTION */
-.hero.wrapper {
-    padding: 6rem 0;
-    background: #0d0f12;
-    color: #ffffff;
-}
+/* ================================
+   Hero Section Base
+   ================================ */
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.hero__title {
-    font-size: 3rem;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-}
-
-.hero__subtitle {
-    font-size: 1.25rem;
-    color: #c7c9d1;
-    margin-bottom: 2rem;
-}
-
-/* TAGS */
-.hero__tags p {
-    display: inline-block;
-    background: rgba(255,255,255,0.06);
-    padding: 6px 14px;
-    border-radius: 6px;
-    margin: 0 8px 8px 0;
-    font-size: 0.9rem;
-}
-
-/* BUTTONS */
-.hero__buttons {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-}
-
-.so-btn {
-    display: inline-block;
-    padding: 12px 24px;
-    border-radius: 6px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.2s ease;
-}
-
-.so-btn-primary {
-    background: #4ea8ff;
-    color: #0d0f12;
-}
-
-.so-btn-primary:hover {
-    background: #3d96ef;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(78, 168, 255, 0.3);
-}
-
-.so-btn-secondary {
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.so-btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.3);
-}
-
-/* GRID */
-.wp-block-columns {
-    align-items: center;
-}
-
-.hero__grid {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-/* DIAGRAM PLACEHOLDER */
-.hero__diagram-placeholder {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 2rem;
-    border-radius: 12px;
-    min-height: 200px;
-}
-
-/* SECTION WRAPPER */
-.hero.wrapper {
+.hero {
     padding: 8rem 0;
     background: #0d0f12;
     color: #ffffff;
+    position: relative;
+    overflow: hidden;
 }
 
-/* CONTAINER */
+/* Subtle gradient glow behind hero */
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        ellipse 60% 40% at 65% 50%,
+        rgba(77, 166, 255, 0.08) 0%,
+        transparent 70%
+    );
+    pointer-events: none;
+}
+
+.hero * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Container */
 .container {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 2rem;
 }
 
-/* TITLE */
-.hero__title {
+/* ================================
+   Hero Content Grid
+   ================================ */
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr; /* More space for text content */
+    gap: 4rem;
+    align-items: center;
+}
+
+/* ================================
+   Hero Text (Left Column)
+   ================================ */
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Headline */
+.hero-headline {
     font-size: 3.5rem;
     line-height: 1.15;
     font-weight: 700;
-    margin-bottom: 1.5rem;
     letter-spacing: -0.02em;
+    color: #ffffff;
+    margin: 0;
 }
 
-/* SUBTITLE */
-.hero__subtitle {
+/* Subheadline */
+.hero-subheadline {
     font-size: 1.35rem;
     color: #c7c9d1;
-    margin-bottom: 2.5rem;
+    line-height: 1.6;
+    margin: 0;
     max-width: 600px;
 }
 
-/* TAGS */
-.hero__tags p {
+/* ================================
+   Tech Stack Badges
+   ================================ */
+
+.hero-tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 0.5rem 0;
+}
+
+.tech-badge {
     display: inline-block;
-    background: rgba(255,255,255,0.08);
+    background: rgba(255, 255, 255, 0.08);
     padding: 8px 16px;
     border-radius: 8px;
-    margin: 0 10px 10px 0;
     font-size: 0.95rem;
     font-weight: 500;
+    color: #d1d5db;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: all 0.2s ease;
 }
 
-/* BUTTONS */
-.so-btn-primary a {
-    background: #4ea8ff;
-    color: #000;
-    padding: 14px 28px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 1rem;
+.tech-badge:hover {
+    background: rgba(77, 166, 255, 0.15);
+    border-color: #4da6ff;
+    color: #4da6ff;
+    transform: translateY(-2px);
 }
 
-.so-btn-secondary a {
-    background: rgba(255,255,255,0.12);
-    color: #fff;
-    padding: 14px 28px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 1rem;
+/* ================================
+   CTA Buttons
+   ================================ */
+
+.hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+    width: 100%;
+    max-width: 500px;
 }
 
-/* GRID */
-.wp-block-columns {
+.btn {
+    display: inline-flex;
     align-items: center;
-    gap: 4rem;
+    justify-content: center;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+    white-space: nowrap;
+    flex: 1;
+    min-width: 0;
 }
 
-/* RIGHT COLUMN PLACEHOLDER */
-.hero__diagram-placeholder {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 3rem;
+.btn-primary {
+    background: #4da6ff;
+    color: #0d0f12;
+}
+
+.btn-primary:hover {
+    background: #3d96ef;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(77, 166, 255, 0.3);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* ================================
+   Hero Visual (Right Column - Diagram Card)
+   ================================ */
+
+.hero-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.diagram-container {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
-    min-height: 260px;
+    padding: 1.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Diagram Label - Centered at top */
+.diagram-label {
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #4da6ff;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: rgba(77, 166, 255, 0.15);
+    padding: 4px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(77, 166, 255, 0.3);
+    align-self: center;
+    margin-bottom: 1rem;
+}
+
+/* Diagram SVG */
+.hero-diagram {
+    width: 100%;
+    height: auto;
+    display: block;
+    flex: 1;
+}
+
+/* Zoom Button - Bottom right */
+.diagram-zoom-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
-    color: #c7c9d1;
+    gap: 0.5rem;
+    background: rgba(77, 166, 255, 0.15);
+    border: 1px solid rgba(77, 166, 255, 0.3);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    color: #4da6ff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    align-self: flex-end;
+    margin-top: 1rem;
+}
+
+.diagram-zoom-btn:hover {
+    background: rgba(77, 166, 255, 0.25);
+    border-color: #4da6ff;
+    color: #4da6ff;
+    transform: translateX(-2px);
+}
+
+.diagram-zoom-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+.diagram-zoom-text {
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* ================================
+   Responsive
+   ================================ */
+
+/* Tablet: Stack columns */
+@media (max-width: 1024px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .hero-headline {
+        font-size: 2.8rem;
+    }
+
+    .hero-subheadline {
+        font-size: 1.2rem;
+    }
+
+    .hero-visual {
+        order: -1; /* Diagram on top */
+    }
+
+    .diagram-container {
+        padding: 1.5rem;
+        min-height: 350px;
+    }
+}
+
+/* Mobile: Hide diagram, show 3rd button */
+@media (max-width: 768px) {
+    .hero {
+        padding: 6rem 0;
+    }
+
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .hero-headline {
+        font-size: 2.2rem;
+    }
+
+    .hero-subheadline {
+        font-size: 1.05rem;
+    }
+
+    .hero-tech-stack {
+        gap: 0.5rem;
+    }
+
+    .tech-badge {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+    }
+
+    /* width: 100%; - commented out to prevent edge-to-edge */
+    .btn {
+        max-width: 100%;
+    }
+
+    /* Hide entire diagram container on mobile */
+    .hero-visual {
+        display: none;
+    }
+
+    /* Show 3rd button for architecture diagram on mobile */
+    .hero-cta .btn-architecture {
+        display: inline-flex;
+    }
+}
+
+/* Mobile - 3rd button hidden on desktop */
+@media (min-width: 769px) {
+    .hero-cta .btn-architecture {
+        display: none;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .hero {
+        padding: 4rem 0;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .hero-headline {
+        font-size: 1.8rem;
+    }
 }

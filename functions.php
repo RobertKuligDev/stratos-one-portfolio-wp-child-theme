@@ -175,4 +175,22 @@ add_action('wp_enqueue_scripts', function() {
         filemtime(get_stylesheet_directory() . '/assets/js/back-to-top.js'),
         true
     );
+
+    // Services accordion (mobile)
+    wp_enqueue_script(
+        'stratos-one-services-accordion',
+        get_stylesheet_directory_uri() . '/assets/js/services-accordion.js',
+        [],
+        filemtime(get_stylesheet_directory() . '/assets/js/services-accordion.js'),
+        true
+    );
+
+    // About section (mobile accordion + parallax)
+    wp_enqueue_script(
+        'stratos-one-about-section',
+        get_stylesheet_directory_uri() . '/assets/js/about-section.js',
+        [],
+        filemtime(get_stylesheet_directory() . '/assets/js/about-section.js'),
+        true
+    );
 });
