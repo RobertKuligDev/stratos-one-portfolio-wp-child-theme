@@ -1,56 +1,190 @@
-.about-section.wrapper {
+/**
+ * About Section - Stratos One Portfolio
+ * About me with photo
+ *
+ * @package Stratos_One_Portfolio
+ */
+
+/* ================================
+   About Section Base
+   ================================ */
+
+.about-section {
     padding: 6rem 0;
     background: #0b0d11;
     color: #e5e7eb;
 }
 
-.about-section .container {
-    max-width: 1100px;
+.container {
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 2rem;
 }
+
+/* ================================
+   About Grid (2 columns)
+   ================================ */
 
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 3rem;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 4rem;
     align-items: start;
 }
 
+/* ================================
+   About Title
+   ================================ */
+
 .about-title {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    font-weight: 700;
     margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
     color: #ffffff;
 }
+
+/* ================================
+   About Paragraphs
+   ================================ */
+
+.about-paragraph {
+    margin-bottom: 1.2rem;
+    color: #c7c9d1;
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+/* ================================
+   About Subtitle (List Title)
+   ================================ */
 
 .about-subtitle {
     font-size: 1.3rem;
     margin-top: 2.5rem;
     margin-bottom: 1rem;
     color: #ffffff;
+    font-weight: 600;
 }
 
-.about-paragraph {
-    margin-bottom: 1.2rem;
-    color: #c7c9d1;
-    line-height: 1.7;
-}
+/* ================================
+   About List
+   ================================ */
 
 .about-list {
-    margin-left: 1.2rem;
-    color: #d1d5db;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
 }
 
 .about-list li {
-    margin-bottom: .6rem;
+    position: relative;
+    padding-left: 1.5rem;
+    color: #d1d5db;
+    line-height: 1.6;
+    font-size: 0.98rem;
 }
 
+.about-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 6px;
+    height: 6px;
+    background: #4da6ff;
+    border-radius: 50%;
+}
+
+/* ================================
+   About Photo (Right Column)
+   ================================ */
+
 .about-photo {
-    text-align: center;
+    position: sticky;
+    top: 6rem;
+}
+
+.about-image {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 1rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
 .about-image img {
     width: 100%;
+    height: auto;
     border-radius: 12px;
+    display: block;
     object-fit: cover;
+}
+
+/* ================================
+   Responsive
+   ================================ */
+
+/* Tablet: Stack columns */
+@media (max-width: 992px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .about-photo {
+        position: static;
+        order: -1; /* Photo on top */
+    }
+
+    .about-image {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .about-section {
+        padding: 5rem 0;
+    }
+
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .about-title {
+        font-size: 2rem;
+    }
+
+    .about-paragraph {
+        font-size: 1rem;
+    }
+
+    .about-image {
+        padding: 0.75rem;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .about-section {
+        padding: 4rem 0;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .about-title {
+        font-size: 1.75rem;
+    }
+
+    .about-image {
+        padding: 0.5rem;
+    }
 }

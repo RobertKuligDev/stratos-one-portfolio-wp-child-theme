@@ -40,7 +40,7 @@ if (!defined('ABSPATH')) {
             </div>
             <div class="about-photo">
                 <figure class="about-image">
-                    <img src="" alt="Robert Kulig - Software Architect" />
+                    <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/images/site_robert.png'); ?>" alt="Robert Kulig - Software Architect" loading="lazy" />
                 </figure>
             </div>
         </div>
