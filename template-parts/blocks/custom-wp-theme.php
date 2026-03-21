@@ -20,11 +20,11 @@ if (!defined('ABSPATH')) {
         <p class="section-subtitle">
             Stratos One is a lightweight, custom-built WordPress theme designed as an engineering-grade base for portfolios, landing pages, and production-ready sites.
         </p>
-        
+
         <div class="features-grid">
-            
+
             <!-- Feature 1: Built from Scratch -->
-            <div class="feature-card">
+            <div class="feature-card" data-modal="structure">
                 <span class="feature-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
@@ -38,10 +38,16 @@ if (!defined('ABSPATH')) {
                 <p class="feature-card-text">
                     No page builders, no heavy frameworks. Clean PHP, custom templates and full control over markup and performance.
                 </p>
+                <button class="feature-card-btn" type="button" aria-label="View structure details">
+                    <span>View Structure</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
             </div>
-            
+
             <!-- Feature 2: Modular Sections -->
-            <div class="feature-card">
+            <div class="feature-card" data-modal="sections">
                 <span class="feature-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                         <rect x="3" y="3" width="7" height="7"/>
@@ -54,10 +60,16 @@ if (!defined('ABSPATH')) {
                 <p class="feature-card-text">
                     Hero, What I Do, Projects and other sections are implemented as reusable template parts.
                 </p>
+                <button class="feature-card-btn" type="button" aria-label="View sections details">
+                    <span>View Sections</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
             </div>
-            
+
             <!-- Feature 3: Custom Post Types -->
-            <div class="feature-card">
+            <div class="feature-card" data-modal="cpt">
                 <span class="feature-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                         <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
@@ -67,10 +79,16 @@ if (!defined('ABSPATH')) {
                 <p class="feature-card-text">
                     Projects and future case studies are registered as custom post types with their own templates.
                 </p>
+                <button class="feature-card-btn" type="button" aria-label="View CPT details">
+                    <span>View CPT</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
             </div>
-            
+
             <!-- Feature 4: Engineered Backend -->
-            <div class="feature-card">
+            <div class="feature-card" data-modal="backend">
                 <span class="feature-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                         <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
@@ -83,10 +101,16 @@ if (!defined('ABSPATH')) {
                 <p class="feature-card-text">
                     Custom PHP handlers for forms, validation, security and minimal plugin usage for reliability.
                 </p>
+                <button class="feature-card-btn" type="button" aria-label="View backend details">
+                    <span>View Backend</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
             </div>
-            
+
         </div>
-        
+
         <p class="section-note">
             Stratos One is my own WordPress product — this portfolio is both a live demo and a real-world use case.
         </p>

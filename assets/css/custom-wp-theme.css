@@ -123,6 +123,45 @@
 }
 
 /* ================================
+   Feature Card Button
+   ================================ */
+
+.feature-card-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: rgba(77, 166, 255, 0.15);
+    border: 1px solid rgba(77, 166, 255, 0.3);
+    border-radius: 8px;
+    padding: 0.75rem 1.25rem;
+    color: #4da6ff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    align-self: flex-start;
+    white-space: nowrap;
+}
+
+.feature-card-btn:hover {
+    background: rgba(77, 166, 255, 0.25);
+    border-color: #4da6ff;
+    color: #4da6ff;
+    transform: translateX(4px);
+}
+
+.feature-card-btn svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s ease;
+}
+
+.feature-card-btn:hover svg {
+    transform: translateX(2px);
+}
+
+/* ================================
    Section Note
    ================================ */
 
@@ -185,6 +224,11 @@
 
     .feature-card-text {
         font-size: 0.95rem;
+    }
+
+    .feature-card-btn {
+        width: 100%;
+        justify-content: center;
     }
 }
 
