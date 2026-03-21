@@ -1,6 +1,6 @@
 /**
  * About Section - Stratos One Portfolio
- * About me with photo
+ * About me with parallax photo
  *
  * @package Stratos_One_Portfolio
  */
@@ -46,8 +46,12 @@
 }
 
 /* ================================
-   About Paragraphs
+   About Content (Collapsible on Mobile)
    ================================ */
+
+.about-content {
+    display: block;
+}
 
 .about-paragraph {
     margin-bottom: 1.2rem;
@@ -57,12 +61,78 @@
 }
 
 /* ================================
-   About Subtitle (List Title)
+   About Toggle Button (Mobile)
    ================================ */
+
+.about-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: rgba(77, 166, 255, 0.15);
+    border: 1px solid rgba(77, 166, 255, 0.3);
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    color: #4da6ff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+    margin: 1.5rem 0;
+}
+
+.about-toggle:hover {
+    background: rgba(77, 166, 255, 0.25);
+    border-color: #4da6ff;
+}
+
+.about-toggle svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+}
+
+.about-toggle[aria-expanded="true"] svg {
+    transform: rotate(180deg);
+}
+
+/* ================================
+   About Details (Collapsible on Mobile)
+   ================================ */
+
+.about-details {
+    margin-top: 2rem;
+}
+
+/* Desktop: always visible */
+@media (min-width: 769px) {
+    .about-toggle {
+        display: none !important;
+    }
+    
+    .about-details {
+        display: block !important;
+    }
+}
+
+/* Mobile: hidden by default */
+@media (max-width: 768px) {
+    .about-details {
+        display: none;
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    /* Show when expanded */
+    .about-section.expanded .about-details {
+        display: block;
+    }
+}
 
 .about-subtitle {
     font-size: 1.3rem;
-    margin-top: 2.5rem;
     margin-bottom: 1rem;
     color: #ffffff;
     font-weight: 600;
@@ -105,24 +175,55 @@
    ================================ */
 
 .about-photo {
-    position: sticky;
-    top: 6rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-photo-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+.about-photo-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+    background: radial-gradient(
+        ellipse 70% 90% at 50% 50%,
+        rgba(77, 166, 255, 0.2) 0%,
+        transparent 60%
+    );
+    filter: blur(40px);
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 1;
 }
 
 .about-image {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    padding: 1rem;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    overflow: visible;
 }
 
 .about-image img {
     width: 100%;
     height: auto;
-    border-radius: 12px;
     display: block;
-    object-fit: cover;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    filter: saturate(1.05) brightness(0.92);
+    will-change: transform;
 }
 
 /* ================================
@@ -137,17 +238,18 @@
     }
 
     .about-photo {
-        position: static;
-        order: -1; /* Photo on top */
+        order: -1;
+        max-width: 280px;
+        margin: 0 auto;
+        width: 100%;
     }
 
-    .about-image {
-        max-width: 400px;
-        margin: 0 auto;
+    .about-photo-wrapper {
+        max-width: 260px;
     }
 }
 
-/* Mobile */
+/* Mobile: Accordion */
 @media (max-width: 768px) {
     .about-section {
         padding: 5rem 0;
@@ -165,8 +267,23 @@
         font-size: 1rem;
     }
 
-    .about-image {
-        padding: 0.75rem;
+    /* Show toggle button */
+    .about-toggle {
+        display: flex;
+    }
+
+    .about-photo {
+        max-width: 240px;
+    }
+
+    .about-photo-wrapper {
+        max-width: 240px;
+    }
+
+    .about-photo-glow {
+        width: 100%;
+        height: 100%;
+        opacity: 0.4;
     }
 }
 
@@ -184,7 +301,11 @@
         font-size: 1.75rem;
     }
 
-    .about-image {
-        padding: 0.5rem;
+    .about-photo {
+        max-width: 200px;
+    }
+
+    .about-photo-wrapper {
+        max-width: 200px;
     }
 }
