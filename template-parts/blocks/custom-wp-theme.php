@@ -2,7 +2,7 @@
 /**
  * Custom WP Theme section template part
  *
- * Showcase section about Stratos One theme
+ * Engineering showcase - Stratos One theme built from scratch
  *
  * @package Stratos_One_Portfolio
  * @version 1.0.0
@@ -13,41 +13,42 @@ if (!defined('ABSPATH')) {
 }
 
 ?>
-<!-- Custom WP Theme Section -->
+<!-- Custom WP Theme Section - Engineering Showcase -->
 <section class="custom-wp-theme" id="custom-wp-theme">
     <div class="container">
-        <h2 class="section-title">This portfolio runs on my own WordPress theme</h2>
-        <p class="section-subtitle">
-            Stratos One is a lightweight, custom-built WordPress theme designed as an engineering-grade base for portfolios, landing pages, and production-ready sites.
-        </p>
+        
+        <div class="custom-wp-theme-header">
+            <span class="section-badge">Engineering Showcase</span>
+            <h2 class="section-title">Engineering-Grade WordPress Theme</h2>
+            <p class="section-subtitle">
+                Built from scratch — no page builders, no bloat. Clean architecture, custom blocks, and production-ready performance.
+            </p>
+        </div>
 
         <div class="features-grid">
 
-            <!-- Feature 1: Built from Scratch -->
+            <!-- Feature 1: Architecture -->
             <div class="feature-card" data-modal="structure">
                 <span class="feature-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                        <polyline points="14 2 14 8 20 8"/>
-                        <line x1="16" y1="13" x2="8" y2="13"/>
-                        <line x1="16" y1="17" x2="8" y2="17"/>
-                        <polyline points="10 9 9 9 8 9"/>
+                        <path d="M3 3h18v18H3z"/>
+                        <path d="M3 9h18M3 15h18M9 3v18M15 3v18"/>
                     </svg>
                 </span>
-                <h3 class="feature-card-title">Built from Scratch</h3>
+                <h3 class="feature-card-title">Clean Architecture</h3>
                 <p class="feature-card-text">
-                    No page builders, no heavy frameworks. Clean PHP, custom templates and full control over markup and performance.
+                    Modular template hierarchy, custom post types, and separation of concerns. No spaghetti code.
                 </p>
-                <button class="feature-card-btn" type="button" aria-label="View structure details">
-                    <span>View Structure</span>
+                <button class="feature-card-btn" type="button" aria-label="View architecture details">
+                    <span>View Architecture</span>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                 </button>
             </div>
 
-            <!-- Feature 2: Modular Sections -->
-            <div class="feature-card" data-modal="sections">
+            <!-- Feature 2: Custom Blocks -->
+            <div class="feature-card" data-modal="blocks">
                 <span class="feature-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                         <rect x="3" y="3" width="7" height="7"/>
@@ -56,53 +57,51 @@ if (!defined('ABSPATH')) {
                         <rect x="3" y="14" width="7" height="7"/>
                     </svg>
                 </span>
-                <h3 class="feature-card-title">Modular Sections</h3>
+                <h3 class="feature-card-title">Custom Gutenberg Blocks</h3>
                 <p class="feature-card-text">
-                    Hero, What I Do, Projects and other sections are implemented as reusable template parts.
+                    Reusable block patterns tailored to this theme. Hero, services, projects — all implemented as native blocks.
                 </p>
-                <button class="feature-card-btn" type="button" aria-label="View sections details">
-                    <span>View Sections</span>
+                <button class="feature-card-btn" type="button" aria-label="View blocks details">
+                    <span>View Blocks</span>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                 </button>
             </div>
 
-            <!-- Feature 3: Custom Post Types -->
-            <div class="feature-card" data-modal="cpt">
+            <!-- Feature 3: Performance -->
+            <div class="feature-card" data-modal="performance">
                 <span class="feature-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                     </svg>
                 </span>
-                <h3 class="feature-card-title">Custom Post Types</h3>
+                <h3 class="feature-card-title">Performance First</h3>
                 <p class="feature-card-text">
-                    Projects and future case studies are registered as custom post types with their own templates.
+                    Zero page builders, minimal dependencies, optimized assets. Lighthouse scores 95+.
                 </p>
-                <button class="feature-card-btn" type="button" aria-label="View CPT details">
-                    <span>View CPT</span>
+                <button class="feature-card-btn" type="button" aria-label="View performance details">
+                    <span>View Performance</span>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                 </button>
             </div>
 
-            <!-- Feature 4: Engineered Backend -->
-            <div class="feature-card" data-modal="backend">
+            <!-- Feature 4: Security -->
+            <div class="feature-card" data-modal="security">
                 <span class="feature-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                        <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
-                        <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
-                        <line x1="6" y1="6" x2="6.01" y2="6"/>
-                        <line x1="6" y1="18" x2="6.01" y2="18"/>
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
                     </svg>
                 </span>
-                <h3 class="feature-card-title">Engineered Backend</h3>
+                <h3 class="feature-card-title">Security & Validation</h3>
                 <p class="feature-card-text">
-                    Custom PHP handlers for forms, validation, security and minimal plugin usage for reliability.
+                    Custom form handlers with nonce verification, anti-spam, and input sanitization.
                 </p>
-                <button class="feature-card-btn" type="button" aria-label="View backend details">
-                    <span>View Backend</span>
+                <button class="feature-card-btn" type="button" aria-label="View security details">
+                    <span>View Security</span>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
