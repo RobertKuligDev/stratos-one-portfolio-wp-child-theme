@@ -51,7 +51,7 @@
 
 .hero-content {
     display: grid;
-    grid-template-columns: 1.45fr 1fr;
+    grid-template-columns: 1.6fr 1fr; /* More space for text content */
     gap: 4rem;
     align-items: center;
 }

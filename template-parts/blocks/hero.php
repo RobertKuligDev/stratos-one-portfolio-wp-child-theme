@@ -21,7 +21,7 @@ if (!defined('ABSPATH')) {
             <!-- Left Column: Text Content -->
             <div class="hero-text">
                 <h1 class="hero-headline">
-                    I build production-grade e-commerce applications in .NET + Angular
+                    Production-Grade .NET + Angular Applications
                 </h1>
                 <p class="hero-subheadline">
                     I design backend, frontend and infrastructure that are fast, scalable and ready for real traffic.
