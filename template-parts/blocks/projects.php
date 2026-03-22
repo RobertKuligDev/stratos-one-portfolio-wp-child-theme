@@ -44,14 +44,31 @@ $project_ids = $all_projects->posts;
                     $category = $categories ? $categories[0]->name : 'Project';
                     
                     // Get ACF fields (if available) or use fallback
-                    $case_study_problem = get_field('case_study_problem') ?: 'Detailed problem description will be added soon.';
-                    $case_study_solution = get_field('case_study_solution') ?: 'Solution details coming soon.';
-                    $case_study_results = get_field('case_study_results') ?: [];
-                    $project_url = get_field('project_url') ?: get_permalink();
-                    $github_url = get_field('github_url') ?: '';
+                    $case_study_problem = '';
+                    $case_study_solution = '';
+                    $case_study_results = [];
+                    $project_url = '';
+                    $github_url = '';
+                    $case_study_pdf = null;
+                    
+                    if (function_exists('get_field')) {
+                        // ACF is active
+                        $case_study_problem = get_field('case_study_problem') ?: 'Detailed problem description will be added soon.';
+                        $case_study_solution = get_field('case_study_solution') ?: 'Solution details coming soon.';
+                        $case_study_results = get_field('case_study_results') ?: [];
+                        $project_url = get_field('project_url') ?: get_permalink();
+                        $github_url = get_field('github_url') ?: '';
+                        $case_study_pdf = get_field('case_study_pdf');
+                    } else {
+                        // ACF not active - use fallback
+                        $case_study_problem = 'Install ACF plugin to add case study details.';
+                        $case_study_solution = 'Advanced Custom Fields plugin is required for full functionality.';
+                        $project_url = get_permalink();
+                    }
                     
                     // Get gallery images
                     $gallery = [];
+                    $gallery_json = '[]';
                     if (function_exists('get_field')) {
                         $gallery_images = get_field('project_gallery');
                         if ($gallery_images) {
@@ -62,12 +79,17 @@ $project_ids = $all_projects->posts;
                                     'alt'  => $image['alt'] ?: get_the_title(),
                                 ];
                             }
+                            $gallery_data = [];
+                            foreach ($gallery_images as $image) {
+                                $gallery_data[] = [
+                                    'type' => 'image',
+                                    'src'  => $image['url'],
+                                    'alt'  => $image['alt'] ?: get_the_title(),
+                                ];
+                            }
+                            $gallery_json = esc_attr(json_encode($gallery_data));
                         }
                     }
-                    
-                    // Get PDF if exists
-                    $case_study_pdf = get_field('case_study_pdf');
-                    $has_pdf = $case_study_pdf && function_exists('get_field');
                     ?>
                     <article class="project-card" id="post-<?php the_ID(); ?>">
 
@@ -159,12 +181,23 @@ $project_ids = $all_projects->posts;
             $modal_query->the_post();
             $project_id = get_the_ID();
             $technologies = get_the_terms($project_id, 'technology');
-            $case_study_problem = get_field('case_study_problem') ?: 'Problem description coming soon.';
-            $case_study_solution = get_field('case_study_solution') ?: 'Solution details coming soon.';
-            $case_study_results = get_field('case_study_results') ?: [];
-            $case_study_pdf = get_field('case_study_pdf');
-            $project_url = get_field('project_url') ?: get_permalink();
-            $github_url = get_field('github_url') ?: '';
+            
+            // Get ACF fields (if available) or use fallback
+            $case_study_problem = 'Install ACF plugin to add case study details.';
+            $case_study_solution = 'Advanced Custom Fields plugin is required for full functionality.';
+            $case_study_results = [];
+            $case_study_pdf = null;
+            $project_url = get_permalink();
+            $github_url = '';
+            
+            if (function_exists('get_field')) {
+                $case_study_problem = get_field('case_study_problem') ?: 'Problem description coming soon.';
+                $case_study_solution = get_field('case_study_solution') ?: 'Solution details coming soon.';
+                $case_study_results = get_field('case_study_results') ?: [];
+                $case_study_pdf = get_field('case_study_pdf');
+                $project_url = get_field('project_url') ?: get_permalink();
+                $github_url = get_field('github_url') ?: '';
+            }
             
             // Get gallery for modal
             $gallery_json = '[]';
