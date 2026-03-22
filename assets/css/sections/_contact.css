@@ -53,18 +53,13 @@
   gap: var(--spacing-2xl);
 }
 
-.section-title {
+/* Section title is in _container.css */
+.contact .section-title {
   font-size: 2.4rem;
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text-primary);
   margin: 0;
-  letter-spacing: var(--letter-spacing-tight);
 }
 
-.section-subtitle {
-  font-size: var(--font-size-base);
-  color: var(--color-text-secondary);
-  line-height: var(--line-height-relaxed);
+.contact .section-subtitle {
   margin: 0;
 }
 

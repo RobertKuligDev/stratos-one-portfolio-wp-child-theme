@@ -1,7 +1,7 @@
 /**
- * Container Layout
+ * Container and Layout Styles
  *
- * Container and layout utilities.
+ * Container, sections, and layout utilities.
  *
  * @package Stratos_One_Portfolio
  */
@@ -30,21 +30,130 @@
   padding: var(--spacing-4xl) 0;
 }
 
-.section-header {
-  text-align: center;
-  margin-bottom: var(--spacing-4xl);
-}
-
+/* ===================================
+   Section Title (Shared across all sections)
+   =================================== */
 .section-title {
-  font-size: var(--font-size-xl);
+  font-size: 2.5rem;
+  line-height: var(--line-height-tight);
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
-  margin-bottom: var(--spacing-sm);
+  margin: 0 0 var(--spacing-sm) 0;
+  letter-spacing: var(--letter-spacing-tight);
 }
 
+.section-title-center {
+  text-align: center;
+}
+
+/* ===================================
+   Section Subtitle (Shared across all sections)
+   =================================== */
 .section-subtitle {
   font-size: var(--font-size-base);
-  color: var(--color-text-secondary);
-  max-width: var(--container-content);
-  margin: 0 auto;
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+  margin: 0 0 var(--spacing-3xl) 0;
+}
+
+.section-subtitle-center {
+  text-align: center;
+}
+
+/* ===================================
+   Grid Layout
+   =================================== */
+.grid {
+  display: grid;
+  gap: var(--grid-gap-3);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* ===================================
+   Responsive Grid
+   =================================== */
+@media (max-width: 992px) {
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid,
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===================================
+   Flex Utilities
+   =================================== */
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-sm {
+  gap: var(--spacing-sm);
+}
+
+.gap-md {
+  gap: var(--spacing-md);
+}
+
+.gap-lg {
+  gap: var(--spacing-lg);
+}
+
+.gap-xl {
+  gap: var(--spacing-xl);
+}
+
+.gap-2xl {
+  gap: var(--spacing-2xl);
+}
+
+.gap-3xl {
+  gap: var(--spacing-3xl);
+}
+
+.gap-4xl {
+  gap: var(--spacing-4xl);
 }
