@@ -34,20 +34,13 @@
 }
 
 /* Branding */
-.site-branding {
-  display: flex;
-  align-items: center;
-}
-
 .site-branding a {
-  color: var(--color-accent-primary) !important;
-  text-decoration: none !important;
+  color: var(--color-accent-primary);
+  text-decoration: none;
   display: flex;
   align-items: center;
   gap: 10px;
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
+  transition: opacity var(--transition-fast);
 }
 
 .site-branding a:hover {
@@ -57,34 +50,7 @@
 .brand-logo {
   width: 240px;
   height: 48px;
-  display: block !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: none !important;
-  background: none !important;
-  box-shadow: none !important;
-}
-
-/* Logo text - inherit color from parent (blue) */
-.brand-logo text {
-  fill: currentColor !important;
-  font-family: 'Fira Code', 'Courier New', monospace !important;
-}
-
-/* .DEV part - keep blue */
-.brand-logo tspan {
-  fill: #4da6ff !important;
-}
-
-/* Separator line - blue */
-.brand-logo line {
-  stroke: #4da6ff !important;
-}
-
-/* SOFTWARE ARCHITECT - gray (subtitle) */
-.brand-logo text.subtitle {
-  fill: var(--color-text-secondary) !important;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  display: block;
 }
 
 /* Nav */
