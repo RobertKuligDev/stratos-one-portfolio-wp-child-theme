@@ -1,15 +1,14 @@
 <?php
 /**
- * Contact pattern
+ * Contact Pattern
  *
  * @package Stratos_One_Portfolio
- * Slug: stratos-one-portfolio-contact
+ * Title: Contact (Portfolio)
+ * Slug: stratos-one-portfolio/contact
+ * Categories: stratos-one
  */
 
-return [
-    'title'      => __('Contact (Portfolio)', 'stratos-one-portfolio'),
-    'categories' => ['stratos-one'],
-    'content'    => <<<'HTML'
+?>
 <!-- wp:group {"className":"contact-section wrapper contact-section--premium"} -->
 <div class="wp-block-group contact-section wrapper contact-section--premium">
 
@@ -82,5 +81,3 @@ return [
 
 </div>
 <!-- /wp:group -->
-HTML
-];
