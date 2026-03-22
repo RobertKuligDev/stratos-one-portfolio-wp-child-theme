@@ -7,13 +7,22 @@
 
 /**
  * Enqueue stylesheets
+ * Load order matches robert-portfolio architecture
  */
 add_action('wp_enqueue_scripts', function() {
+    // Main theme stylesheet (required by WordPress)
+    wp_enqueue_style(
+        'stratos-one-style',
+        get_stylesheet_uri(),
+        [],
+        filemtime(get_stylesheet_directory() . '/style.css')
+    );
+
     // Base styles (variables, reset, responsive)
     wp_enqueue_style(
         'stratos-one-variables',
         get_stylesheet_directory_uri() . '/assets/css/base/_variables.css',
-        [],
+        ['stratos-one-style'],
         filemtime(get_stylesheet_directory() . '/assets/css/base/_variables.css')
     );
 
