@@ -1,0 +1,99 @@
+/**
+ * Process Section — Premium
+ * @package Robert_Portfolio
+ */
+
+.process {
+  background-color: var(--color-bg-secondary);
+  padding-top: var(--spacing-4xl);
+  padding-bottom: var(--spacing-4xl);
+  position: relative;
+}
+
+.process::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--color-border-strong) 30%, var(--color-border-strong) 70%, transparent 100%);
+}
+
+/* Steps grid */
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--card-gap);
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  position: relative;
+}
+
+/* Connecting line between steps (desktop) */
+.process-steps::before {
+  content: '';
+  position: absolute;
+  top: 32px;
+  left: calc(var(--container-padding) + 32px);
+  right: calc(var(--container-padding) + 32px);
+  height: 1px;
+  background: linear-gradient(90deg, var(--color-accent-primary), var(--color-border-subtle));
+  opacity: 0.3;
+  z-index: 0;
+}
+
+/* Step */
+.process-step {
+  background-color: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  transition: all var(--transition-base);
+  position: relative;
+  z-index: 1;
+}
+
+.process-step:hover {
+  border-color: var(--color-border-accent);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-accent);
+}
+
+.step-number {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  font-family: var(--font-family-mono);
+  color: var(--color-accent-primary);
+  letter-spacing: var(--letter-spacing-wide);
+  background: var(--color-accent-subtle);
+  border: 1px solid var(--color-border-accent);
+  border-radius: var(--radius-full);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  letter-spacing: var(--letter-spacing-tight);
+  line-height: var(--line-height-snug);
+}
+
+.step-description {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  flex: 1;
+}
+
+@media (max-width: 600px) {
+  .process-steps::before { display: none; }
+  .process-steps { grid-template-columns: 1fr; }
+}

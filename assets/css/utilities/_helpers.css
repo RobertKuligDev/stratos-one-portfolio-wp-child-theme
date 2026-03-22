@@ -1,0 +1,84 @@
+/**
+ * Helpers — Premium
+ * @package Robert_Portfolio
+ */
+
+/* Inline status badge */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+.status-badge.live {
+  color: var(--color-success);
+  background: rgba(16, 217, 160, 0.08);
+  border: 1px solid rgba(16, 217, 160, 0.2);
+}
+
+.status-badge.wip {
+  color: var(--color-warning);
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+/* Animated underline link */
+.link-underline {
+  position: relative;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 100%;
+  height: 1px;
+  background: var(--color-accent-primary);
+  transition: right var(--transition-fast);
+}
+
+.link-underline:hover {
+  color: var(--color-text-primary);
+}
+
+.link-underline:hover::after {
+  right: 0;
+}
+
+/* Glow ring */
+.glow-ring {
+  box-shadow: 0 0 0 1px var(--color-border-accent), var(--shadow-glow);
+}
+
+/* Text truncate */
+.truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Flex helpers */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* No-select */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}

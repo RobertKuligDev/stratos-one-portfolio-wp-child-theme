@@ -1,0 +1,101 @@
+/**
+ * Technologies Section — Premium
+ * @package Robert_Portfolio
+ */
+
+.technologies {
+  background-color: var(--color-bg-primary);
+  padding-top: var(--spacing-4xl);
+  padding-bottom: var(--spacing-4xl);
+  position: relative;
+}
+
+.technologies::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--color-border-strong) 30%, var(--color-border-strong) 70%, transparent 100%);
+}
+
+.tech-groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.tech-group {}
+
+.tech-group-title {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-widest);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tech-group-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--color-divider);
+}
+
+.tech-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tech-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius);
+  transition: all var(--transition-fast);
+  cursor: default;
+}
+
+.tech-item:hover {
+  border-color: var(--color-border-accent);
+  background-color: var(--color-accent-subtle);
+  transform: translateY(-2px);
+}
+
+.tech-item-name {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  letter-spacing: -0.01em;
+  transition: color var(--transition-fast);
+}
+
+.tech-item:hover .tech-item-name {
+  color: var(--color-text-primary);
+}
+
+.tech-item-level {
+  font-size: var(--font-size-xs);
+  font-family: var(--font-family-mono);
+  color: var(--color-text-faint);
+  transition: color var(--transition-fast);
+}
+
+.tech-item:hover .tech-item-level {
+  color: var(--color-accent-primary);
+}
+
+@media (max-width: 640px) {
+  .tech-items { gap: 8px; }
+  .tech-item { padding: 6px 12px; }
+}

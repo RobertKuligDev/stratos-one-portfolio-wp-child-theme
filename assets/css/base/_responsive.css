@@ -1,104 +1,38 @@
 /**
- * Responsive Breakpoints
- *
- * Global responsive styles and media queries.
- * Single Responsibility: Responsive adjustments.
- *
- * @package Stratos_One_Portfolio
- * @version 1.0.0
+ * Global Responsive — Premium
+ * @package Robert_Portfolio
  */
 
-/* ===================================
-   Breakpoint Variables (reference)
-
-   Mobile:    max-width: 480px
-   Tablet:    max-width: 768px
-   Desktop:   max-width: 992px
-   Large:     max-width: 1200px
-   =================================== */
-
-/* ===================================
-   Global Responsive Adjustments
-   =================================== */
-
-/* Tablet and below */
-@media (max-width: 992px) {
-  html {
-    font-size: 15px;
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 
-  .container {
-    padding: 0 var(--spacing-lg);
-  }
+  html { scroll-behavior: auto; }
 }
 
-/* Mobile and below */
-@media (max-width: 768px) {
-  html {
-    font-size: 14px;
-  }
+/* Print */
+@media print {
+  .site-header,
+  .diagram-modal,
+  .work-env-modal,
+  .hero-cta,
+  .contact-form-wrapper { display: none; }
 
-  body {
-    overflow-x: hidden;
-  }
+  body { background: white; color: black; }
 
-  /* Keep header fixed on mobile - do NOT change to relative */
-  /* Header has position: fixed with background-color */
-
-  /* Adjust main padding */
-  .site-main {
-    padding-top: 0;
-  }
-
-  /* Stack all grids */
-  .services-grid,
-  .projects-grid,
-  .process-grid,
-  .technologies-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Reduce section padding */
-  .hero,
-  .services,
-  .projects,
-  .process,
-  .technologies,
-  .about,
-  .contact {
-    padding: var(--spacing-2xl) 0;
-  }
+  .section-title { color: black; }
 }
 
-/* Small mobile */
-@media (max-width: 480px) {
-  html {
-    font-size: 13px;
-  }
-
-  .container {
-    padding: 0 var(--spacing-md);
-  }
-
-  /* Reduce padding further */
-  .hero,
-  .services,
-  .projects,
-  .process,
-  .technologies,
-  .about,
-  .contact {
-    padding: var(--spacing-xl) 0;
-  }
-
-  /* Full width buttons on mobile */
-  .btn {
-    width: 100%;
-    text-align: center;
-  }
-
-  .hero-cta {
-    flex-direction: column;
-    width: 100%;
+/* Touch targets */
+@media (hover: none) {
+  .tech-badge,
+  .filter-btn,
+  .project-card,
+  .service-card {
+    transition: none;
   }
 }
