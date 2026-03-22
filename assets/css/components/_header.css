@@ -34,23 +34,51 @@
 }
 
 /* Branding */
+.site-branding {
+  display: flex;
+  align-items: center;
+}
+
 .site-branding a {
-  color: var(--color-text-primary);
-  text-decoration: none;
+  color: var(--color-text-primary) !important;
+  text-decoration: none !important;
   display: flex;
   align-items: center;
   gap: 10px;
   transition: opacity var(--transition-fast);
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .site-branding a:hover {
   opacity: 0.82;
+  color: var(--color-text-primary) !important;
+  text-decoration: none !important;
 }
 
 .brand-logo {
   width: 240px;
   height: 48px;
-  display: block;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.brand-logo text {
+  fill: currentColor !important;
+  font-family: 'Fira Code', 'Courier New', monospace !important;
+}
+
+.brand-logo tspan {
+  fill: #4da6ff !important;
+}
+
+.brand-logo line {
+  stroke: #4da6ff !important;
 }
 
 /* Nav */
