@@ -1,0 +1,267 @@
+/**
+ * Style Overrides — Stratos One Parent Theme
+ * @package Stratos_One_Portfolio
+ * 
+ * Purpose: Override parent theme styles that conflict with premium design
+ */
+
+/* ============================================
+   Header & Logo Overrides
+   ============================================ */
+
+/* Logo size - match robert-portfolio */
+.site-branding img,
+.site-branding .brand-logo {
+  width: 240px !important;
+  height: 48px !important;
+  max-width: none !important;
+}
+
+/* Logo hover effect - lighten on hover (not darken) */
+.site-branding a:hover img,
+.site-branding a:hover .brand-logo {
+  opacity: 0.82 !important;
+  filter: brightness(1.2) !important;
+}
+
+/* Header height - match premium */
+.site-header .header-content {
+  height: 68px !important;
+}
+
+/* Header background on scroll */
+.site-header.scrolled {
+  background-color: rgba(7, 9, 12, 0.88) !important;
+  backdrop-filter: blur(20px) saturate(1.4) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(1.4) !important;
+  border-bottom-color: var(--color-border-subtle) !important;
+}
+
+/* ============================================
+   Container & Spacing Overrides
+   ============================================ */
+
+/* Reduce container padding - content closer to edges */
+.container,
+.section-inner {
+  padding-left: var(--container-padding) !important;
+  padding-right: var(--container-padding) !important;
+}
+
+/* Override stratos-one wide padding */
+.site-content {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* ============================================
+   Images & Media Overrides
+   ============================================ */
+
+/* About section image - prevent giant size */
+.about-section img,
+.about img,
+[data-type="core/image"] img {
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 400px !important;
+  object-fit: cover !important;
+}
+
+/* Image containers */
+.wp-block-image {
+  max-width: 100% !important;
+}
+
+/* ============================================
+   Typography Overrides
+   ============================================ */
+
+/* Force premium font weights */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-bold) !important;
+  letter-spacing: var(--letter-spacing-tight) !important;
+}
+
+/* Section titles */
+.section-title,
+h1.section-title {
+  font-size: var(--font-size-xl) !important;
+  font-weight: var(--font-weight-extrabold) !important;
+}
+
+/* ============================================
+   Cards & Components
+   ============================================ */
+
+/* Card backgrounds - match premium */
+.card,
+.project-card,
+.service-card {
+  background-color: var(--color-bg-card) !important;
+  border: 1px solid var(--color-border-subtle) !important;
+  border-radius: var(--radius-lg) !important;
+}
+
+/* Card hover */
+.card:hover,
+.project-card:hover {
+  border-color: var(--color-border-accent) !important;
+  box-shadow: var(--shadow-accent) !important;
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+
+/* Primary button - match premium */
+.btn-primary,
+button.btn-primary,
+.wp-block-button__link {
+  background-color: var(--color-accent-primary) !important;
+  color: #fff !important;
+  border-radius: var(--radius) !important;
+  font-weight: var(--font-weight-semibold) !important;
+  padding: 12px 26px !important;
+  box-shadow: 0 2px 12px rgba(59, 130, 246, 0.32) !important;
+}
+
+.btn-primary:hover,
+button.btn-primary:hover {
+  background-color: var(--color-accent-hover) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 24px rgba(59, 130, 246, 0.42) !important;
+}
+
+/* Secondary button */
+.btn-secondary {
+  background-color: transparent !important;
+  color: var(--color-text-secondary) !important;
+  border: 1px solid var(--color-border-strong) !important;
+}
+
+.btn-secondary:hover {
+  color: var(--color-text-primary) !important;
+  border-color: var(--color-border-accent) !important;
+  background-color: var(--color-surface-subtle) !important;
+}
+
+/* ============================================
+   Navigation
+   ============================================ */
+
+/* Nav links */
+.main-navigation a {
+  font-size: var(--font-size-sm) !important;
+  font-weight: var(--font-weight-medium) !important;
+  color: var(--color-text-secondary) !important;
+  border-radius: var(--radius) !important;
+  padding: 6px 14px !important;
+}
+
+.main-navigation a:hover {
+  color: var(--color-text-primary) !important;
+  background-color: var(--color-surface-subtle) !important;
+}
+
+/* Current menu item */
+.main-navigation .current-menu-item a {
+  color: var(--color-accent-primary) !important;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+
+.site-footer {
+  background-color: var(--color-bg-primary) !important;
+  border-top: 1px solid var(--color-border-subtle) !important;
+  padding: var(--spacing-xl) 0 !important;
+}
+
+.footer-copyright {
+  font-size: var(--font-size-xs) !important;
+  color: var(--color-text-faint) !important;
+}
+
+/* ============================================
+   Social Links
+   ============================================ */
+
+.social-links {
+  display: flex !important;
+  gap: var(--spacing-md) !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+}
+
+.social-link {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: var(--radius) !important;
+  background: var(--color-surface-subtle) !important;
+  border: 1px solid var(--color-border-subtle) !important;
+  transition: all var(--transition-fast) !important;
+}
+
+.social-link:hover {
+  border-color: var(--color-accent-primary) !important;
+  background: var(--color-accent-subtle) !important;
+  transform: translateY(-2px) !important;
+}
+
+.social-link svg {
+  width: 20px !important;
+  height: 20px !important;
+  stroke: var(--color-text-secondary) !important;
+  transition: stroke var(--transition-fast) !important;
+}
+
+.social-link:hover svg {
+  stroke: var(--color-accent-primary) !important;
+}
+
+/* ============================================
+   Gutenberg Blocks
+   ============================================ */
+
+.wp-block-group {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.wp-block-columns {
+  gap: var(--grid-gap-3) !important;
+}
+
+.wp-block-column {
+  margin: 0 !important;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 768px) {
+  .site-branding img,
+  .site-branding .brand-logo {
+    width: 200px !important;
+    height: 42px !important;
+  }
+  
+  .container {
+    padding-left: var(--spacing-md) !important;
+    padding-right: var(--spacing-md) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-branding img,
+  .site-branding .brand-logo {
+    width: 170px !important;
+    height: 36px !important;
+  }
+}

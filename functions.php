@@ -43,6 +43,14 @@ add_action('wp_enqueue_scripts', function() {
         filemtime(get_stylesheet_directory() . '/assets/css/bundle.css')
     );
 
+    // 3b. Overrides.css - Parent theme style fixes
+    wp_enqueue_style(
+        'stratos-one-overrides',
+        get_stylesheet_directory_uri() . '/assets/css/overrides.css',
+        ['stratos-one-bundle'],
+        filemtime(get_stylesheet_directory() . '/assets/css/overrides.css')
+    );
+
     // 4. Base styles
     wp_enqueue_style(
         'stratos-one-variables',
