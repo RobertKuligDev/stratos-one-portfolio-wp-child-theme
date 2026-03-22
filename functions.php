@@ -7,10 +7,13 @@
 
 /**
  * Enqueue stylesheets
- * Load order matches robert-portfolio architecture
+ * Load order:
+ * 1. style.css (theme header)
+ * 2. All app styles (base, layout, components, sections)
+ * 3. bundle.css (premium styles - loaded LAST to override)
  */
 add_action('wp_enqueue_scripts', function() {
-    // Main theme stylesheet (required by WordPress)
+    // 1. Main theme stylesheet (header only)
     wp_enqueue_style(
         'stratos-one-style',
         get_stylesheet_uri(),
@@ -18,7 +21,7 @@ add_action('wp_enqueue_scripts', function() {
         filemtime(get_stylesheet_directory() . '/style.css')
     );
 
-    // Base styles (variables, reset, responsive)
+    // 2. Base styles
     wp_enqueue_style(
         'stratos-one-variables',
         get_stylesheet_directory_uri() . '/assets/css/base/_variables.css',
@@ -40,7 +43,7 @@ add_action('wp_enqueue_scripts', function() {
         filemtime(get_stylesheet_directory() . '/assets/css/base/_responsive.css')
     );
 
-    // Layout styles
+    // 3. Layout styles
     wp_enqueue_style(
         'stratos-one-container',
         get_stylesheet_directory_uri() . '/assets/css/layout/_container.css',
@@ -55,7 +58,7 @@ add_action('wp_enqueue_scripts', function() {
         filemtime(get_stylesheet_directory() . '/assets/css/layout/_grid.css')
     );
 
-    // Component styles
+    // 4. Component styles
     wp_enqueue_style(
         'stratos-one-buttons',
         get_stylesheet_directory_uri() . '/assets/css/components/_buttons.css',
@@ -84,7 +87,7 @@ add_action('wp_enqueue_scripts', function() {
         filemtime(get_stylesheet_directory() . '/assets/css/components/_tooltip.css')
     );
 
-    // Utility styles
+    // 5. Utility styles
     wp_enqueue_style(
         'stratos-one-animations',
         get_stylesheet_directory_uri() . '/assets/css/utilities/_animations.css',
@@ -92,7 +95,7 @@ add_action('wp_enqueue_scripts', function() {
         filemtime(get_stylesheet_directory() . '/assets/css/utilities/_animations.css')
     );
 
-    // Section styles
+    // 6. Section styles
     wp_enqueue_style(
         'stratos-one-header',
         get_stylesheet_directory_uri() . '/assets/css/sections/_header.css',
@@ -154,6 +157,14 @@ add_action('wp_enqueue_scripts', function() {
         get_stylesheet_directory_uri() . '/assets/css/sections/_footer.css',
         ['stratos-one-custom-wp-theme'],
         filemtime(get_stylesheet_directory() . '/assets/css/sections/_footer.css')
+    );
+
+    // 7. Bundle.css - Premium styles (loaded LAST to override everything)
+    wp_enqueue_style(
+        'stratos-one-bundle',
+        get_stylesheet_directory_uri() . '/assets/css/bundle.css',
+        ['stratos-one-footer'],
+        filemtime(get_stylesheet_directory() . '/assets/css/bundle.css')
     );
 });
 
