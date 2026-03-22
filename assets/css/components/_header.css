@@ -49,12 +49,11 @@
   background: none !important;
   border: none !important;
   box-shadow: none !important;
+  opacity: 1;
 }
 
 .site-branding a:hover {
-  opacity: 0.82;
-  color: var(--color-accent-hover) !important;
-  text-decoration: none !important;
+  opacity: 0.82 !important;
 }
 
 .brand-logo {
@@ -66,13 +65,17 @@
   border: none !important;
   background: none !important;
   box-shadow: none !important;
+  transition: opacity var(--transition-fast);
+}
+
+.site-branding a:hover .brand-logo {
+  opacity: 0.82;
 }
 
 /* Logo text - inherit color from parent (blue) */
 .brand-logo text {
   fill: currentColor !important;
   font-family: 'Fira Code', 'Courier New', monospace !important;
-  transition: fill var(--transition-fast);
 }
 
 /* .DEV part - keep blue */
@@ -83,7 +86,6 @@
 /* Separator line - blue */
 .brand-logo line {
   stroke: #4da6ff !important;
-  transition: stroke var(--transition-fast);
 }
 
 /* SOFTWARE ARCHITECT - gray (subtitle) */
