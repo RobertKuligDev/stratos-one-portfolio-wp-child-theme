@@ -8,11 +8,11 @@
 /**
  * Enqueue stylesheets
  * 
- * Load order (minimalist approach):
+ * MODULAR CSS LOAD ORDER:
  * 1. Google Fonts
  * 2. Parent theme (stratos-one) - base
- * 3. Bundle.css - Premium Design System (override parent)
- * 4. Overrides.css - Fix parent conflicts (final polish)
+ * 3. CSS Modules (variables → base → layout → components → sections → responsive)
+ * 4. Overrides - Parent conflict fixes
  */
 add_action('wp_enqueue_scripts', function() {
     // 1. Google Fonts — Plus Jakarta Sans + JetBrains Mono
@@ -31,19 +31,61 @@ add_action('wp_enqueue_scripts', function() {
         wp_get_theme()->get('Version')
     );
 
-    // 3. Bundle.css - Premium Design System (override parent)
+    // 3. CSS Modules - Premium Design System
+    
+    // 3.1 Variables (CSS custom properties)
     wp_enqueue_style(
-        'portfolio-bundle',
-        get_stylesheet_directory_uri() . '/assets/css/bundle.css',
+        'portfolio-variables',
+        get_stylesheet_directory_uri() . '/assets/css/01-variables.css',
         ['parent-style'],
-        filemtime(get_stylesheet_directory() . '/assets/css/bundle.css')
+        filemtime(get_stylesheet_directory() . '/assets/css/01-variables.css')
     );
 
-    // 4. Overrides.css - Fix parent theme conflicts
+    // 3.2 Base (reset, typography, global styles)
+    wp_enqueue_style(
+        'portfolio-base',
+        get_stylesheet_directory_uri() . '/assets/css/02-base.css',
+        ['portfolio-variables'],
+        filemtime(get_stylesheet_directory() . '/assets/css/02-base.css')
+    );
+
+    // 3.3 Layout (utilities, helpers, badges)
+    wp_enqueue_style(
+        'portfolio-layout',
+        get_stylesheet_directory_uri() . '/assets/css/03-layout.css',
+        ['portfolio-base'],
+        filemtime(get_stylesheet_directory() . '/assets/css/03-layout.css')
+    );
+
+    // 3.4 Components (header, footer, buttons, modal)
+    wp_enqueue_style(
+        'portfolio-components',
+        get_stylesheet_directory_uri() . '/assets/css/04-components.css',
+        ['portfolio-layout'],
+        filemtime(get_stylesheet_directory() . '/assets/css/04-components.css')
+    );
+
+    // 3.5 Sections (hero, services, projects, about, contact)
+    wp_enqueue_style(
+        'portfolio-sections',
+        get_stylesheet_directory_uri() . '/assets/css/05-sections.css',
+        ['portfolio-components'],
+        filemtime(get_stylesheet_directory() . '/assets/css/05-sections.css')
+    );
+
+    // 3.6 Responsive (media queries - MUST BE LAST)
+    wp_enqueue_style(
+        'portfolio-responsive',
+        get_stylesheet_directory_uri() . '/assets/css/06-responsive.css',
+        ['portfolio-sections'],
+        filemtime(get_stylesheet_directory() . '/assets/css/06-responsive.css')
+    );
+
+    // 4. Overrides.css - Fix parent theme conflicts (loaded after everything)
     wp_enqueue_style(
         'portfolio-overrides',
         get_stylesheet_directory_uri() . '/assets/css/overrides.css',
-        ['portfolio-bundle'],
+        ['portfolio-responsive'],
         filemtime(get_stylesheet_directory() . '/assets/css/overrides.css')
     );
 });

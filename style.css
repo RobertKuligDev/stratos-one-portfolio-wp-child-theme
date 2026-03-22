@@ -17,5 +17,5 @@ This theme, like WordPress, is licensed under the GPL.
 /* Import premium design system */
 @import url('assets/css/bundle.css');
 
-/* Override parent theme styles */
-@import url('assets/css/overrides.css');
+/* Override parent theme styles
+@import url('assets/css/overrides.css'); */
