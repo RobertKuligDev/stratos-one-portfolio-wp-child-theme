@@ -40,7 +40,7 @@
 }
 
 .site-branding a {
-  color: var(--color-text-primary) !important;
+  color: var(--color-accent-primary) !important;
   text-decoration: none !important;
   display: flex;
   align-items: center;
@@ -53,7 +53,7 @@
 
 .site-branding a:hover {
   opacity: 0.82;
-  color: var(--color-text-primary) !important;
+  color: var(--color-accent-hover) !important;
   text-decoration: none !important;
 }
 
@@ -68,17 +68,28 @@
   box-shadow: none !important;
 }
 
+/* Logo text - inherit color from parent (blue) */
 .brand-logo text {
   fill: currentColor !important;
   font-family: 'Fira Code', 'Courier New', monospace !important;
+  transition: fill var(--transition-fast);
 }
 
+/* .DEV part - keep blue */
 .brand-logo tspan {
   fill: #4da6ff !important;
 }
 
+/* Separator line - blue */
 .brand-logo line {
   stroke: #4da6ff !important;
+  transition: stroke var(--transition-fast);
+}
+
+/* SOFTWARE ARCHITECT - gray (subtitle) */
+.brand-logo text.subtitle {
+  fill: var(--color-text-secondary) !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
 }
 
 /* Nav */
