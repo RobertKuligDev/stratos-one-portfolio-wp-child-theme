@@ -45,15 +45,13 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  transition: opacity var(--transition-fast);
   background: none !important;
   border: none !important;
   box-shadow: none !important;
-  opacity: 1;
 }
 
 .site-branding a:hover {
-  opacity: 0.82 !important;
+  opacity: 0.82;
 }
 
 .brand-logo {
@@ -65,11 +63,6 @@
   border: none !important;
   background: none !important;
   box-shadow: none !important;
-  transition: opacity var(--transition-fast);
-}
-
-.site-branding a:hover .brand-logo {
-  opacity: 0.82;
 }
 
 /* Logo text - inherit color from parent (blue) */
