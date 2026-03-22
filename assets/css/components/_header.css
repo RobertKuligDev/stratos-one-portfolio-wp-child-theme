@@ -143,6 +143,12 @@
   line-height: 1;
 }
 
+.menu-toggle-icon {
+  display: block;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
 .menu-toggle:hover {
   border-color: var(--color-border-accent);
   color: var(--color-accent-primary);

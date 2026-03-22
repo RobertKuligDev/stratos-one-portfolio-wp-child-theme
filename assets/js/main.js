@@ -494,7 +494,7 @@
     toggleMenu: function() {
       const isExpanded = this.toggle.getAttribute('aria-expanded') === 'true';
       this.toggle.setAttribute('aria-expanded', !isExpanded);
-      this.nav.classList.toggle('is-active');
+      this.nav.classList.toggle('active');
     }
   };
 
