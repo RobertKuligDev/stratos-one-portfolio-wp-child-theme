@@ -81,25 +81,72 @@
 }
 
 /* ===================================
-   Footer Back to Top
+   Footer Social Links
    =================================== */
-.back-to-top {
+.footer-social {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+.social-link {
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-xs);
+  justify-content: center;
+  width: 24px;
+  height: 24px;
   color: var(--color-text-muted);
-  text-decoration: none;
-  font-size: var(--font-size-sm);
-  transition: color var(--transition-fast);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.social-link:hover {
+  color: var(--color-accent-primary);
+  transform: translateY(-2px);
+}
+
+.social-link svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ===================================
+   Back to Top Button
+   =================================== */
+.back-to-top {
+  position: fixed;
+  bottom: var(--spacing-xl);
+  right: var(--spacing-xl);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-fast);
+  z-index: var(--z-sticky);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
 }
 
 .back-to-top:hover {
-  color: var(--color-accent-primary);
+  background: var(--color-accent-primary);
+  color: var(--color-bg-primary);
+  border-color: var(--color-accent-primary);
+  transform: translateY(-2px);
 }
 
 .back-to-top svg {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
 }
 
 /* ===================================
@@ -118,6 +165,10 @@
 
   .footer-menu ul {
     flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer-social {
     justify-content: center;
   }
 }

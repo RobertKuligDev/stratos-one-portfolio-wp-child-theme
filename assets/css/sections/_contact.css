@@ -105,33 +105,35 @@
 }
 
 /* ===================================
-   Contact Form (Right Column)
+   Contact Form Wrapper (Right Column)
    =================================== */
-.contact-form {
+.contact-form-wrapper {
   background: var(--color-bg-secondary);
   border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius);
   padding: var(--spacing-2xl);
 }
 
-.form-group {
-  margin-bottom: var(--spacing-lg);
+/* WPForms / Contact Form 7 compatibility */
+.contact-form-wrapper .wpcf7,
+.contact-form-wrapper .wpforms-container {
+  width: 100%;
 }
 
-.form-group:last-child {
-  margin-bottom: 0;
+.contact-form-wrapper .wpcf7-form,
+.contact-form-wrapper .wpforms-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
 }
 
-.form-label {
-  display: block;
-  margin-bottom: var(--spacing-xs);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
-}
-
-.form-input,
-.form-textarea {
+/* Form fields */
+.contact-form-wrapper input[type="text"],
+.contact-form-wrapper input[type="email"],
+.contact-form-wrapper input[type="tel"],
+.contact-form-wrapper input[type="url"],
+.contact-form-wrapper textarea,
+.contact-form-wrapper select {
   width: 100%;
   padding: var(--spacing-md);
   background: var(--color-bg-primary);
@@ -139,25 +141,35 @@
   border-radius: var(--radius);
   font-size: var(--font-size-base);
   color: var(--color-text-primary);
+  font-family: var(--font-family-base);
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.form-input:focus,
-.form-textarea:focus {
+.contact-form-wrapper input:focus,
+.contact-form-wrapper textarea:focus,
+.contact-form-wrapper select:focus {
   outline: none;
   border-color: var(--color-accent-primary);
   box-shadow: 0 0 0 3px rgba(77, 166, 255, 0.1);
 }
 
-.form-textarea {
+.contact-form-wrapper textarea {
   min-height: 120px;
   resize: vertical;
 }
 
-/* ===================================
-   Form Submit Button
-   =================================== */
-.form-submit {
+/* Form labels */
+.contact-form-wrapper label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+}
+
+/* Submit button */
+.contact-form-wrapper input[type="submit"],
+.contact-form-wrapper button[type="submit"] {
   width: 100%;
   padding: var(--spacing-md) var(--spacing-xl);
   background: var(--color-accent-primary);
@@ -170,10 +182,81 @@
   transition: all var(--transition-fast);
 }
 
-.form-submit:hover {
+.contact-form-wrapper input[type="submit"]:hover,
+.contact-form-wrapper button[type="submit"]:hover {
   background: var(--color-accent-hover);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(77, 166, 255, 0.3);
+}
+
+/* ===================================
+   Contact Highlights (Desktop)
+   =================================== */
+.contact-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+.highlight-card {
+  padding: var(--spacing-lg);
+  background: var(--color-surface-subtle);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius);
+  transition: all var(--transition-fast);
+}
+
+.highlight-card:hover {
+  border-color: rgba(77, 166, 255, 0.3);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.highlight-card-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--spacing-xs) 0;
+}
+
+.highlight-card-text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-base);
+  margin: 0;
+}
+
+/* ===================================
+   Contact Points (Mobile)
+   =================================== */
+.contact-points {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-points li {
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+  background: var(--color-surface-subtle);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius);
+}
+
+.contact-points strong {
+  display: block;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.contact-points span {
+  display: block;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-base);
 }
 
 /* ===================================

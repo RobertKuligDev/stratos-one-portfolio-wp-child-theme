@@ -44,6 +44,14 @@
   gap: var(--spacing-2xl);
 }
 
+/* No results message */
+.projects-no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: var(--spacing-4xl);
+  color: var(--color-text-muted);
+}
+
 /* ===================================
    Project Card
    =================================== */
@@ -102,14 +110,40 @@
   flex-direction: column;
 }
 
+/* Meta (Category) */
+.project-card-meta {
+  margin-bottom: var(--spacing-sm);
+}
+
+.project-card-category {
+  font-size: var(--font-size-xs);
+  color: var(--color-accent-primary);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Title */
 .project-card-title {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-primary);
-  margin-bottom: var(--spacing-sm);
+  margin: 0 0 var(--spacing-sm) 0;
+  line-height: var(--line-height-tight);
 }
 
-.project-card-description {
+.project-card-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.project-card-title a:hover {
+  color: var(--color-accent-primary);
+}
+
+/* Excerpt */
+.project-card-excerpt {
   color: var(--color-text-secondary);
   font-size: var(--font-size-sm);
   line-height: var(--line-height-base);
@@ -117,19 +151,12 @@
   flex-grow: 1;
 }
 
-/* Project Meta */
-.project-card-meta {
+/* Tech Stack */
+.project-card-tech {
   display: flex;
-  gap: var(--spacing-md);
-  margin-top: var(--spacing-md);
-  padding-top: var(--spacing-md);
-  border-top: 1px solid var(--color-border-subtle);
-}
-
-.project-year,
-.project-tech {
-  font-size: var(--font-size-xs);
-  color: var(--color-text-muted);
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
 }
 
 /* ===================================
@@ -144,7 +171,7 @@
   font-weight: var(--font-weight-semibold);
   text-decoration: none;
   transition: color var(--transition-fast);
-  margin-top: var(--spacing-md);
+  margin-top: auto;
 }
 
 .project-card-link:hover {

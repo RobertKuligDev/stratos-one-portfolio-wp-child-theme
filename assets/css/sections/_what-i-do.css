@@ -44,8 +44,8 @@
   background: var(--color-surface-subtle);
   border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius);
-  padding: var(--spacing-2xl);
-  transition: all var(--transition-base);
+  padding: var(--spacing-xl);
+  transition: all var(--transition-fast);
   position: relative;
 }
 
@@ -75,6 +75,7 @@
   background: rgba(77, 166, 255, 0.15);
   border-radius: var(--radius);
   color: var(--color-accent-primary);
+  flex-shrink: 0;
 }
 
 .service-icon svg {
@@ -88,26 +89,31 @@
   line-height: var(--line-height-tight);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-primary);
+  margin: 0;
+}
+
+/* Card Text */
+.service-card-text {
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-base);
+  margin: 0;
+  font-size: var(--font-size-sm);
 }
 
 /* ===================================
-   Card Content
+   Card Body
    =================================== */
-.service-card-content {
+.service-card-body {
   margin-top: var(--spacing-lg);
-}
-
-.service-card-description {
-  color: var(--color-text-secondary);
-  line-height: var(--line-height-relaxed);
-  margin-bottom: var(--spacing-md);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--color-border-subtle);
 }
 
 /* Features List */
 .service-features {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 0 var(--spacing-lg) 0;
 }
 
 .service-features li {
@@ -123,6 +129,14 @@
   content: "✓";
   color: var(--color-accent-primary);
   font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xs);
+}
+
+/* Tech Stack */
+.service-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
 }
 
 /* ===================================
@@ -155,6 +169,39 @@
 }
 
 /* ===================================
+   Service Card Toggle (Mobile Accordion)
+   =================================== */
+.service-card-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+  background: transparent;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius);
+  color: var(--color-accent-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.service-card-toggle:hover {
+  background: rgba(77, 166, 255, 0.15);
+  border-color: var(--color-accent-primary);
+}
+
+.service-card-toggle svg {
+  width: 20px;
+  height: 20px;
+  transition: transform var(--transition-fast);
+}
+
+.service-card-toggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+/* ===================================
    Responsive Services
    =================================== */
 @media (max-width: 992px) {
@@ -170,5 +217,18 @@
 
   .section-title {
     font-size: var(--font-size-xl);
+  }
+
+  /* Mobile accordion mode */
+  .service-card-body {
+    display: none;
+  }
+
+  .service-card.active .service-card-body {
+    display: block;
+  }
+
+  .service-card-toggle {
+    display: flex;
   }
 }
