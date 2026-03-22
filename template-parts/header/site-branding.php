@@ -23,7 +23,7 @@ if (!defined('ABSPATH')) {
             <!-- Separator line -->
             <line x1="0" y1="45" x2="280" y2="45" stroke="#4da6ff" stroke-width="2"/>
             <!-- SOFTWARE ARCHITECT -->
-            <text x="0" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="400" fill="currentColor" letter-spacing="3" class="subtitle">
+            <text x="0" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="400" fill="var(--color-text-secondary)" letter-spacing="3">
                 SOFTWARE ARCHITECT
             </text>
         </svg>
