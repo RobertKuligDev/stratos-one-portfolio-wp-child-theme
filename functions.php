@@ -7,25 +7,47 @@
 
 /**
  * Enqueue stylesheets
- * Load order:
- * 1. style.css (theme header)
- * 2. All app styles (base, layout, components, sections)
- * 3. bundle.css (premium styles - loaded LAST to override)
+ * Load order (matching robert-portfolio):
+ * 1. Google Fonts
+ * 2. style.css (theme header)
+ * 3. bundle.css (premium design system)
+ * 4. Base styles (_variables, _reset)
+ * 5. Layout styles (_utilities)
+ * 6. Components (_header, _footer, _modal)
+ * 7. Sections (_hero, _services, _projects, _case-studies, _process, _technologies, _about, _contact, _custom-wp-theme)
+ * 8. Utilities (_helpers)
+ * 9. Responsive (last)
  */
 add_action('wp_enqueue_scripts', function() {
-    // 1. Main theme stylesheet (header only)
+    // 1. Google Fonts — Plus Jakarta Sans + JetBrains Mono
+    wp_enqueue_style(
+        'stratos-one-google-fonts',
+        'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap',
+        [],
+        null
+    );
+
+    // 2. Main theme stylesheet
     wp_enqueue_style(
         'stratos-one-style',
         get_stylesheet_uri(),
-        [],
+        ['stratos-one-google-fonts'],
         filemtime(get_stylesheet_directory() . '/style.css')
     );
 
-    // 2. Base styles
+    // 3. Bundle.css - Premium Design System (loaded EARLY, modular styles override)
+    wp_enqueue_style(
+        'stratos-one-bundle',
+        get_stylesheet_directory_uri() . '/assets/css/bundle.css',
+        ['stratos-one-style'],
+        filemtime(get_stylesheet_directory() . '/assets/css/bundle.css')
+    );
+
+    // 4. Base styles
     wp_enqueue_style(
         'stratos-one-variables',
         get_stylesheet_directory_uri() . '/assets/css/base/_variables.css',
-        ['stratos-one-style'],
+        ['stratos-one-bundle'],
         filemtime(get_stylesheet_directory() . '/assets/css/base/_variables.css')
     );
 
@@ -36,135 +58,114 @@ add_action('wp_enqueue_scripts', function() {
         filemtime(get_stylesheet_directory() . '/assets/css/base/_reset.css')
     );
 
+    // 5. Layout styles
     wp_enqueue_style(
-        'stratos-one-responsive',
-        get_stylesheet_directory_uri() . '/assets/css/base/_responsive.css',
+        'stratos-one-layout',
+        get_stylesheet_directory_uri() . '/assets/css/layout/_utilities.css',
         ['stratos-one-reset'],
-        filemtime(get_stylesheet_directory() . '/assets/css/base/_responsive.css')
+        filemtime(get_stylesheet_directory() . '/assets/css/layout/_utilities.css')
     );
 
-    // 3. Layout styles
+    // 6. Component styles
     wp_enqueue_style(
-        'stratos-one-container',
-        get_stylesheet_directory_uri() . '/assets/css/layout/_container.css',
-        ['stratos-one-responsive'],
-        filemtime(get_stylesheet_directory() . '/assets/css/layout/_container.css')
-    );
-
-    wp_enqueue_style(
-        'stratos-one-grid',
-        get_stylesheet_directory_uri() . '/assets/css/layout/_grid.css',
-        ['stratos-one-container'],
-        filemtime(get_stylesheet_directory() . '/assets/css/layout/_grid.css')
-    );
-
-    // 4. Component styles
-    wp_enqueue_style(
-        'stratos-one-buttons',
-        get_stylesheet_directory_uri() . '/assets/css/components/_buttons.css',
-        ['stratos-one-grid'],
-        filemtime(get_stylesheet_directory() . '/assets/css/components/_buttons.css')
+        'stratos-one-header',
+        get_stylesheet_directory_uri() . '/assets/css/components/_header.css',
+        ['stratos-one-layout'],
+        filemtime(get_stylesheet_directory() . '/assets/css/components/_header.css')
     );
 
     wp_enqueue_style(
-        'stratos-one-badges',
-        get_stylesheet_directory_uri() . '/assets/css/components/_badges.css',
-        ['stratos-one-buttons'],
-        filemtime(get_stylesheet_directory() . '/assets/css/components/_badges.css')
+        'stratos-one-footer',
+        get_stylesheet_directory_uri() . '/assets/css/components/_footer.css',
+        ['stratos-one-header'],
+        filemtime(get_stylesheet_directory() . '/assets/css/components/_footer.css')
     );
 
     wp_enqueue_style(
         'stratos-one-modal',
         get_stylesheet_directory_uri() . '/assets/css/components/_modal.css',
-        ['stratos-one-badges'],
+        ['stratos-one-footer'],
         filemtime(get_stylesheet_directory() . '/assets/css/components/_modal.css')
     );
 
-    wp_enqueue_style(
-        'stratos-one-tooltip',
-        get_stylesheet_directory_uri() . '/assets/css/components/_tooltip.css',
-        ['stratos-one-modal'],
-        filemtime(get_stylesheet_directory() . '/assets/css/components/_tooltip.css')
-    );
-
-    // 5. Utility styles
-    wp_enqueue_style(
-        'stratos-one-animations',
-        get_stylesheet_directory_uri() . '/assets/css/utilities/_animations.css',
-        ['stratos-one-tooltip'],
-        filemtime(get_stylesheet_directory() . '/assets/css/utilities/_animations.css')
-    );
-
-    // 6. Section styles
-    wp_enqueue_style(
-        'stratos-one-header',
-        get_stylesheet_directory_uri() . '/assets/css/sections/_header.css',
-        ['stratos-one-animations'],
-        filemtime(get_stylesheet_directory() . '/assets/css/sections/_header.css')
-    );
-
+    // 7. Section styles
     wp_enqueue_style(
         'stratos-one-hero',
         get_stylesheet_directory_uri() . '/assets/css/sections/_hero.css',
-        ['stratos-one-header'],
+        ['stratos-one-layout'],
         filemtime(get_stylesheet_directory() . '/assets/css/sections/_hero.css')
     );
 
     wp_enqueue_style(
-        'stratos-one-about',
-        get_stylesheet_directory_uri() . '/assets/css/sections/_about.css',
-        ['stratos-one-hero'],
-        filemtime(get_stylesheet_directory() . '/assets/css/sections/_about.css')
-    );
-
-    wp_enqueue_style(
-        'stratos-one-what-i-do',
-        get_stylesheet_directory_uri() . '/assets/css/sections/_what-i-do.css',
-        ['stratos-one-about'],
-        filemtime(get_stylesheet_directory() . '/assets/css/sections/_what-i-do.css')
+        'stratos-one-services',
+        get_stylesheet_directory_uri() . '/assets/css/sections/_services.css',
+        ['stratos-one-layout'],
+        filemtime(get_stylesheet_directory() . '/assets/css/sections/_services.css')
     );
 
     wp_enqueue_style(
         'stratos-one-projects',
         get_stylesheet_directory_uri() . '/assets/css/sections/_projects.css',
-        ['stratos-one-what-i-do'],
+        ['stratos-one-layout'],
         filemtime(get_stylesheet_directory() . '/assets/css/sections/_projects.css')
     );
 
     wp_enqueue_style(
-        'stratos-one-project-content',
-        get_stylesheet_directory_uri() . '/assets/css/sections/_project-content.css',
+        'stratos-one-case-studies',
+        get_stylesheet_directory_uri() . '/assets/css/sections/_case-studies.css',
         ['stratos-one-projects'],
-        filemtime(get_stylesheet_directory() . '/assets/css/sections/_project-content.css')
+        filemtime(get_stylesheet_directory() . '/assets/css/sections/_case-studies.css')
+    );
+
+    wp_enqueue_style(
+        'stratos-one-process',
+        get_stylesheet_directory_uri() . '/assets/css/sections/_process.css',
+        ['stratos-one-layout'],
+        filemtime(get_stylesheet_directory() . '/assets/css/sections/_process.css')
+    );
+
+    wp_enqueue_style(
+        'stratos-one-technologies',
+        get_stylesheet_directory_uri() . '/assets/css/sections/_technologies.css',
+        ['stratos-one-layout'],
+        filemtime(get_stylesheet_directory() . '/assets/css/sections/_technologies.css')
+    );
+
+    wp_enqueue_style(
+        'stratos-one-about',
+        get_stylesheet_directory_uri() . '/assets/css/sections/_about.css',
+        ['stratos-one-layout'],
+        filemtime(get_stylesheet_directory() . '/assets/css/sections/_about.css')
     );
 
     wp_enqueue_style(
         'stratos-one-contact',
         get_stylesheet_directory_uri() . '/assets/css/sections/_contact.css',
-        ['stratos-one-project-content'],
+        ['stratos-one-layout'],
         filemtime(get_stylesheet_directory() . '/assets/css/sections/_contact.css')
     );
 
     wp_enqueue_style(
         'stratos-one-custom-wp-theme',
         get_stylesheet_directory_uri() . '/assets/css/sections/_custom-wp-theme.css',
-        ['stratos-one-contact'],
+        ['stratos-one-process'],
         filemtime(get_stylesheet_directory() . '/assets/css/sections/_custom-wp-theme.css')
     );
 
+    // 8. Utility styles
     wp_enqueue_style(
-        'stratos-one-footer',
-        get_stylesheet_directory_uri() . '/assets/css/sections/_footer.css',
-        ['stratos-one-custom-wp-theme'],
-        filemtime(get_stylesheet_directory() . '/assets/css/sections/_footer.css')
+        'stratos-one-helpers',
+        get_stylesheet_directory_uri() . '/assets/css/utilities/_helpers.css',
+        ['stratos-one-layout'],
+        filemtime(get_stylesheet_directory() . '/assets/css/utilities/_helpers.css')
     );
 
-    // 7. Bundle.css - Premium styles (loaded LAST to override everything)
+    // 9. Responsive styles (load last)
     wp_enqueue_style(
-        'stratos-one-bundle',
-        get_stylesheet_directory_uri() . '/assets/css/bundle.css',
-        ['stratos-one-footer'],
-        filemtime(get_stylesheet_directory() . '/assets/css/bundle.css')
+        'stratos-one-responsive',
+        get_stylesheet_directory_uri() . '/assets/css/base/_responsive.css',
+        ['stratos-one-helpers'],
+        filemtime(get_stylesheet_directory() . '/assets/css/base/_responsive.css')
     );
 });
 
@@ -225,7 +226,7 @@ add_action('init', function() {
         [
             'title'      => __('Contact (Portfolio)', 'stratos-one'),
             'categories' => ['stratos-one'],
-            'content'    => (require get_stylesheet_directory() . '/patterns/contact.php')['content'],
+            'content'    => file_get_contents(get_stylesheet_directory() . '/patterns/contact.php'),
         ]
     );
 });
@@ -255,48 +256,51 @@ add_filter('block_categories_all', function($categories) {
  * Enqueue JavaScript files
  */
 add_action('wp_enqueue_scripts', function() {
-    // Header scroll effect
+    // Modal JS
     wp_enqueue_script(
-        'stratos-one-header-scroll',
-        get_stylesheet_directory_uri() . '/assets/js/header-scroll.js',
+        'stratos-one-modal',
+        get_stylesheet_directory_uri() . '/assets/js/modal.js',
         [],
-        filemtime(get_stylesheet_directory() . '/assets/js/header-scroll.js'),
+        filemtime(get_stylesheet_directory() . '/assets/js/modal.js'),
         true
     );
 
-    // Mobile menu toggle
+    // Localize modal script with AJAX URL
+    wp_localize_script('stratos-one-modal', 'stratosModal', [
+        'ajaxUrl' => admin_url('admin-ajax.php'),
+        'nonce'   => wp_create_nonce('stratos_modal_nonce'),
+        'i18n'    => [
+            'close'   => __('Close', 'stratos-one'),
+            'loading' => __('Loading...', 'stratos-one'),
+        ],
+    ]);
+
+    // Panzoom library for diagram zoom/pan
     wp_enqueue_script(
-        'stratos-one-menu-toggle',
-        get_stylesheet_directory_uri() . '/assets/js/menu-toggle.js',
+        'panzoom',
+        'https://cdn.jsdelivr.net/npm/@panzoom/panzoom@4.5.1/dist/panzoom.min.js',
         [],
-        filemtime(get_stylesheet_directory() . '/assets/js/menu-toggle.js'),
+        '4.5.1',
         true
     );
 
-    // Back to top button
+    // Main script (depends on modal.js)
     wp_enqueue_script(
-        'stratos-one-back-to-top',
-        get_stylesheet_directory_uri() . '/assets/js/back-to-top.js',
-        [],
-        filemtime(get_stylesheet_directory() . '/assets/js/back-to-top.js'),
+        'stratos-one-main',
+        get_stylesheet_directory_uri() . '/assets/js/main.js',
+        ['stratos-one-modal', 'panzoom'],
+        filemtime(get_stylesheet_directory() . '/assets/js/main.js'),
         true
     );
 
-    // Services accordion (mobile)
-    wp_enqueue_script(
-        'stratos-one-services-accordion',
-        get_stylesheet_directory_uri() . '/assets/js/services-accordion.js',
-        [],
-        filemtime(get_stylesheet_directory() . '/assets/js/services-accordion.js'),
-        true
-    );
-
-    // About section (mobile accordion + parallax)
-    wp_enqueue_script(
-        'stratos-one-about-section',
-        get_stylesheet_directory_uri() . '/assets/js/about-section.js',
-        [],
-        filemtime(get_stylesheet_directory() . '/assets/js/about-section.js'),
-        true
+    // Localize script with AJAX URL
+    wp_localize_script(
+        'stratos-one-main',
+        'stratosOneConfig',
+        [
+            'ajaxUrl' => admin_url('admin-ajax.php'),
+            'nonce'   => wp_create_nonce('stratos_one_portfolio_nonce'),
+            'siteUrl' => get_site_url(),
+        ]
     );
 });

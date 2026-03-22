@@ -93,6 +93,47 @@ $email_url = get_option('footer_email', 'mailto:contact@robertkulig.dev');
     </button>
 </footer>
 
+<!-- Stratos One Modal -->
+<div class="stratos-modal-overlay" id="stratos-modal-overlay" aria-hidden="true">
+    <div class="stratos-modal" id="stratos-modal" role="dialog" aria-modal="true" aria-labelledby="stratos-modal-title">
+
+        <div class="stratos-modal-header">
+            <h2 class="stratos-modal-title" id="stratos-modal-title"></h2>
+            <button class="stratos-modal-close" aria-label="<?php esc_attr_e('Close modal', 'stratos-one'); ?>" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="stratos-modal-body">
+            <div class="stratos-modal-content">
+                <div class="stratos-modal-loader">
+                    <div class="stratos-modal-spinner"></div>
+                    <span><?php esc_html_e('Loading...', 'stratos-one'); ?></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="stratos-modal-footer">
+            <button class="stratos-modal-prev" aria-label="<?php esc_attr_e('Previous', 'stratos-one'); ?>" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M15 18l-6-6 6-6"/>
+                </svg>
+                <span><?php esc_html_e('Previous', 'stratos-one'); ?></span>
+            </button>
+            <span class="stratos-modal-counter"></span>
+            <button class="stratos-modal-next" aria-label="<?php esc_attr_e('Next', 'stratos-one'); ?>" type="button">
+                <span><?php esc_html_e('Next', 'stratos-one'); ?></span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </button>
+        </div>
+
+    </div>
+</div>
+
 <?php wp_footer(); ?>
 </body>
 </html>
