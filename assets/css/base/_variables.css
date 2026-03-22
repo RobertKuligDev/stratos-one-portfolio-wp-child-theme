@@ -1,0 +1,159 @@
+/**
+ * CSS Custom Properties (Variables)
+ *
+ * Design system tokens for consistent styling.
+ * Based on portfolio design system (Inter font, dark theme).
+ *
+ * @package Stratos_One_Portfolio
+ * @version 2.0.0
+ */
+
+:root {
+  /* ===================================
+     Colors - Backgrounds
+     =================================== */
+  --color-bg-primary: #0d0f12;
+  --color-bg-secondary: #13161a;
+  --color-bg-card: #13161a;
+  --color-bg-tertiary: #181c21;
+
+  /* ===================================
+     Colors - Surface
+     =================================== */
+  --color-surface-subtle: rgba(255, 255, 255, 0.03);
+  --color-surface-hover: #181c21;
+
+  /* ===================================
+     Colors - Text
+     =================================== */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #d0d0d0;
+  --color-text-muted: #a8a8a8;
+  --color-text-faint: #7a7a7a;
+
+  /* ===================================
+     Colors - Accent & Interactive
+     =================================== */
+  --color-accent-primary: #4da6ff;
+  --color-accent-hover: #82c3ff;
+  --color-accent-active: #1f8fff;
+
+  /* ===================================
+     Colors - Semantic
+     =================================== */
+  --color-success: #3dd68c;
+  --color-warning: #ffb454;
+  --color-error: #ff6b6b;
+  --color-purple: #b38bff;
+
+  /* ===================================
+     Colors - Borders & Dividers
+     =================================== */
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-border-strong: rgba(255, 255, 255, 0.12);
+  --color-divider: rgba(255, 255, 255, 0.08);
+
+  /* ===================================
+     Typography - Font Families
+     =================================== */
+  --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-mono: 'Fira Code', 'Courier New', monospace;
+
+  /* ===================================
+     Typography - Font Sizes
+     Note: Assumes html { font-size: 18px }
+     =================================== */
+  --font-size-xs: 0.833rem;      /* 15px - small */
+  --font-size-sm: 0.833rem;      /* 15px */
+  --font-size-base: 1rem;        /* 18px - body */
+  --font-size-lg: 1.333rem;      /* 24px - H3 */
+  --font-size-xl: 1.778rem;      /* 32px - H2 */
+  --font-size-2xl: 2.333rem;     /* 42px - H1 */
+
+  /* ===================================
+     Typography - Font Weights
+     =================================== */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* ===================================
+     Typography - Line Heights
+     =================================== */
+  --line-height-tight: 1.2;
+  --line-height-base: 1.6;
+  --line-height-relaxed: 1.8;
+
+  /* ===================================
+     Typography - Letter Spacing
+     =================================== */
+  --letter-spacing-tight: -0.5px;
+  --letter-spacing-base: 0;
+
+  /* ===================================
+     Spacing - Scale
+     =================================== */
+  --spacing-xs: 0.5rem;          /* 8px */
+  --spacing-sm: 0.5rem;          /* 8px */
+  --spacing-md: 1rem;            /* 16px */
+  --spacing-lg: 1.5rem;          /* 24px */
+  --spacing-xl: 2rem;            /* 32px */
+  --spacing-2xl: 2.5rem;         /* 40px */
+  --spacing-3xl: 3.5rem;         /* 56px */
+  --spacing-4xl: 5rem;           /* 80px - section padding */
+  --spacing-5xl: 6.25rem;        /* 100px - section padding-lg */
+  --spacing-hero-top: 7.778rem;  /* 140px - hero padding-top */
+  --spacing-hero-bottom: 6.667rem; /* 120px - hero padding-bottom */
+
+  /* ===================================
+     Border Radius
+     =================================== */
+  --radius-sm: 6px;
+  --radius-md: 6px;
+  --radius-lg: 6px;
+  --radius: 6px;
+
+  /* ===================================
+     Transitions
+     =================================== */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* ===================================
+     Shadows
+     =================================== */
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  --shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.45);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  /* ===================================
+     Container & Layout
+     =================================== */
+  --container-max: 1200px;
+  --container-narrow: 600px;
+  --container-content: 700px;
+  --container-padding: 24px;
+
+  /* ===================================
+     Grid & Gap
+     =================================== */
+  --grid-gap-2: 48px;
+  --grid-gap-3: 32px;
+  --card-gap: 32px;
+
+  /* ===================================
+     Z-Index Scale
+     =================================== */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-popover: 600;
+  --z-tooltip: 700;
+}

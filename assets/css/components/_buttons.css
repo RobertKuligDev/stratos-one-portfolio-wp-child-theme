@@ -1,0 +1,70 @@
+/**
+ * Button Components
+ *
+ * Reusable button styles.
+ *
+ * @package Stratos_One_Portfolio
+ */
+
+/* ===================================
+   Base Button
+   =================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+
+/* ===================================
+   Primary Button
+   =================================== */
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-accent-primary) 0%, #3d8fd6 100%);
+  color: var(--color-bg-primary);
+  box-shadow: 0 4px 12px rgba(77, 166, 255, 0.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #3d8fd6 0%, var(--color-accent-hover) 100%);
+  color: var(--color-bg-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(77, 166, 255, 0.4);
+}
+
+/* ===================================
+   Secondary Button
+   =================================== */
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-accent-primary);
+  border: 2px solid var(--color-accent-primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-accent-primary);
+  color: var(--color-bg-primary);
+  transform: translateY(-2px);
+}
+
+/* ===================================
+   Button Variants
+   =================================== */
+.btn-architecture {
+  background-color: transparent;
+  color: var(--color-accent-primary);
+  border: 2px solid var(--color-accent-primary);
+}
+
+.btn-architecture:hover {
+  background-color: var(--color-accent-primary);
+  color: var(--color-bg-primary);
+  transform: translateY(-2px);
+}

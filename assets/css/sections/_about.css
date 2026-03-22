@@ -1,0 +1,136 @@
+/**
+ * About Section
+ *
+ * About me with parallax photo.
+ *
+ * @package Stratos_One_Portfolio
+ */
+
+/* ===================================
+   About Section Base
+   =================================== */
+.about-section {
+  padding: var(--spacing-5xl) 0;
+  background: #0b0d11;
+  color: var(--color-text-primary);
+}
+
+/* ===================================
+   About Grid (2 columns)
+   =================================== */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--spacing-4xl);
+  align-items: start;
+}
+
+/* ===================================
+   About Title
+   =================================== */
+.about-title {
+  font-size: 2.5rem;
+  line-height: var(--line-height-tight);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-lg);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text-primary);
+}
+
+/* ===================================
+   About Content
+   =================================== */
+.about-content {
+  display: block;
+}
+
+.about-paragraph {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  font-size: var(--font-size-base);
+}
+
+/* ===================================
+   About Photo
+   =================================== */
+.about-photo-wrapper {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.about-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===================================
+   About Toggle Button (Mobile)
+   =================================== */
+.about-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  background: rgba(77, 166, 255, 0.15);
+  border: 1px solid rgba(77, 166, 255, 0.3);
+  border-radius: var(--radius);
+  padding: 0.75rem 1.5rem;
+  color: var(--color-accent-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  width: 100%;
+  margin: var(--spacing-lg) 0;
+}
+
+.about-toggle:hover {
+  background: rgba(77, 166, 255, 0.25);
+  border-color: var(--color-accent-primary);
+}
+
+.about-toggle svg {
+  width: 18px;
+  height: 18px;
+  transition: transform var(--transition-base);
+}
+
+.about-toggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+/* ===================================
+   Responsive About
+   =================================== */
+@media (max-width: 992px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .about-title {
+    font-size: var(--font-size-xl);
+  }
+
+  .about-content {
+    display: none;
+  }
+
+  .about-content.active {
+    display: block;
+  }
+
+  .about-toggle {
+    display: flex;
+  }
+}

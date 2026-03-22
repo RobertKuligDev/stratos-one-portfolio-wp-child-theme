@@ -1,0 +1,260 @@
+/**
+ * Modal Component
+ *
+ * Reusable modal dialog styles.
+ *
+ * @package Stratos_One_Portfolio
+ */
+
+/* ===================================
+   Modal Base
+   =================================== */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(13, 15, 18, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-base), visibility var(--transition-base);
+  padding: var(--spacing-xl);
+}
+
+.modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===================================
+   Modal Dialog
+   =================================== */
+.modal-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  max-height: 85vh;
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-hover);
+  transform: scale(0.95);
+  transition: transform var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modal.active .modal-dialog {
+  transform: scale(1);
+}
+
+/* ===================================
+   Modal Header
+   =================================== */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-xl) var(--spacing-2xl);
+  border-bottom: 1px solid var(--color-border-subtle);
+  flex-shrink: 0;
+}
+
+.modal-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.modal-close {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.modal-close:hover {
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
+}
+
+.modal-close svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* ===================================
+   Modal Body
+   =================================== */
+.modal-body {
+  padding: var(--spacing-2xl);
+  overflow-y: auto;
+  flex-grow: 1;
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+.modal-body p {
+  margin-bottom: var(--spacing-md);
+}
+
+.modal-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* ===================================
+   Modal open - prevent body scroll
+   =================================== */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* ===================================
+   Diagram Modal Specific
+   =================================== */
+.diagram-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(13, 15, 18, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-base);
+  padding: var(--spacing-xl);
+}
+
+.diagram-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.diagram-modal-content {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius);
+  padding: var(--spacing-2xl);
+  box-shadow: var(--shadow-hover);
+  transform: scale(0.9);
+  transition: transform var(--transition-base);
+}
+
+.diagram-modal.active .diagram-modal-content {
+  transform: scale(1);
+}
+
+.diagram-modal-close {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  transition: all var(--transition-fast);
+}
+
+.diagram-modal-close:hover {
+  background-color: var(--color-bg-tertiary);
+}
+
+.diagram-modal-close svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--color-text-primary);
+}
+
+.diagram-modal .hero-diagram {
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+.diagram-modal-title {
+  font-size: var(--font-size-xl);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+}
+
+/* ===================================
+   Responsive Modal
+   =================================== */
+@media (max-width: 768px) {
+  .modal {
+    padding: var(--spacing-md);
+  }
+
+  .modal-dialog {
+    max-height: 95vh;
+  }
+
+  .modal-header {
+    padding: var(--spacing-lg) var(--spacing-xl);
+  }
+
+  .modal-title {
+    font-size: var(--font-size-lg);
+  }
+
+  .modal-body {
+    padding: var(--spacing-xl);
+  }
+
+  .diagram-modal-content {
+    padding: var(--spacing-lg);
+  }
+
+  .diagram-modal-title {
+    font-size: var(--font-size-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-header {
+    padding: var(--spacing-md);
+  }
+
+  .modal-body {
+    padding: var(--spacing-md);
+  }
+
+  .modal-close {
+    width: 36px;
+    height: 36px;
+  }
+
+  .modal-close svg {
+    width: 20px;
+    height: 20px;
+  }
+}

@@ -1,0 +1,123 @@
+/**
+ * Site Footer
+ *
+ * Premium footer styling.
+ *
+ * @package Stratos_One_Portfolio
+ */
+
+/* ===================================
+   Site Footer Base
+   =================================== */
+.site-footer {
+  background: #0b0d11;
+  border-top: 1px solid var(--color-border-subtle);
+  padding: var(--spacing-3xl) 0 var(--spacing-2xl);
+  color: var(--color-text-muted);
+  position: relative;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  gap: var(--spacing-2xl);
+  flex-wrap: wrap;
+}
+
+/* ===================================
+   Footer Left (Copyright + Tagline)
+   =================================== */
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.footer-copyright {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.footer-copyright strong {
+  color: var(--color-accent-primary);
+}
+
+.footer-tagline {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-text-faint);
+}
+
+/* ===================================
+   Footer Menu
+   =================================== */
+.footer-menu {
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+.footer-menu ul {
+  display: flex;
+  gap: var(--spacing-lg);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-menu a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  transition: color var(--transition-fast);
+}
+
+.footer-menu a:hover {
+  color: var(--color-accent-primary);
+}
+
+/* ===================================
+   Footer Back to Top
+   =================================== */
+.back-to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  transition: color var(--transition-fast);
+}
+
+.back-to-top:hover {
+  color: var(--color-accent-primary);
+}
+
+.back-to-top svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ===================================
+   Responsive Footer
+   =================================== */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-lg);
+  }
+
+  .footer-left {
+    align-items: center;
+  }
+
+  .footer-menu ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

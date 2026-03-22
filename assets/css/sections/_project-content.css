@@ -1,0 +1,118 @@
+/**
+ * Project Content (Single Project Page)
+ *
+ * Single project content styling.
+ *
+ * @package Stratos_One_Portfolio
+ */
+
+/* ===================================
+   Background for single project
+   =================================== */
+body.single-project {
+  background: #0f1115 !important;
+  color: var(--color-text-secondary);
+}
+
+.single-project .site-main {
+  background: #0f1115;
+  padding-bottom: var(--spacing-5xl);
+}
+
+/* ===================================
+   Project Content Wrapper
+   =================================== */
+.project-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--spacing-5xl) var(--container-padding);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+/* ===================================
+   Section Titles
+   =================================== */
+.project-section-title {
+  font-size: 2.4rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* ===================================
+   Subtitles
+   =================================== */
+.project-subtitle {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-top: var(--spacing-3xl);
+  margin-bottom: var(--spacing-md);
+}
+
+/* ===================================
+   Paragraphs
+   =================================== */
+.project-paragraph {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-lg);
+  font-size: var(--font-size-base);
+}
+
+/* ===================================
+   Lists
+   =================================== */
+.project-list {
+  margin-left: var(--spacing-lg);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.project-list li {
+  margin-bottom: 0.6rem;
+  color: var(--color-text-secondary);
+}
+
+/* ===================================
+   Links
+   =================================== */
+.project-content a {
+  color: var(--color-accent-primary);
+  text-decoration: none;
+  font-weight: var(--font-weight-semibold);
+}
+
+.project-content a:hover {
+  text-decoration: underline;
+}
+
+/* ===================================
+   Separator
+   =================================== */
+.project-separator {
+  border-color: var(--color-divider);
+  margin: var(--spacing-3xl) 0;
+}
+
+/* ===================================
+   Images
+   =================================== */
+.project-image img {
+  border-radius: var(--radius);
+  margin: var(--spacing-2xl) 0;
+  width: 100%;
+  height: auto;
+}
+
+/* ===================================
+   Responsive Project Content
+   =================================== */
+@media (max-width: 768px) {
+  .project-content {
+    padding: var(--spacing-2xl) var(--spacing-md);
+  }
+
+  .project-section-title {
+    font-size: var(--font-size-xl);
+  }
+}

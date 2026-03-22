@@ -1,0 +1,210 @@
+/**
+ * Custom WP Theme Section
+ *
+ * Engineering showcase with code pattern background.
+ *
+ * @package Stratos_One_Portfolio
+ */
+
+/* ===================================
+   Section Base with Dark Gradient
+   =================================== */
+.custom-wp-theme {
+  padding: var(--spacing-5xl) 0;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #0a0c10 0%, #0d0f14 50%, #0a0c10 100%);
+}
+
+/* Subtle code pattern overlay */
+.custom-wp-theme::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(77, 166, 255, 0.02) 2px,
+    rgba(77, 166, 255, 0.02) 4px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Glow effect from top */
+.custom-wp-theme::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse 60% 80% at 50% 0%,
+    rgba(77, 166, 255, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.custom-wp-theme * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===================================
+   Section Header
+   =================================== */
+.custom-wp-theme-header {
+  text-align: center;
+  margin-bottom: var(--spacing-4xl);
+}
+
+.section-badge {
+  display: inline-block;
+  background: rgba(77, 166, 255, 0.15);
+  border: 1px solid rgba(77, 166, 255, 0.3);
+  border-radius: var(--radius);
+  padding: 6px 14px;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-accent-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--spacing-md);
+}
+
+.section-title {
+  font-size: 2.5rem;
+  line-height: var(--line-height-tight);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.section-subtitle {
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: var(--line-height-relaxed);
+}
+
+/* ===================================
+   Theme Features Grid
+   =================================== */
+.theme-features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-2xl);
+}
+
+/* ===================================
+   Feature Card
+   =================================== */
+.feature-card {
+  background: var(--color-surface-subtle);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius);
+  padding: var(--spacing-xl);
+  transition: all var(--transition-fast);
+}
+
+.feature-card:hover {
+  border-color: rgba(77, 166, 255, 0.3);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.feature-card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.feature-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(77, 166, 255, 0.15);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent-primary);
+}
+
+.feature-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.feature-card-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.feature-card-content {
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-base);
+}
+
+/* ===================================
+   Modal Content Styles
+   =================================== */
+.modal-code {
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius);
+  padding: var(--spacing-lg);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  overflow-x: auto;
+  margin-bottom: var(--spacing-md);
+}
+
+/* Modal lists */
+.modal-content ul {
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-md) 0;
+}
+
+.modal-content ul li {
+  padding: var(--spacing-xs) 0;
+  color: var(--color-text-secondary);
+}
+
+.modal-content ul li::before {
+  content: "→ ";
+  color: var(--color-accent-primary);
+  font-weight: var(--font-weight-bold);
+}
+
+.modal-content strong {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ===================================
+   Responsive Custom WP Theme
+   =================================== */
+@media (max-width: 768px) {
+  .custom-wp-theme {
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .section-title {
+    font-size: var(--font-size-xl);
+  }
+
+  .theme-features-grid {
+    grid-template-columns: 1fr;
+  }
+}

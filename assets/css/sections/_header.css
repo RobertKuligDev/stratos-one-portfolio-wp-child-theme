@@ -1,0 +1,217 @@
+/**
+ * Header Section
+ *
+ * Premium header with scroll effect and responsive navigation.
+ *
+ * @package Stratos_One_Portfolio
+ */
+
+/* ===================================
+   Site Header - Base Styles
+   =================================== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-fixed);
+  background-color: transparent;
+  transition: background-color var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+  border-bottom: 1px solid transparent;
+}
+
+.site-header.scrolled {
+  background: rgba(11, 13, 17, 0.92);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border-bottom-color: var(--color-border-strong);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06), 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* ===================================
+   Header Content
+   =================================== */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 68px;
+  gap: 2rem;
+}
+
+/* ===================================
+   Site Branding
+   =================================== */
+.site-branding a {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: opacity var(--transition-fast);
+}
+
+.site-branding a:hover {
+  opacity: 0.82;
+}
+
+.brand-logo {
+  width: 240px;
+  height: 48px;
+  display: block;
+}
+
+/* ===================================
+   Main Navigation
+   =================================== */
+.main-navigation ul {
+  display: flex;
+  gap: 2px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-navigation a {
+  display: block;
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius);
+  transition: all var(--transition-fast);
+  letter-spacing: -0.01em;
+}
+
+.main-navigation a:hover {
+  color: var(--color-accent-primary);
+  background-color: var(--color-surface-subtle);
+}
+
+.main-navigation .current-menu-item a {
+  color: var(--color-accent-primary);
+}
+
+/* ===================================
+   Header CTA Buttons
+   =================================== */
+.header-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.header-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 16px;
+  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+
+.header-cta-secondary {
+  background-color: transparent;
+  color: var(--color-text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.header-cta-secondary:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-accent-primary);
+  background-color: var(--color-surface-subtle);
+}
+
+.header-cta-primary {
+  background-color: var(--color-accent-primary);
+  color: var(--color-text-primary);
+  border: 1px solid transparent;
+  box-shadow: 0 2px 8px rgba(77, 166, 255, 0.3);
+}
+
+.header-cta-primary:hover {
+  background-color: #3d96ef;
+  color: var(--color-text-primary);
+  box-shadow: 0 4px 16px rgba(77, 166, 255, 0.4);
+  transform: translateY(-1px);
+}
+
+/* ===================================
+   Mobile Menu Toggle
+   =================================== */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: var(--radius);
+  transition: background-color var(--transition-fast);
+}
+
+.menu-toggle:hover {
+  background-color: var(--color-surface-subtle);
+}
+
+.menu-toggle span {
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ===================================
+   Responsive Header
+   =================================== */
+@media (max-width: 992px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .main-navigation {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(11, 13, 17, 0.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--color-border-strong);
+    padding: var(--spacing-lg);
+    display: none;
+  }
+
+  .main-navigation.active {
+    display: block;
+  }
+
+  .main-navigation ul {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .header-cta-group {
+    display: none;
+  }
+}
