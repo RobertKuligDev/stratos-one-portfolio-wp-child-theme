@@ -425,7 +425,7 @@ body.modal-open { overflow: hidden; }
 
   /* Hide diagram on mobile - show "View Architecture" button instead */
   .hero-visual {
-    display: none;
+    display: none !important;
   }
 
   .diagram-container { max-width: 380px; }
