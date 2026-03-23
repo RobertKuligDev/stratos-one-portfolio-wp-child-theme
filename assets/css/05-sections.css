@@ -8,6 +8,7 @@
 
 /* Import section-specific styles */
 @import url('sections/_hero.css');
+@import url('sections/_services.css');
 
 /* ============================================
    Hero Section
