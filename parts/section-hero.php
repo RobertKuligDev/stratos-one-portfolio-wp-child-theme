@@ -163,16 +163,16 @@ $tech_stack = array_map('trim', explode(',', $tech_stack_raw));
             <text x="300" y="35" text-anchor="middle" fill="white" font-size="13" font-weight="600">Cloudflare</text>
             <text x="300" y="50" text-anchor="middle" fill="white" font-size="10">DNS / SSL</text>
 
-            <!-- Arrow down -->
-            <line x1="300" y1="60" x2="300" y2="80" stroke="#4da6ff" stroke-width="2" marker-end="url(#arrow)"/>
+            <!-- Arrow down (Cloudflare → Traefik) -->
+            <line class="arrow-line" x1="300" y1="60" x2="300" y2="80" stroke="#4da6ff" stroke-width="2" marker-end="url(#arrow)"/>
 
             <!-- Traefik -->
             <rect x="225" y="80" width="150" height="60" rx="8" fill="#56B881"/>
             <text x="300" y="105" text-anchor="middle" fill="white" font-size="14" font-weight="600">Traefik</text>
             <text x="300" y="125" text-anchor="middle" fill="white" font-size="10">Reverse Proxy / SSL</text>
 
-            <!-- Arrow down -->
-            <line x1="300" y1="140" x2="300" y2="160" stroke="#4da6ff" stroke-width="2" marker-end="url(#arrow)"/>
+            <!-- Arrow down (Traefik → Docker) -->
+            <line class="arrow-line" x1="300" y1="140" x2="300" y2="160" stroke="#4da6ff" stroke-width="2" marker-end="url(#arrow)"/>
 
             <!-- Docker Container Border -->
             <rect x="30" y="170" width="540" height="180" rx="12" fill="none" stroke="#2496ED" stroke-width="2" stroke-dasharray="8,4"/>
@@ -193,13 +193,13 @@ $tech_stack = array_map('trim', explode(',', $tech_stack_raw));
             <text x="470" y="240" text-anchor="middle" fill="white" font-size="14" font-weight="600">WordPress</text>
             <text x="470" y="260" text-anchor="middle" fill="white" font-size="10">Other Apps</text>
 
-            <!-- Bidirectional arrow between Angular and .NET -->
-            <line x1="200" y1="245" x2="230" y2="245" stroke="#4da6ff" stroke-width="2" marker-end="url(#arrow-small)"/>
-            <line x1="230" y1="255" x2="200" y2="255" stroke="#4da6ff" stroke-width="2" marker-end="url(#arrow-small)"/>
+            <!-- Bidirectional arrow between Angular and .NET (REST) -->
+            <line class="arrow-line" x1="200" y1="245" x2="230" y2="245" stroke="#4da6ff" stroke-width="2" marker-end="url(#arrow-small)"/>
+            <line class="arrow-line" x1="230" y1="255" x2="200" y2="255" stroke="#4da6ff" stroke-width="2" marker-end="url(#arrow-small)"/>
             <text x="215" y="238" text-anchor="middle" fill="#4da6ff" font-size="9">REST</text>
 
-            <!-- Arrow .NET to DB -->
-            <line x1="300" y1="280" x2="300" y2="310" stroke="#4da6ff" stroke-width="2" marker-end="url(#arrow)"/>
+            <!-- Arrow down (.NET → SQL DB) -->
+            <line class="arrow-line" x1="300" y1="280" x2="300" y2="310" stroke="#4da6ff" stroke-width="2" marker-end="url(#arrow)"/>
 
             <!-- SQL DB -->
             <rect x="230" y="310" width="140" height="60" rx="8" fill="#0075C9"/>
