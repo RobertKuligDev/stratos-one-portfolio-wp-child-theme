@@ -406,7 +406,10 @@ body.modal-open { overflow: hidden; }
 
   .hero-cta { justify-content: center; }
 
-  .hero-visual { order: -1; }
+  /* Hide diagram on mobile - show "View Architecture" button instead */
+  .hero-visual {
+    display: none;
+  }
 
   .diagram-container { max-width: 380px; }
 

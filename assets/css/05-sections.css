@@ -1,10 +1,13 @@
 /**
  * 05 - Sections — Premium Page Sections
  * @package Stratos_One_Portfolio
- * 
+ *
  * Source: robert-portfolio/assets/css/bundle.css (sections)
  * Purpose: Hero, Services, Projects, About, Contact sections
  */
+
+/* Import section-specific styles */
+@import url('sections/_hero.css');
 
 /* ============================================
    Hero Section
