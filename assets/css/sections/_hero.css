@@ -217,6 +217,19 @@
   transform: scale(1.015);
 }
 
+/* Animated arrows - flowing data effect */
+.hero-diagram .arrow-line {
+  stroke-dasharray: 10;
+  stroke-dashoffset: 0;
+  animation: arrowFlow 2s linear infinite;
+}
+
+@keyframes arrowFlow {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
 /* Zoom button */
 .diagram-zoom-btn {
   position: absolute;
