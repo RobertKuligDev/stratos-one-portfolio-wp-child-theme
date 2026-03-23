@@ -65,6 +65,14 @@ add_action('wp_enqueue_scripts', function() {
         filemtime(get_stylesheet_directory() . '/assets/css/04-components.css')
     );
 
+    // 3.4.1 Stratos Modal Component
+    wp_enqueue_style(
+        'stratos-modal',
+        get_stylesheet_directory_uri() . '/assets/css/components/_modal.css',
+        ['portfolio-components'],
+        filemtime(get_stylesheet_directory() . '/assets/css/components/_modal.css')
+    );
+
     // 3.5 Sections (hero, services, projects, about, contact)
     wp_enqueue_style(
         'portfolio-sections',

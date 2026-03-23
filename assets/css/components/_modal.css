@@ -72,26 +72,36 @@
 }
 
 .stratos-modal-close {
-    background: transparent;
-    border: none;
-    color: #9ca3af;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 36px;
+    height: 36px;
+    background-color: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border-subtle);
     cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 6px;
-    transition: all 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: var(--radius);
+    transition: all var(--transition-fast);
+    padding: 0;
 }
 
 .stratos-modal-close:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
+    background-color: var(--color-error);
+    border-color: var(--color-error);
 }
 
 .stratos-modal-close svg {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
+    fill: var(--color-text-primary);
+    transition: fill var(--transition-fast);
+}
+
+.stratos-modal-close:hover svg {
+    fill: #fff;
 }
 
 /* ================================
