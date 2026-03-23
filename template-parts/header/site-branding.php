@@ -13,8 +13,8 @@ if (!defined('ABSPATH')) {
 }
 
 ?>
-<div class="site-branding">
-    <a href="<?php echo esc_url(home_url('/')); ?>" class="site-branding-link" aria-label="Robert Kulig - Software Architect">
+<div>
+    <a href="<?php echo esc_url(home_url('/')); ?>" class="site-branding" aria-label="Robert Kulig - Software Architect">
         <svg class="brand-logo" viewBox="0 0 280 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <!-- RKULIG.DEV -->
             <text x="0" y="35" font-family="'Fira Code', 'Courier New', monospace" font-size="28" font-weight="700" fill="currentColor" letter-spacing="2">
