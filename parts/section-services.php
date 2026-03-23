@@ -93,7 +93,7 @@ function stratos_one_get_service_icon(string $name): string
 
         <div class="services-grid">
             <?php foreach ($services as $index => $service): ?>
-            <div class="service-card<?php echo $index === 1 ? ' is-middle' : ''; ?>">
+            <div class="service-card" data-service="<?php echo esc_attr($service['icon']); ?>">
                 <div class="service-icon-wrapper">
                     <?php echo stratos_one_get_service_icon($service['icon']); ?>
                 </div>
