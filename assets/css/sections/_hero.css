@@ -220,7 +220,7 @@
 /* Animated arrows - pulsing glow effect */
 .hero-diagram .arrow-line,
 .modal-hero-diagram .arrow-line {
-  animation: arrowPulse 2s ease-in-out infinite;
+  animation: arrowPulse 2s ease-in-out infinite !important;
 }
 
 @keyframes arrowPulse {
