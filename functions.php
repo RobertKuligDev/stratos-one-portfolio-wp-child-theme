@@ -283,3 +283,82 @@ add_action('wp_enqueue_scripts', function() {
         ]
     );
 });
+
+/**
+ * Project Meta Boxes (without ACF)
+ */
+add_action('add_meta_boxes', function() {
+    add_meta_box(
+        'project_details',
+        __('Project Details', 'stratos-one-portfolio'),
+        'stratos_one_project_details_callback',
+        'project',
+        'normal',
+        'high'
+    );
+});
+
+function stratos_one_project_details_callback($post) {
+    wp_nonce_field('stratos_one_project_details', 'stratos_one_project_details_nonce');
+    
+    $problem = get_post_meta($post->ID, '_case_study_problem', true);
+    $solution = get_post_meta($post->ID, '_case_study_solution', true);
+    $project_url = get_post_meta($post->ID, '_project_url', true);
+    $github_url = get_post_meta($post->ID, '_github_url', true);
+    ?>
+    <style>
+        .project-meta-field { margin-bottom: 20px; }
+        .project-meta-field label { display: block; font-weight: 600; margin-bottom: 5px; }
+        .project-meta-field input, .project-meta-field textarea { width: 100%; }
+        .project-meta-field textarea { height: 100px; font-family: monospace; }
+        .project-meta-field small { color: #666; }
+    </style>
+    
+    <div class="project-meta-field">
+        <label for="case_study_problem"><?php esc_html_e('Problem', 'stratos-one-portfolio'); ?></label>
+        <textarea id="case_study_problem" name="case_study_problem" placeholder="<?php esc_attr_e('Describe the problem...', 'stratos-one-portfolio'); ?>"><?php echo esc_textarea($problem); ?></textarea>
+        <small><?php esc_html_e('What problem does this project solve?', 'stratos-one-portfolio'); ?></small>
+    </div>
+    
+    <div class="project-meta-field">
+        <label for="case_study_solution"><?php esc_html_e('Solution', 'stratos-one-portfolio'); ?></label>
+        <textarea id="case_study_solution" name="case_study_solution" placeholder="<?php esc_attr_e('Describe the solution...', 'stratos-one-portfolio'); ?>"><?php echo esc_textarea($solution); ?></textarea>
+        <small><?php esc_html_e('How did you solve it?', 'stratos-one-portfolio'); ?></small>
+    </div>
+    
+    <div class="project-meta-field">
+        <label for="project_url"><?php esc_html_e('Project URL', 'stratos-one-portfolio'); ?></label>
+        <input type="url" id="project_url" name="project_url" value="<?php echo esc_url($project_url); ?>" placeholder="https://example.com"/>
+        <small><?php esc_html_e('Live demo or project website', 'stratos-one-portfolio'); ?></small>
+    </div>
+    
+    <div class="project-meta-field">
+        <label for="github_url"><?php esc_html_e('GitHub URL', 'stratos-one-portfolio'); ?></label>
+        <input type="url" id="github_url" name="github_url" value="<?php echo esc_url($github_url); ?>" placeholder="https://github.com/username/repo"/>
+        <small><?php esc_html_e('Source code repository', 'stratos-one-portfolio'); ?></small>
+    </div>
+    <?php
+}
+
+add_action('save_post_project', function($post_id) {
+    if (!isset($_POST['stratos_one_project_details_nonce']) || 
+        !wp_verify_nonce($_POST['stratos_one_project_details_nonce'], 'stratos_one_project_details')) {
+        return;
+    }
+    
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+    if (!current_user_can('edit_post', $post_id)) return;
+    
+    if (isset($_POST['case_study_problem'])) {
+        update_post_meta($post_id, '_case_study_problem', sanitize_textarea_field($_POST['case_study_problem']));
+    }
+    if (isset($_POST['case_study_solution'])) {
+        update_post_meta($post_id, '_case_study_solution', sanitize_textarea_field($_POST['case_study_solution']));
+    }
+    if (isset($_POST['project_url'])) {
+        update_post_meta($post_id, '_project_url', esc_url_raw($_POST['project_url']));
+    }
+    if (isset($_POST['github_url'])) {
+        update_post_meta($post_id, '_github_url', esc_url_raw($_POST['github_url']));
+    }
+});
