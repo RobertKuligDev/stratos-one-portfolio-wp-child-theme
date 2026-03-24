@@ -80,6 +80,19 @@ $technologies = get_terms([
                     }
                     ?>
                     <article class="project-card" data-category="<?php echo esc_attr($category_slug); ?>" id="post-<?php the_ID(); ?>">
+                        
+                        <?php if (has_post_thumbnail()) : ?>
+                        <div class="project-card-image">
+                            <a href="<?php the_permalink(); ?>">
+                                <?php the_post_thumbnail('medium_large', [
+                                    'loading' => 'lazy',
+                                    'alt'     => get_the_title(),
+                                    'class'   => 'project-card-img',
+                                ]); ?>
+                            </a>
+                        </div>
+                        <?php endif; ?>
+                        
                         <div class="project-card-content">
                             
                             <span class="project-category"><?php echo esc_html($category); ?></span>
