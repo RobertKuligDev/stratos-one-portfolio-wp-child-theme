@@ -6,8 +6,58 @@
  */
 
 /**
+ * Register Custom Post Types and Taxonomies
+ */
+add_action('init', function() {
+    // Project CPT
+    $project_labels = [
+        'name'               => __('Projects', 'stratos-one-portfolio'),
+        'singular_name'      => __('Project', 'stratos-one-portfolio'),
+        'add_new'            => __('Add New Project', 'stratos-one-portfolio'),
+        'add_new_item'       => __('Add New Project', 'stratos-one-portfolio'),
+        'edit_item'          => __('Edit Project', 'stratos-one-portfolio'),
+        'new_item'           => __('New Project', 'stratos-one-portfolio'),
+        'view_item'          => __('View Project', 'stratos-one-portfolio'),
+        'search_items'       => __('Search Projects', 'stratos-one-portfolio'),
+        'not_found'          => __('No projects found', 'stratos-one-portfolio'),
+        'not_found_in_trash' => __('No projects found in trash', 'stratos-one-portfolio'),
+        'menu_name'          => __('Projects', 'stratos-one-portfolio'),
+    ];
+
+    $project_args = [
+        'labels'             => $project_labels,
+        'public'             => true,
+        'menu_icon'          => 'dashicons-portfolio',
+        'supports'           => ['title', 'editor', 'excerpt', 'thumbnail'],
+        'has_archive'        => true,
+        'rewrite'            => ['slug' => 'projects'],
+        'show_in_rest'       => true,
+        'capability_type'    => 'post',
+        'map_meta_cap'       => true,
+    ];
+
+    register_post_type('project', $project_args);
+
+    // Technology Taxonomy
+    $tech_labels = [
+        'name'          => __('Technologies', 'stratos-one-portfolio'),
+        'singular_name' => __('Technology', 'stratos-one-portfolio'),
+    ];
+
+    $tech_args = [
+        'labels'        => $tech_labels,
+        'public'        => true,
+        'hierarchical'  => false,
+        'rewrite'       => ['slug' => 'technology'],
+        'show_in_rest'  => true,
+    ];
+
+    register_taxonomy('technology', ['project'], $tech_args);
+});
+
+/**
  * Enqueue stylesheets
- * 
+ *
  * MODULAR CSS LOAD ORDER:
  * 1. Google Fonts
  * 2. Parent theme (stratos-one) - base
