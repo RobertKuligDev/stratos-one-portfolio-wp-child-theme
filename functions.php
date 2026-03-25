@@ -313,14 +313,43 @@ function stratos_one_project_details_callback($post) {
     $solution = get_post_meta($post->ID, '_case_study_solution', true);
     $project_url = get_post_meta($post->ID, '_project_url', true);
     $github_url = get_post_meta($post->ID, '_github_url', true);
+    $featured_priority = get_post_meta($post->ID, '_featured_priority', true) ?: '0';
     ?>
     <style>
         .project-meta-field { margin-bottom: 20px; }
         .project-meta-field label { display: block; font-weight: 600; margin-bottom: 5px; }
-        .project-meta-field input, .project-meta-field textarea { width: 100%; }
+        .project-meta-field input, .project-meta-field textarea, .project-meta-field select { width: 100%; }
         .project-meta-field textarea { height: 100px; font-family: monospace; }
-        .project-meta-field small { color: #666; }
+        .project-meta-field small { color: #666; display: block; margin-top: 4px; }
+        .project-meta-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     </style>
+    
+    <div class="project-meta-row">
+        <div class="project-meta-field">
+            <label for="featured_priority"><?php esc_html_e('Featured Priority', 'stratos-one-portfolio'); ?></label>
+            <select id="featured_priority" name="featured_priority">
+                <option value="0" <?php selected($featured_priority, '0'); ?>><?php esc_html_e('— Standard Project —', 'stratos-one-portfolio'); ?></option>
+                <option value="1" <?php selected($featured_priority, '1'); ?>><?php esc_html_e('⭐ Featured #1 (Main showcase)', 'stratos-one-portfolio'); ?></option>
+                <option value="2" <?php selected($featured_priority, '2'); ?>><?php esc_html_e('⭐⭐ Featured #2 (Secondary)', 'stratos-one-portfolio'); ?></option>
+                <option value="3" <?php selected($featured_priority, '3'); ?>><?php esc_html_e('⭐⭐⭐ Featured #3 (Secondary)', 'stratos-one-portfolio'); ?></option>
+            </select>
+            <small><?php esc_html_e('Priority 1 = full width showcase, 2-3 = half width secondary', 'stratos-one-portfolio'); ?></small>
+        </div>
+    </div>
+    
+    <div class="project-meta-row">
+        <div class="project-meta-field">
+            <label for="project_url"><?php esc_html_e('Project URL', 'stratos-one-portfolio'); ?></label>
+            <input type="url" id="project_url" name="project_url" value="<?php echo esc_url($project_url); ?>" placeholder="https://example.com"/>
+            <small><?php esc_html_e('Live demo or project website', 'stratos-one-portfolio'); ?></small>
+        </div>
+        
+        <div class="project-meta-field">
+            <label for="github_url"><?php esc_html_e('GitHub URL', 'stratos-one-portfolio'); ?></label>
+            <input type="url" id="github_url" name="github_url" value="<?php echo esc_url($github_url); ?>" placeholder="https://github.com/username/repo"/>
+            <small><?php esc_html_e('Source code repository', 'stratos-one-portfolio'); ?></small>
+        </div>
+    </div>
     
     <div class="project-meta-field">
         <label for="case_study_problem"><?php esc_html_e('Problem', 'stratos-one-portfolio'); ?></label>
@@ -332,18 +361,6 @@ function stratos_one_project_details_callback($post) {
         <label for="case_study_solution"><?php esc_html_e('Solution', 'stratos-one-portfolio'); ?></label>
         <textarea id="case_study_solution" name="case_study_solution" placeholder="<?php esc_attr_e('Describe the solution...', 'stratos-one-portfolio'); ?>"><?php echo esc_textarea($solution); ?></textarea>
         <small><?php esc_html_e('How did you solve it?', 'stratos-one-portfolio'); ?></small>
-    </div>
-    
-    <div class="project-meta-field">
-        <label for="project_url"><?php esc_html_e('Project URL', 'stratos-one-portfolio'); ?></label>
-        <input type="url" id="project_url" name="project_url" value="<?php echo esc_url($project_url); ?>" placeholder="https://example.com"/>
-        <small><?php esc_html_e('Live demo or project website', 'stratos-one-portfolio'); ?></small>
-    </div>
-    
-    <div class="project-meta-field">
-        <label for="github_url"><?php esc_html_e('GitHub URL', 'stratos-one-portfolio'); ?></label>
-        <input type="url" id="github_url" name="github_url" value="<?php echo esc_url($github_url); ?>" placeholder="https://github.com/username/repo"/>
-        <small><?php esc_html_e('Source code repository', 'stratos-one-portfolio'); ?></small>
     </div>
     <?php
 }
@@ -357,6 +374,9 @@ add_action('save_post_project', function($post_id) {
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
     if (!current_user_can('edit_post', $post_id)) return;
     
+    if (isset($_POST['featured_priority'])) {
+        update_post_meta($post_id, '_featured_priority', sanitize_text_field($_POST['featured_priority']));
+    }
     if (isset($_POST['case_study_problem'])) {
         update_post_meta($post_id, '_case_study_problem', sanitize_textarea_field($_POST['case_study_problem']));
     }
