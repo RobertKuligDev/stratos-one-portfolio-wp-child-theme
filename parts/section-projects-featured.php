@@ -160,9 +160,17 @@ endif;
         $technologies = get_the_terms($project_id, 'technology');
         $categories = get_the_category($project_id);
         $category = $categories ? $categories[0]->name : 'Project';
-        $category_slug = $technologies && !is_wp_error($technologies) ? $technologies[0]->slug : '';
+        
+        // Get all technology slugs for filter
+        $category_slugs = [];
+        if ($technologies && !is_wp_error($technologies)) {
+            foreach ($technologies as $tech) {
+                $category_slugs[] = $tech->slug;
+            }
+        }
+        $categories_attr = !empty($category_slugs) ? implode(',', $category_slugs) : '';
     ?>
-    <div class="featured-project featured-project-secondary" data-category="<?php echo esc_attr($category_slug); ?>">
+    <div class="featured-project featured-project-secondary" data-category="<?php echo esc_attr($category_slugs[0] ?? ''); ?>" data-categories="<?php echo esc_attr($categories_attr); ?>">
         <div class="featured-project-header">
             <span class="featured-badge featured-badge-sm">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -208,9 +216,17 @@ endif;
         $technologies = get_the_terms($project_id, 'technology');
         $categories = get_the_category($project_id);
         $category = $categories ? $categories[0]->name : 'Project';
-        $category_slug = $technologies && !is_wp_error($technologies) ? $technologies[0]->slug : '';
+        
+        // Get all technology slugs for filter
+        $category_slugs = [];
+        if ($technologies && !is_wp_error($technologies)) {
+            foreach ($technologies as $tech) {
+                $category_slugs[] = $tech->slug;
+            }
+        }
+        $categories_attr = !empty($category_slugs) ? implode(',', $category_slugs) : '';
     ?>
-    <div class="featured-project featured-project-secondary" data-category="<?php echo esc_attr($category_slug); ?>">
+    <div class="featured-project featured-project-secondary" data-category="<?php echo esc_attr($category_slugs[0] ?? ''); ?>" data-categories="<?php echo esc_attr($categories_attr); ?>">
         <div class="featured-project-header">
             <span class="featured-badge featured-badge-sm">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
