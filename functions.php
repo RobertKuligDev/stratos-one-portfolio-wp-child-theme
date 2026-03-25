@@ -314,6 +314,8 @@ function stratos_one_project_details_callback($post) {
     $project_url = get_post_meta($post->ID, '_project_url', true);
     $github_url = get_post_meta($post->ID, '_github_url', true);
     $featured_priority = get_post_meta($post->ID, '_featured_priority', true) ?: '0';
+    $readme_text = get_post_meta($post->ID, '_readme_text', true);
+    $pdf_url = get_post_meta($post->ID, '_pdf_url', true);
     ?>
     <style>
         .project-meta-field { margin-bottom: 20px; }
@@ -322,6 +324,7 @@ function stratos_one_project_details_callback($post) {
         .project-meta-field textarea { height: 100px; font-family: monospace; }
         .project-meta-field small { color: #666; display: block; margin-top: 4px; }
         .project-meta-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .project-meta-field textarea.tall { height: 150px; }
     </style>
     
     <div class="project-meta-row">
@@ -353,14 +356,26 @@ function stratos_one_project_details_callback($post) {
     
     <div class="project-meta-field">
         <label for="case_study_problem"><?php esc_html_e('Problem', 'stratos-one-portfolio'); ?></label>
-        <textarea id="case_study_problem" name="case_study_problem" placeholder="<?php esc_attr_e('Describe the problem...', 'stratos-one-portfolio'); ?>"><?php echo esc_textarea($problem); ?></textarea>
+        <textarea id="case_study_problem" name="case_study_problem" class="tall" placeholder="<?php esc_attr_e('Describe the problem...', 'stratos-one-portfolio'); ?>"><?php echo esc_textarea($problem); ?></textarea>
         <small><?php esc_html_e('What problem does this project solve?', 'stratos-one-portfolio'); ?></small>
     </div>
     
     <div class="project-meta-field">
         <label for="case_study_solution"><?php esc_html_e('Solution', 'stratos-one-portfolio'); ?></label>
-        <textarea id="case_study_solution" name="case_study_solution" placeholder="<?php esc_attr_e('Describe the solution...', 'stratos-one-portfolio'); ?>"><?php echo esc_textarea($solution); ?></textarea>
+        <textarea id="case_study_solution" name="case_study_solution" class="tall" placeholder="<?php esc_attr_e('Describe the solution...', 'stratos-one-portfolio'); ?>"><?php echo esc_textarea($solution); ?></textarea>
         <small><?php esc_html_e('How did you solve it?', 'stratos-one-portfolio'); ?></small>
+    </div>
+    
+    <div class="project-meta-field">
+        <label for="readme_text"><?php esc_html_e('README / Quick Description', 'stratos-one-portfolio'); ?></label>
+        <textarea id="readme_text" name="readme_text" class="tall" placeholder="<?php esc_attr_e('Short project description for modal...'); ?>"><?php echo esc_textarea($readme_text); ?></textarea>
+        <small><?php esc_html_e('Brief overview shown in modal (2-3 sentences)', 'stratos-one-portfolio'); ?></small>
+    </div>
+    
+    <div class="project-meta-field">
+        <label for="pdf_url"><?php esc_html_e('PDF Case Study URL', 'stratos-one-portfolio'); ?></label>
+        <input type="url" id="pdf_url" name="pdf_url" value="<?php echo esc_url($pdf_url); ?>" placeholder="https://example.com/case-study.pdf"/>
+        <small><?php esc_html_e('Link to PDF case study document (optional)', 'stratos-one-portfolio'); ?></small>
     </div>
     <?php
 }
@@ -388,5 +403,11 @@ add_action('save_post_project', function($post_id) {
     }
     if (isset($_POST['github_url'])) {
         update_post_meta($post_id, '_github_url', esc_url_raw($_POST['github_url']));
+    }
+    if (isset($_POST['readme_text'])) {
+        update_post_meta($post_id, '_readme_text', sanitize_textarea_field($_POST['readme_text']));
+    }
+    if (isset($_POST['pdf_url'])) {
+        update_post_meta($post_id, '_pdf_url', esc_url_raw($_POST['pdf_url']));
     }
 });

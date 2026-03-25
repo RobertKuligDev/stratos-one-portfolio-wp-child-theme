@@ -76,6 +76,8 @@ $technologies = get_terms([
         
         $case_study_problem = get_post_meta($project_id, '_case_study_problem', true) ?: __('Problem description coming soon.', 'stratos-one-portfolio');
         $case_study_solution = get_post_meta($project_id, '_case_study_solution', true) ?: __('Solution details coming soon.', 'stratos-one-portfolio');
+        $readme_text = get_post_meta($project_id, '_readme_text', true) ?: '';
+        $pdf_url = get_post_meta($project_id, '_pdf_url', true) ?: '';
         $project_url = get_post_meta($project_id, '_project_url', true) ?: get_permalink();
         $github_url = get_post_meta($project_id, '_github_url', true) ?: '';
         ?>
