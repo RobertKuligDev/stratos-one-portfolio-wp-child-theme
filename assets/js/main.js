@@ -532,7 +532,10 @@
 
     init: function() {
       this.buttons = document.querySelectorAll('.filter-btn');
-      this.cards = document.querySelectorAll('.project-card');
+      // Include both standard cards and featured projects
+      const standardCards = document.querySelectorAll('.project-card');
+      const featuredCards = document.querySelectorAll('.featured-project');
+      this.cards = [...standardCards, ...featuredCards];
 
       if (!this.buttons.length || !this.cards.length) return;
 
