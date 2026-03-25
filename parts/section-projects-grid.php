@@ -49,9 +49,17 @@ endif;
         $technologies = get_the_terms($project_id, 'technology');
         $categories = get_the_category($project_id);
         $category = $categories ? $categories[0]->name : 'Project';
-        $category_slug = $technologies && !is_wp_error($technologies) ? $technologies[0]->slug : '';
+        
+        // Get all technology slugs for filter
+        $category_slugs = [];
+        if ($technologies && !is_wp_error($technologies)) {
+            foreach ($technologies as $tech) {
+                $category_slugs[] = $tech->slug;
+            }
+        }
+        $categories_attr = !empty($category_slugs) ? implode(',', $category_slugs) : '';
     ?>
-    <article class="project-card" data-category="<?php echo esc_attr($category_slug); ?>" id="post-<?php the_ID(); ?>">
+    <article class="project-card" data-category="<?php echo esc_attr($category_slugs[0] ?? ''); ?>" data-categories="<?php echo esc_attr($categories_attr); ?>" id="post-<?php the_ID(); ?>">
         
         <?php if (has_post_thumbnail($project_id)) : ?>
         <div class="project-card-image">

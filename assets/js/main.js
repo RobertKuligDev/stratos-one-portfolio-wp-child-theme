@@ -551,14 +551,17 @@
       this.buttons.forEach(btn => btn.classList.remove('active'));
       e.currentTarget.classList.add('active');
 
-      // Filter projects
+      // Filter projects - check if ANY category matches
       this.cards.forEach(card => {
-        const category = card.dataset.category;
-
-        if (filter === 'all' || category === filter) {
+        const categories = card.dataset.categories || card.dataset.category;
+        const categoryList = categories ? categories.split(',') : [];
+        
+        if (filter === 'all' || categoryList.includes(filter)) {
           card.classList.remove('hidden');
+          card.style.display = '';
         } else {
           card.classList.add('hidden');
+          card.style.display = 'none';
         }
       });
     }

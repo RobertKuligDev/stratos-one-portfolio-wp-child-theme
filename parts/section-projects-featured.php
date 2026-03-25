@@ -23,6 +23,13 @@ $featured_query = new WP_Query([
     'meta_key'       => '_featured_priority',
     'orderby'        => 'meta_value_num',
     'order'          => 'ASC',
+    'meta_query'     => [
+        [
+            'key'     => '_featured_priority',
+            'value'   => ['1', '2', '3'],
+            'compare' => 'IN',
+        ],
+    ],
 ]);
 
 if ($featured_query->have_posts()) :
@@ -53,9 +60,17 @@ endif;
     $case_study_solution = get_post_meta($project_id, '_case_study_solution', true) ?: '';
     $project_url = get_post_meta($project_id, '_project_url', true) ?: get_permalink($project_id);
     $github_url = get_post_meta($project_id, '_github_url', true) ?: '';
-    $category_slug = $technologies && !is_wp_error($technologies) ? $technologies[0]->slug : '';
+    
+    // Get all technology slugs for filter
+    $category_slugs = [];
+    if ($technologies && !is_wp_error($technologies)) {
+        foreach ($technologies as $tech) {
+            $category_slugs[] = $tech->slug;
+        }
+    }
+    $categories_attr = !empty($category_slugs) ? implode(',', $category_slugs) : '';
 ?>
-<div class="featured-project featured-project-main" data-category="<?php echo esc_attr($category_slug); ?>">
+<div class="featured-project featured-project-main" data-category="<?php echo esc_attr($category_slugs[0] ?? ''); ?>" data-categories="<?php echo esc_attr($categories_attr); ?>">
     <div class="featured-project-header">
         <span class="featured-badge">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
