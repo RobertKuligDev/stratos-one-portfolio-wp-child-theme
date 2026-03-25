@@ -20,10 +20,23 @@
   background: linear-gradient(90deg, transparent 0%, var(--color-border-strong) 30%, var(--color-border-strong) 70%, transparent 100%);
 }
 
+/* Section Header */
+.projects .section-header {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.projects .section-title {
+  margin-bottom: var(--spacing-sm);
+}
+
+.projects .section-subtitle {
+  color: var(--color-text-secondary);
+}
+
 /* Filter */
 .projects-filter {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: var(--spacing-2xl);

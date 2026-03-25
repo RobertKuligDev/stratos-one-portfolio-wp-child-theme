@@ -131,6 +131,14 @@ add_action('wp_enqueue_scripts', function() {
         filemtime(get_stylesheet_directory() . '/assets/css/05-sections.css')
     );
 
+    // 3.5.1 Projects Section (custom styles)
+    wp_enqueue_style(
+        'portfolio-projects',
+        get_stylesheet_directory_uri() . '/assets/css/sections/_projects.css',
+        ['portfolio-sections'],
+        filemtime(get_stylesheet_directory() . '/assets/css/sections/_projects.css')
+    );
+
     // 3.6 Responsive (media queries - MUST BE LAST)
     wp_enqueue_style(
         'portfolio-responsive',
