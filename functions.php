@@ -147,6 +147,14 @@ add_action('wp_enqueue_scripts', function() {
         filemtime(get_stylesheet_directory() . '/assets/css/sections/_custom-wp-theme.css')
     );
 
+    // 3.5.3 About Section (custom styles)
+    wp_enqueue_style(
+        'portfolio-about',
+        get_stylesheet_directory_uri() . '/assets/css/sections/_about.css',
+        ['portfolio-custom-wp-theme'],
+        filemtime(get_stylesheet_directory() . '/assets/css/sections/_about.css')
+    );
+
     // 3.6 Responsive (media queries - MUST BE LAST)
     wp_enqueue_style(
         'portfolio-responsive',
