@@ -136,8 +136,9 @@
   visibility: hidden;
   transform: translateY(20px);
   transition: all var(--transition-base);
-  z-index: 100;
+  z-index: 9999;
   box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4);
+  padding: 0;
 }
 
 .back-to-top.visible {
@@ -160,6 +161,7 @@
   width: 20px;
   height: 20px;
   stroke: currentColor;
+  flex-shrink: 0;
 }
 
 /* ============================================

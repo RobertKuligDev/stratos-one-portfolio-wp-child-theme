@@ -163,6 +163,14 @@ add_action('wp_enqueue_scripts', function() {
         filemtime(get_stylesheet_directory() . '/assets/css/sections/_contact.css')
     );
 
+    // 3.5.5 Footer Component (custom styles)
+    wp_enqueue_style(
+        'portfolio-footer',
+        get_stylesheet_directory_uri() . '/assets/css/components/_footer.css',
+        ['portfolio-contact'],
+        filemtime(get_stylesheet_directory() . '/assets/css/components/_footer.css')
+    );
+
     // 3.6 Responsive (media queries - MUST BE LAST)
     wp_enqueue_style(
         'portfolio-responsive',

@@ -24,7 +24,7 @@ if (!empty($copyright_text)) {
 } else {
     $copyright = sprintf(
         /* translators: %1$s: current year, %2$s: site name */
-        __('&copy; %1$s %2$s. Built with .NET + Angular expertise.', 'stratos-one-portfolio'),
+        __('&copy; %1$s %2$s. Custom WordPress Theme — Engineered from Scratch.', 'stratos-one-portfolio'),
         date('Y'),
         get_bloginfo('name')
     );
