@@ -155,6 +155,14 @@ add_action('wp_enqueue_scripts', function() {
         filemtime(get_stylesheet_directory() . '/assets/css/sections/_about.css')
     );
 
+    // 3.5.4 Contact Section (custom styles)
+    wp_enqueue_style(
+        'portfolio-contact',
+        get_stylesheet_directory_uri() . '/assets/css/sections/_contact.css',
+        ['portfolio-about'],
+        filemtime(get_stylesheet_directory() . '/assets/css/sections/_contact.css')
+    );
+
     // 3.6 Responsive (media queries - MUST BE LAST)
     wp_enqueue_style(
         'portfolio-responsive',
