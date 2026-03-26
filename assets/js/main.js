@@ -499,6 +499,39 @@
   };
 
   /**
+   * Back to Top Button
+   */
+  const BackToTop = {
+    button: null,
+
+    init: function() {
+      this.button = document.getElementById('back-to-top');
+      if (!this.button) return;
+
+      // Show/hide on scroll
+      window.addEventListener('scroll', this.handleScroll.bind(this));
+
+      // Scroll to top on click
+      this.button.addEventListener('click', this.scrollToTop.bind(this));
+    },
+
+    handleScroll: function() {
+      if (window.scrollY > 400) {
+        this.button.classList.add('visible');
+      } else {
+        this.button.classList.remove('visible');
+      }
+    },
+
+    scrollToTop: function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  /**
    * Smooth Scroll for Anchor Links
    */
   const SmoothScroll = {
