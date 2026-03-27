@@ -1,16 +1,78 @@
 /**
  * Robert Portfolio Theme - Main JavaScript
  *
- * Main entry point for theme JavaScript.
- * Imports: modal.js
- *
  * @package Robert_Portfolio
  * @version 1.0.0
  */
-
 (function() {
-  'use strict';
+    'use strict';
 
+    // ========================
+    // Scroll Reveal
+    // ========================
+    /**
+     * Scroll Reveal — reveal elements as they enter viewport
+     */
+    const ScrollReveal = {
+        init: function() {
+            if (!("IntersectionObserver" in window)) {
+                document.querySelectorAll(".reveal").forEach(el => el.classList.add("visible"));
+                return;
+            }
+
+            const elements = document.querySelectorAll(".reveal");
+
+            if (elements.length === 0) {
+                return;
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: "0px 0px -80px 0px"
+            });
+
+            elements.forEach(el => observer.observe(el));
+          }
+    };
+
+    // ========================
+    // Fade-in Animation
+    // ========================
+    /**
+     * Fade-in Animation on Scroll (Intersection Observer)
+     */
+    const FadeInAnimation = {
+        init: function() {
+            if (!('IntersectionObserver' in window)) {
+                document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+                return;
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        }
+    };
+  // ========================
+  // Services Accordion
+  // ========================
   /**
    * Services Accordion (mobile)
    * Handles accordion behavior for service cards on mobile
@@ -501,35 +563,25 @@
   /**
    * Back to Top Button
    */
-  const BackToTop = {
-    button: null,
+const BackToTop = {
+        button: null,
+        init: function() {
+            this.button = document.getElementById('back-to-top');
+            if (!this.button) return;
 
-    init: function() {
-      this.button = document.getElementById('back-to-top');
-      if (!this.button) return;
-
-      // Show/hide on scroll
-      window.addEventListener('scroll', this.handleScroll.bind(this));
-
-      // Scroll to top on click
-      this.button.addEventListener('click', this.scrollToTop.bind(this));
-    },
-
-    handleScroll: function() {
-      if (window.scrollY > 400) {
-        this.button.classList.add('visible');
-      } else {
-        this.button.classList.remove('visible');
-      }
-    },
-
-    scrollToTop: function() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    }
-  };
+            window.addEventListener('scroll', this.handleScroll.bind(this));
+            this.button.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        },
+        handleScroll: function() {
+            if (window.scrollY > 400) {
+                this.button.classList.add('visible');
+            } else {
+                this.button.classList.remove('visible');
+            }
+        }
+    };
 
   /**
    * Smooth Scroll for Anchor Links
@@ -588,7 +640,7 @@
       this.cards.forEach(card => {
         const categories = card.dataset.categories || card.dataset.category;
         const categoryList = categories ? categories.split(',') : [];
-        
+
         if (filter === 'all' || categoryList.includes(filter)) {
           card.classList.remove('hidden');
           card.style.display = '';
@@ -600,88 +652,7 @@
     }
   };
 
-  /**
-   * Fade-in Animation on Scroll (Intersection Observer)
-   */
-  const FadeInAnimation = {
-    observer: null,
 
-    init: function() {
-      if (!('IntersectionObserver' in window)) {
-        // Fallback for older browsers
-        document.querySelectorAll('.fade-in').forEach(el => {
-          el.classList.add('visible');
-        });
-        return;
-      }
-
-      this.observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            this.observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      });
-
-      document.querySelectorAll('.fade-in').forEach(el => {
-        this.observer.observe(el);
-      });
-    }
-  };
-
-  /**
-   * Back to Top Button
-   */
-  const BackToTop = {
-    button: null,
-    scrollThreshold: 300,
-
-    init: function() {
-      this.button = document.getElementById('back-to-top');
-      if (!this.button) return;
-
-      // Show/hide on scroll
-      window.addEventListener('scroll', this.handleScroll.bind(this));
-
-      // Click to scroll top
-      this.button.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    },
-
-    handleScroll: function() {
-      if (window.scrollY > this.scrollThreshold) {
-        this.button.classList.add('visible');
-      } else {
-        this.button.classList.remove('visible');
-      }
-    }
-  };
-
-  /**
-   * Scroll Reveal — reveal elements as they enter viewport
-   */
-  const ScrollReveal = {
-    init: function() {
-      if (!("IntersectionObserver" in window)) {
-        document.querySelectorAll(".reveal").forEach(el => el.classList.add("visible"));
-        return;
-      }
-      const obs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" });
-      document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
-    }
-  };
 
   // Initialize on DOM ready
   document.addEventListener('DOMContentLoaded', function() {
