@@ -37,7 +37,9 @@ if (!defined('ABSPATH')) {
             <!-- Left Column: Photo with Effects -->
             <div class="about-photo-column">
                 <div class="about-photo-frame">
-                    <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/images/site_robert.png'); ?>" alt="Robert Kulig - Software Architect" loading="lazy" class="about-photo" />
+                    <div class="about-photo-wrapper">
+                        <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/images/site_robert.png'); ?>" alt="Robert Kulig - Software Architect" loading="lazy" class="about-photo" />
+                    </div>
                     <!-- Floating Tech Badges -->
                     <div class="tech-badge tech-badge-1" aria-hidden="true">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
