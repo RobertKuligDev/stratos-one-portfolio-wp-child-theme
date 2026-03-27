@@ -122,7 +122,7 @@
 }
 
 /* Floating Tech Badges - SMALL and positioned ABSOLUTELY */
-.tech-badge {
+.about-photo-frame .tech-badge {
   position: absolute;
   display: inline-flex;
   align-items: center;
@@ -140,31 +140,31 @@
   white-space: nowrap;
 }
 
-.tech-badge svg {
+.about-photo-frame .tech-badge svg {
   width: 14px;
   height: 14px;
   stroke: var(--color-accent-primary);
   flex-shrink: 0;
 }
 
-.tech-badge span {
+.about-photo-frame .tech-badge span {
   line-height: 1;
 }
 
 /* Badge positions */
-.tech-badge-1 {
+.about-photo-frame .tech-badge-1 {
   top: 8%;
   right: -10px;
   animation-delay: 0s;
 }
 
-.tech-badge-2 {
+.about-photo-frame .tech-badge-2 {
   bottom: 25%;
   left: -15px;
   animation-delay: 1s;
 }
 
-.tech-badge-3 {
+.about-photo-frame .tech-badge-3 {
   bottom: 8%;
   right: 5%;
   animation-delay: 2s;
@@ -383,21 +383,21 @@
     grid-template-columns: 1fr;
     gap: var(--spacing-3xl);
   }
-  
+
   .about-photo-column {
     order: -1;
   }
-  
+
   .about-photo-frame {
     max-width: 300px;
   }
-  
-  .tech-badge {
+
+  .about-photo-frame .tech-badge {
     padding: 5px 10px;
     font-size: 10px;
   }
-  
-  .tech-badge svg {
+
+  .about-photo-frame .tech-badge svg {
     width: 12px;
     height: 12px;
   }
@@ -408,24 +408,24 @@
     padding-top: var(--spacing-4xl);
     padding-bottom: var(--spacing-4xl);
   }
-  
+
   .about-section .section-title {
     font-size: var(--font-size-xl);
   }
-  
+
   .about-photo-frame {
     max-width: 100%;
     aspect-ratio: 4 / 5;
   }
-  
-  .tech-badge-1 {
+
+  .about-photo-frame .tech-badge-1 {
     right: 5%;
   }
-  
-  .tech-badge-2 {
+
+  .about-photo-frame .tech-badge-2 {
     left: 5%;
   }
-  
+
   .work-env-grid {
     grid-template-columns: 1fr;
   }

@@ -266,12 +266,6 @@
     font-size: var(--font-size-sm);
   }
 
-  /* Tech badges */
-  .tech-badge {
-    font-size: 10px;
-    padding: 3px 8px;
-  }
-
   /* Stats */
   .stat-number {
     font-size: var(--font-size-xl);
