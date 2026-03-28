@@ -6,6 +6,17 @@
  */
 
 /**
+ * Disable parent theme block patterns on front page
+ * Prevents default patterns from being rendered in page content
+ */
+add_action('wp', function() {
+    if (is_front_page()) {
+        // Remove any content filters that might inject patterns
+        remove_all_filters('the_content');
+    }
+});
+
+/**
  * Register Custom Post Types and Taxonomies
  */
 add_action('init', function() {
