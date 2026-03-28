@@ -75,33 +75,36 @@
     position: absolute;
     top: 1rem;
     right: 1rem;
-    width: 36px;
-    height: 36px;
-    background-color: var(--color-bg-tertiary);
-    border: 1px solid var(--color-border-subtle);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: var(--radius);
+    border-radius: 50%;
     transition: all var(--transition-fast);
     padding: 0;
+    z-index: 10;
 }
 
 .stratos-modal-close:hover {
     background-color: var(--color-error);
     border-color: var(--color-error);
+    transform: rotate(90deg);
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
 }
 
 .stratos-modal-close svg {
-    width: 22px;
-    height: 22px;
-    fill: var(--color-text-primary);
-    transition: fill var(--transition-fast);
+    width: 20px;
+    height: 20px;
+    fill: #ffffff;
+    transition: all var(--transition-fast);
 }
 
-.stratos-modal-close:hover svg {
-    fill: #fff;
+.stratos-modal-close:active {
+    transform: rotate(90deg) scale(0.95);
 }
 
 /* ================================
