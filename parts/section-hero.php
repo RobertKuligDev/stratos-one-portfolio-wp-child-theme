@@ -2,10 +2,10 @@
 /**
  * Hero section template part
  *
- * Premium hero with headline, tech stack, CTA buttons and architecture diagram.
+ * Premium enterprise hero with headline, tech stack, CTA buttons and architecture diagram.
  *
  * @package Stratos_One_Portfolio
- * @version 1.0.0
+ * @version 1.1.0
  */
 
 if (!defined('ABSPATH')) {
@@ -22,9 +22,14 @@ $tech_stack = array_map('trim', explode(',', $tech_stack_raw));
 
             <!-- Left Column: Text Content -->
             <div class="hero-text">
+                <div class="hero-eyebrow">
+                    <span>Full-Stack Architect</span>
+                </div>
+                
                 <h1 class="hero-headline">
                     Production-Grade .NET + Angular Applications
                 </h1>
+                
                 <p class="hero-subheadline">
                     I design backend, frontend and infrastructure that are fast, scalable and ready for real traffic.
                 </p>
@@ -42,6 +47,9 @@ $tech_stack = array_map('trim', explode(',', $tech_stack_raw));
                 <div class="hero-cta">
                     <a href="#projects" class="btn btn-primary">
                         View Projects
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
                     </a>
                     <a href="#contact" class="btn btn-secondary">
                         Contact Me
@@ -60,13 +68,13 @@ $tech_stack = array_map('trim', explode(',', $tech_stack_raw));
             <!-- Right Column: Architecture Diagram -->
             <div class="hero-visual">
                 <div class="diagram-container stratos-modal-trigger"
-                     role="button" 
+                     role="button"
                      tabindex="0"
                      aria-label="Architecture diagram. Click to enlarge."
                      data-type="inline"
                      data-title="Architecture Diagram"
                      data-content-ref="#modal-diagram">
-                    
+
                     <!-- SVG Diagram -->
                     <svg class="hero-diagram" viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg" aria-label="Architecture diagram .NET API Angular Docker Traefik Database">
 
@@ -130,8 +138,8 @@ $tech_stack = array_map('trim', explode(',', $tech_stack_raw));
                     </svg>
 
                     <!-- Zoom Button -->
-                    <button class="diagram-zoom-btn stratos-modal-trigger" 
-                            type="button" 
+                    <button class="diagram-zoom-btn stratos-modal-trigger"
+                            type="button"
                             aria-label="Click to view diagram in full size"
                             data-type="inline"
                             data-title="Architecture Diagram"
