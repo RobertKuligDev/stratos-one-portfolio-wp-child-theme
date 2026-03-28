@@ -1,27 +1,45 @@
 /**
- * Stratos One Modal Component
+ * Stratos One Modal Component — Premium Case Study Design
  * Universal modal for images, galleries, PDFs, code, video, iframes
+ * Enhanced with glassmorphism, smooth animations, and modern aesthetics
  *
  * @package Stratos_One
  */
 
 /* ================================
-   Modal Overlay
+   Modal Overlay — Enhanced with dynamic background
    ================================ */
 
 .stratos-modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(10px);
+    background: radial-gradient(ellipse at center, rgba(7, 9, 12, 0.85) 0%, rgba(7, 9, 12, 0.95) 100%);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
     z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     padding: 2rem;
+}
+
+.stratos-modal-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.06) 0%, transparent 50%);
+    pointer-events: none;
+    animation: modal-ambient-pulse 8s ease-in-out infinite;
+}
+
+@keyframes modal-ambient-pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
 }
 
 .stratos-modal-overlay.active {
@@ -30,70 +48,123 @@
 }
 
 /* ================================
-   Modal Container
+   Modal Container — Premium glassmorphism
    ================================ */
 
 .stratos-modal {
-    background: #1a1d24;
-    border-radius: 12px;
-    max-width: 800px;
+    background: linear-gradient(135deg, rgba(19, 25, 36, 0.95) 0%, rgba(13, 17, 23, 0.98) 100%);
+    border-radius: 20px;
+    max-width: 900px;
     width: 100%;
-    max-height: 90vh;
+    max-height: 92vh;
     display: flex;
     flex-direction: column;
-    transform: scale(0.9) translateY(20px);
-    transition: transform 0.3s ease;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: scale(0.92) translateY(30px);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.08),
+        0 40px 80px -20px rgba(0, 0, 0, 0.7),
+        0 0 100px -20px rgba(59, 130, 246, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.stratos-modal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--color-accent-primary) 20%, 
+        var(--color-cyan) 50%, 
+        var(--color-accent-primary) 80%, 
+        transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
 .stratos-modal-overlay.active .stratos-modal {
     transform: scale(1) translateY(0);
 }
 
+.stratos-modal-overlay.active .stratos-modal::before {
+    opacity: 1;
+}
+
 /* ================================
-   Modal Header
+   Modal Header — Enhanced with gradient border
    ================================ */
 
 .stratos-modal-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 1.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     flex-shrink: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
+    position: relative;
+}
+
+.stratos-modal-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 2rem;
+    right: 2rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.3) 50%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.stratos-modal-overlay.active .stratos-modal-header::after {
+    opacity: 1;
 }
 
 .stratos-modal-title {
-    font-size: 1.25rem;
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: 700;
     color: #ffffff;
     margin: 0;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .stratos-modal-close {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    width: 40px;
-    height: 40px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    transition: all var(--transition-fast);
+    transition: all var(--transition-base);
     padding: 0;
     z-index: 10;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .stratos-modal-close:hover {
-    background-color: var(--color-error);
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.2) 0%, rgba(239, 68, 68, 0.1) 100%);
     border-color: var(--color-error);
-    transform: rotate(90deg);
-    box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+    transform: rotate(90deg) scale(1.05);
+    box-shadow: 
+        0 0 0 1px rgba(239, 68, 68, 0.3),
+        0 8px 32px rgba(239, 68, 68, 0.3);
 }
 
 .stratos-modal-close svg {
@@ -103,19 +174,42 @@
     transition: all var(--transition-fast);
 }
 
+.stratos-modal-close:hover svg {
+    fill: #ffffff;
+}
+
 .stratos-modal-close:active {
     transform: rotate(90deg) scale(0.95);
 }
 
 /* ================================
-   Modal Body
+   Modal Body — Smooth scrolling
    ================================ */
 
 .stratos-modal-body {
     flex: 1;
     overflow: auto;
-    padding: 1.5rem;
+    padding: 2rem;
     min-height: 200px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(59, 130, 246, 0.3) transparent;
+}
+
+.stratos-modal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.stratos-modal-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.stratos-modal-body::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(59, 130, 246, 0.3) 0%, rgba(59, 130, 246, 0.1) 100%);
+    border-radius: 4px;
+}
+
+.stratos-modal-body::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, rgba(59, 130, 246, 0.5) 0%, rgba(59, 130, 246, 0.2) 100%);
 }
 
 .stratos-modal-content {
