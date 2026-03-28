@@ -1,5 +1,5 @@
 /**
- * Services Section — Premium
+ * Services Section — Premium Enterprise
  * @package Robert_Portfolio
  */
 
@@ -20,7 +20,7 @@
 
 /* Section header */
 .section-header {
-  margin-bottom: var(--spacing-3xl);
+  margin-bottom: var(--spacing-4xl); /* Increased from 3xl to 4xl for more whitespace */
 }
 
 .section-icon {
@@ -47,7 +47,7 @@
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--card-gap);
+  gap: 32px; /* Increased from var(--card-gap) for more whitespace */
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 var(--container-padding);
@@ -58,10 +58,10 @@
   background-color: var(--color-bg-tertiary);
   border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-lg);
-  padding: var(--spacing-xl);
+  padding: calc(var(--spacing-xl) + 4px) calc(var(--spacing-xl) + 4px); /* Increased padding */
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-lg);
+  gap: calc(var(--spacing-lg) + 4px); /* Increased gap */
   transition: all var(--transition-base);
   position: relative;
 }
