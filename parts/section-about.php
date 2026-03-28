@@ -6,7 +6,7 @@
  * Most spectacular section - different from Contact
  *
  * @package Stratos_One_Portfolio
- * @version 3.0.0
+ * @version 3.1.0
  */
 
 if (!defined('ABSPATH')) {
@@ -17,7 +17,7 @@ if (!defined('ABSPATH')) {
 <!-- About Section -->
 <section class="about-section" id="about">
     <div class="container">
-        
+
         <!-- Section Header with Badge -->
         <header class="section-header reveal">
             <span class="section-badge">
@@ -34,7 +34,7 @@ if (!defined('ABSPATH')) {
 
         <div class="about-grid">
 
-            <!-- Left Column: Photo with Effects -->
+            <!-- Left Column: Photo + Timeline -->
             <div class="about-photo-column">
                 <div class="about-photo-frame">
                     <div class="about-photo-wrapper">
@@ -54,11 +54,44 @@ if (!defined('ABSPATH')) {
                         <span>Docker</span>
                     </div>
                 </div>
+
+                <!-- Experience Timeline -->
+                <div class="about-timeline">
+                    <h3 class="timeline-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                        <span>10+ Years Experience</span>
+                    </h3>
+                    <div class="timeline-items">
+                        <div class="timeline-item">
+                            <span class="timeline-year">2014</span>
+                            <span class="timeline-dot"></span>
+                            <span class="timeline-label">Started</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2018</span>
+                            <span class="timeline-dot"></span>
+                            <span class="timeline-label">.NET</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2021</span>
+                            <span class="timeline-dot"></span>
+                            <span class="timeline-label">DevOps</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2025</span>
+                            <span class="timeline-dot"></span>
+                            <span class="timeline-label">Architect</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Right Column: Content -->
+            <!-- Right Column: Summary + Skills -->
             <div class="about-content">
-                
+
                 <!-- Profile Summary -->
                 <div class="about-summary">
                     <p class="about-text">
@@ -112,24 +145,25 @@ if (!defined('ABSPATH')) {
                     </div>
                 </div>
 
-                <!-- CTA Button -->
-                <div class="about-cta">
-                    <button class="btn btn-primary stratos-modal-trigger" 
-                            type="button"
-                            data-type="inline"
-                            data-title="My Work Environment"
-                            data-content-ref="#modal-work-env">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <rect x="4" y="4" width="16" height="16" rx="2"/>
-                            <path d="M9 9h6m-6 3h6m-6 3h3"/>
-                        </svg>
-                        <span><?php esc_html_e('View my work environment', 'stratos-one-portfolio'); ?></span>
-                    </button>
-                </div>
-
             </div>
 
         </div>
+
+        <!-- CTA Button (full width, centered under both columns) -->
+        <div class="about-cta-full">
+            <button class="btn btn-primary stratos-modal-trigger"
+                    type="button"
+                    data-type="inline"
+                    data-title="My Work Environment"
+                    data-content-ref="#modal-work-env">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <rect x="4" y="4" width="16" height="16" rx="2"/>
+                    <path d="M9 9h6m-6 3h6m-6 3h3"/>
+                </svg>
+                <span><?php esc_html_e('View my work environment', 'stratos-one-portfolio'); ?></span>
+            </button>
+        </div>
+
     </div>
 </section>
 
@@ -137,7 +171,7 @@ if (!defined('ABSPATH')) {
 <div id="modal-work-env" style="display:none;">
     <div class="work-env-content">
         <h3 class="work-env-title">My Work Environment</h3>
-        
+
         <div class="work-env-grid">
             <div class="work-env-item">
                 <h4 class="work-env-subtitle">Backend</h4>
@@ -149,7 +183,7 @@ if (!defined('ABSPATH')) {
                     <li>Redis / RabbitMQ</li>
                 </ul>
             </div>
-            
+
             <div class="work-env-item">
                 <h4 class="work-env-subtitle">Frontend</h4>
                 <ul class="work-env-list">
@@ -160,7 +194,7 @@ if (!defined('ABSPATH')) {
                     <li>Web Components</li>
                 </ul>
             </div>
-            
+
             <div class="work-env-item">
                 <h4 class="work-env-subtitle">DevOps</h4>
                 <ul class="work-env-list">
@@ -171,7 +205,7 @@ if (!defined('ABSPATH')) {
                     <li>Monitoring / Logging</li>
                 </ul>
             </div>
-            
+
             <div class="work-env-item">
                 <h4 class="work-env-subtitle">Tools</h4>
                 <ul class="work-env-list">

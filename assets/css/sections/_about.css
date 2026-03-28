@@ -110,8 +110,10 @@
 .about-photo-column {
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: var(--spacing-lg);
 }
 
 .about-photo-frame {
@@ -230,6 +232,84 @@
   font-weight: var(--font-weight-semibold);
 }
 
+/* Experience Timeline */
+.about-timeline {
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: var(--radius-lg);
+}
+
+.timeline-title {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--spacing-lg) 0;
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.timeline-title svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--color-accent-primary);
+}
+
+.timeline-items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  position: relative;
+}
+
+.timeline-items::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  right: 20px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent-primary) 0%, var(--color-cyan) 100%);
+  opacity: 0.3;
+}
+
+.timeline-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+.timeline-year {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-accent-primary);
+  line-height: 1;
+}
+
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(135deg, var(--color-accent-primary), var(--color-cyan));
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.timeline-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  text-align: center;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
 /* Skills Section */
 .about-skills {
   margin-top: var(--spacing-lg);
@@ -310,7 +390,51 @@
   display: block;
 }
 
-/* CTA Button */
+/* CTA Button (full width, centered under grid) */
+.about-cta-full {
+  display: flex;
+  justify-content: center;
+  padding-top: var(--spacing-2xl);
+  margin-top: var(--spacing-xl);
+  border-top: 1px solid var(--color-border-subtle);
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-cta-full .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: 12px 24px;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  border: none;
+  font-family: var(--font-family-base);
+}
+
+.about-cta-full .btn-primary {
+  background-color: var(--color-accent-primary);
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(59, 130, 246, 0.32);
+}
+
+.about-cta-full .btn-primary:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(59, 130, 246, 0.42);
+}
+
+.about-cta-full .btn svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+}
+
+/* CTA Button (legacy - inside content column) */
 .about-cta {
   padding-top: var(--spacing-lg);
   margin-top: var(--spacing-md);
