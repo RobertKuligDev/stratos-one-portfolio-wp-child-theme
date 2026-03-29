@@ -1,6 +1,12 @@
 /**
- * Header Component — Premium
- * @package Robert_Portfolio
+ * Header Component — Premium-Premium v2.0
+ * @package Stratos_One_Portfolio
+ * 
+ * Features:
+ * - Sticky header with blur backdrop
+ * - Premium spacing
+ * - Scroll-based height reduction
+ * - Enterprise CTA hierarchy
  */
 
 .site-header {
@@ -10,16 +16,23 @@
   right: 0;
   z-index: var(--z-fixed);
   background-color: transparent;
-  transition: background-color var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+  transition: all var(--transition-base);
   border-bottom: 1px solid transparent;
+  height: var(--header-height, 80px);
 }
 
 .site-header.scrolled {
-  background-color: rgba(7, 9, 12, 0.88);
-  backdrop-filter: blur(20px) saturate(1.4);
-  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  background-color: rgba(7, 9, 12, 0.85);
+  backdrop-filter: blur(16px) saturate(1.5);
+  -webkit-backdrop-filter: blur(16px) saturate(1.5);
   border-bottom-color: var(--color-border-subtle);
   box-shadow: 0 1px 0 var(--color-border-subtle), 0 8px 32px rgba(0,0,0,0.4);
+  height: var(--header-height-scrolled, 64px);
+}
+
+.site-header.scrolled .header-content {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .header-content {
@@ -28,41 +41,50 @@
   align-items: center;
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 var(--container-padding);
-  height: 68px;
+  padding: 1.25rem var(--container-padding);
+  height: var(--header-height, 80px);
   gap: var(--spacing-xl);
+  transition: all var(--transition-base);
 }
 
 /* Branding */
 .site-branding a {
-  color: var(--color-accent-primary);
+  color: var(--color-text-primary);
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 10px;
-  transition: opacity var(--transition-fast);
+  gap: 12px;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
 }
 
 .site-branding a:hover {
-  opacity: 0.82;
+  opacity: 0.85;
+  transform: translateX(2px);
 }
 
 .brand-logo {
-  width: 240px;
-  height: 48px;
+  width: auto;
+  height: 40px;
   display: block;
+  transition: height var(--transition-base);
+}
+
+.site-header.scrolled .brand-logo {
+  height: 32px;
 }
 
 /* Nav */
 .main-navigation ul {
   display: flex;
-  gap: 2px;
+  gap: 4px;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .main-navigation a {
   display: block;
-  padding: 6px 14px;
+  padding: 8px 16px;
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
   color: var(--color-text-secondary);
@@ -70,6 +92,20 @@
   border-radius: var(--radius);
   transition: all var(--transition-fast);
   letter-spacing: -0.01em;
+  position: relative;
+}
+
+.main-navigation a::after {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  left: 16px;
+  right: 16px;
+  height: 2px;
+  background: var(--color-accent-primary);
+  transform: scaleX(0);
+  transition: transform var(--transition-fast);
+  border-radius: 2px;
 }
 
 .main-navigation a:hover {
@@ -77,15 +113,24 @@
   background-color: var(--color-surface-subtle);
 }
 
-.main-navigation .current-menu-item a {
-  color: var(--color-accent-primary);
+.main-navigation a:hover::after {
+  transform: scaleX(1);
 }
 
-/* Header CTAs */
+.main-navigation .current-menu-item a {
+  color: var(--color-accent-primary);
+  background-color: var(--color-surface-active);
+}
+
+.main-navigation .current-menu-item a::after {
+  transform: scaleX(1);
+}
+
+/* Header CTAs — Enterprise Hierarchy */
 .header-cta-group {
   display: flex;
   align-items: center;
-  gap: var(--spacing-2);
+  gap: 12px;
   flex-shrink: 0;
 }
 
@@ -93,16 +138,17 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 7px 16px;
+  padding: 9px 18px;
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   border-radius: var(--radius);
   text-decoration: none;
-  transition: all var(--transition-fast);
+  transition: all var(--transition-base);
   white-space: nowrap;
   letter-spacing: -0.01em;
 }
 
+/* Secondary CTA (Outline) */
 .header-cta-secondary {
   background-color: transparent;
   color: var(--color-text-secondary);
@@ -111,22 +157,24 @@
 
 .header-cta-secondary:hover {
   color: var(--color-text-primary);
-  border-color: var(--color-border-accent);
+  border-color: var(--color-accent-primary);
   background-color: var(--color-surface-subtle);
+  transform: translateY(-1px);
 }
 
+/* Primary CTA (Filled) */
 .header-cta-primary {
   background-color: var(--color-accent-primary);
   color: #fff;
   border: 1px solid transparent;
-  box-shadow: 0 2px 8px rgba(59,130,246,0.3);
+  box-shadow: 0 2px 12px rgba(59, 130, 246, 0.35);
 }
 
 .header-cta-primary:hover {
   background-color: var(--color-accent-hover);
   color: #fff;
-  box-shadow: 0 4px 16px rgba(59,130,246,0.4);
-  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.45);
+  transform: translateY(-2px);
 }
 
 /* Mobile toggle */
@@ -136,7 +184,7 @@
   border: 1px solid var(--color-border-strong);
   color: var(--color-text-primary);
   cursor: pointer;
-  padding: 7px 10px;
+  padding: 8px 12px;
   border-radius: var(--radius);
   transition: all var(--transition-fast);
   font-size: 1.4rem;
@@ -150,43 +198,86 @@
 }
 
 .menu-toggle:hover {
-  border-color: var(--color-border-accent);
+  border-color: var(--color-accent-primary);
   color: var(--color-accent-primary);
+  background-color: var(--color-surface-active);
 }
 
 /* Responsive */
 @media (max-width: 992px) {
-  .header-cta-group { display: none; }
+  .header-cta-group { 
+    display: none; 
+  }
+  
+  .main-navigation a::after {
+    display: none; /* Hide underline on mobile */
+  }
 }
 
 @media (max-width: 768px) {
-  .menu-toggle { display: block; }
+  .menu-toggle { 
+    display: block; 
+  }
 
   .main-navigation {
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
-    background-color: rgba(7, 9, 12, 0.97);
+    background-color: rgba(7, 9, 12, 0.98);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--color-border-subtle);
-    padding: var(--spacing-sm) var(--spacing-md);
+    padding: var(--spacing-md);
     display: none;
+    max-height: 70vh;
+    overflow-y: auto;
   }
 
-  .main-navigation.active { display: block; }
+  .main-navigation.active { 
+    display: block; 
+    animation: slideDown 0.2s ease-out;
+  }
 
   .main-navigation ul {
     flex-direction: column;
-    gap: 2px;
+    gap: 4px;
   }
 
-  .brand-logo { width: 200px; height: 42px; }
+  .main-navigation a {
+    padding: 12px 16px;
+  }
 
-  .header-content { height: 60px; }
+  .brand-logo { 
+    height: 36px; 
+  }
+
+  .header-content { 
+    height: 64px;
+    padding: 1rem var(--container-padding);
+  }
+  
+  .site-header.scrolled .header-content {
+    height: 60px;
+  }
 }
 
 @media (max-width: 480px) {
-  .brand-logo { width: 170px; height: 36px; }
-  .header-content { padding: 0 var(--spacing-md); }
+  .brand-logo { 
+    height: 32px; 
+  }
+  
+  .header-content { 
+    padding: 0.875rem var(--spacing-md);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

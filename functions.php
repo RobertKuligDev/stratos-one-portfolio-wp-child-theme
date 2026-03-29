@@ -126,11 +126,19 @@ add_action('wp_enqueue_scripts', function() {
         filemtime(get_stylesheet_directory() . '/assets/css/04-components.css')
     );
 
-    // 3.4.1 Stratos Modal Component
+    // 3.4.1 Header Component — Premium-Premium (overrides 04-components.css)
+    wp_enqueue_style(
+        'portfolio-header',
+        get_stylesheet_directory_uri() . '/assets/css/components/_header.css',
+        ['portfolio-components'],
+        filemtime(get_stylesheet_directory() . '/assets/css/components/_header.css')
+    );
+
+    // 3.4.2 Stratos Modal Component
     wp_enqueue_style(
         'stratos-modal',
         get_stylesheet_directory_uri() . '/assets/css/components/_modal.css',
-        ['portfolio-components'],
+        ['portfolio-header'],
         filemtime(get_stylesheet_directory() . '/assets/css/components/_modal.css')
     );
 
