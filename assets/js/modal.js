@@ -233,6 +233,13 @@
         div.className = 'stratos-modal-inline';
         div.innerHTML = content;
         modalContent.appendChild(div);
+        
+        // Initialize WP showcase tabs if present (with small delay for DOM to update)
+        setTimeout(function() {
+            if (typeof window.initWpModalTabs === 'function') {
+                window.initWpModalTabs();
+            }
+        }, 10);
     }
 
     /**

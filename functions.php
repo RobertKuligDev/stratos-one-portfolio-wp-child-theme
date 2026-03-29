@@ -93,7 +93,7 @@ add_action('wp_enqueue_scripts', function() {
     );
 
     // 3. CSS Modules - Premium Design System
-    
+
     // 3.1 Variables (CSS custom properties)
     wp_enqueue_style(
         'portfolio-variables',
@@ -323,6 +323,14 @@ add_action('wp_enqueue_scripts', function() {
         true
     );
 
+    wp_enqueue_script(
+        'stratos-wp-showcase-tabs',
+        get_stylesheet_directory_uri() . '/assets/js/wp-showcase-tabs.js',
+        ['stratos-one-main'],
+        filemtime(get_stylesheet_directory() . '/assets/js/wp-showcase-tabs.js'),
+        true
+    );
+    
     // Localize script with AJAX URL
     wp_localize_script(
         'stratos-one-main',
@@ -351,7 +359,7 @@ add_action('add_meta_boxes', function() {
 
 function stratos_one_project_details_callback($post) {
     wp_nonce_field('stratos_one_project_details', 'stratos_one_project_details_nonce');
-    
+
     $problem = get_post_meta($post->ID, '_case_study_problem', true);
     $solution = get_post_meta($post->ID, '_case_study_solution', true);
     $project_url = get_post_meta($post->ID, '_project_url', true);
@@ -369,7 +377,7 @@ function stratos_one_project_details_callback($post) {
         .project-meta-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .project-meta-field textarea.tall { height: 150px; }
     </style>
-    
+
     <div class="project-meta-row">
         <div class="project-meta-field">
             <label for="featured_priority"><?php esc_html_e('Featured Priority', 'stratos-one-portfolio'); ?></label>
@@ -382,39 +390,39 @@ function stratos_one_project_details_callback($post) {
             <small><?php esc_html_e('Priority 1 = full width showcase, 2-3 = half width secondary', 'stratos-one-portfolio'); ?></small>
         </div>
     </div>
-    
+
     <div class="project-meta-row">
         <div class="project-meta-field">
             <label for="project_url"><?php esc_html_e('Project URL', 'stratos-one-portfolio'); ?></label>
             <input type="url" id="project_url" name="project_url" value="<?php echo esc_url($project_url); ?>" placeholder="https://example.com"/>
             <small><?php esc_html_e('Live demo or project website', 'stratos-one-portfolio'); ?></small>
         </div>
-        
+
         <div class="project-meta-field">
             <label for="github_url"><?php esc_html_e('GitHub URL', 'stratos-one-portfolio'); ?></label>
             <input type="url" id="github_url" name="github_url" value="<?php echo esc_url($github_url); ?>" placeholder="https://github.com/username/repo"/>
             <small><?php esc_html_e('Source code repository', 'stratos-one-portfolio'); ?></small>
         </div>
     </div>
-    
+
     <div class="project-meta-field">
         <label for="case_study_problem"><?php esc_html_e('Problem', 'stratos-one-portfolio'); ?></label>
         <textarea id="case_study_problem" name="case_study_problem" class="tall" placeholder="<?php esc_attr_e('Describe the problem...', 'stratos-one-portfolio'); ?>"><?php echo esc_textarea($problem); ?></textarea>
         <small><?php esc_html_e('What problem does this project solve?', 'stratos-one-portfolio'); ?></small>
     </div>
-    
+
     <div class="project-meta-field">
         <label for="case_study_solution"><?php esc_html_e('Solution', 'stratos-one-portfolio'); ?></label>
         <textarea id="case_study_solution" name="case_study_solution" class="tall" placeholder="<?php esc_attr_e('Describe the solution...', 'stratos-one-portfolio'); ?>"><?php echo esc_textarea($solution); ?></textarea>
         <small><?php esc_html_e('How did you solve it?', 'stratos-one-portfolio'); ?></small>
     </div>
-    
+
     <div class="project-meta-field">
         <label for="readme_text"><?php esc_html_e('README / Quick Description', 'stratos-one-portfolio'); ?></label>
         <textarea id="readme_text" name="readme_text" class="tall" placeholder="<?php esc_attr_e('Short project description for modal...'); ?>"><?php echo esc_textarea($readme_text); ?></textarea>
         <small><?php esc_html_e('Brief overview shown in modal (2-3 sentences)', 'stratos-one-portfolio'); ?></small>
     </div>
-    
+
     <div class="project-meta-field">
         <label for="pdf_url"><?php esc_html_e('PDF Case Study URL', 'stratos-one-portfolio'); ?></label>
         <input type="url" id="pdf_url" name="pdf_url" value="<?php echo esc_url($pdf_url); ?>" placeholder="https://example.com/case-study.pdf"/>
@@ -424,14 +432,14 @@ function stratos_one_project_details_callback($post) {
 }
 
 add_action('save_post_project', function($post_id) {
-    if (!isset($_POST['stratos_one_project_details_nonce']) || 
+    if (!isset($_POST['stratos_one_project_details_nonce']) ||
         !wp_verify_nonce($_POST['stratos_one_project_details_nonce'], 'stratos_one_project_details')) {
         return;
     }
-    
+
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
     if (!current_user_can('edit_post', $post_id)) return;
-    
+
     if (isset($_POST['featured_priority'])) {
         update_post_meta($post_id, '_featured_priority', sanitize_text_field($_POST['featured_priority']));
     }

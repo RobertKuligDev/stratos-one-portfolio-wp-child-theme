@@ -2,23 +2,201 @@
 /**
  * Custom WP Theme section template part
  *
- * Engineering showcase - Stratos One theme built from scratch
- * Premium redesign with enhanced visual hierarchy
+ * WordPress skills showcase — secondary narrative
+ * Positions WP as an additional competency, not the main focus
  *
  * @package Stratos_One_Portfolio
- * @version 2.0.0
+ * @version 3.0.0
  */
 
 if (!defined('ABSPATH')) {
     exit;
 }
+?>
+<!-- Custom WP Theme Section -->
+<section class="wp-showcase" id="custom-wp-theme">
+    <div class="container">
 
-// Modal content for each feature
-$modal_content = [
-    'architecture' => '
-        <h3 class="modal-detail-title">Theme Architecture</h3>
-        <p class="modal-detail-intro">Clean, modular file structure with clear separation of concerns. No spaghetti code, no page builders.</p>
-        <pre class="modal-code"><code>stratos-one-portfolio/
+        <!-- Section Header -->
+        <header class="section-header reveal">
+            <span class="section-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                <?php esc_html_e('WordPress Engineering', 'stratos-one-portfolio'); ?>
+            </span>
+            <h2 class="section-title">
+                <?php esc_html_e('Full-Stack WordPress — Production Quality', 'stratos-one-portfolio'); ?>
+            </h2>
+            <p class="section-subtitle">
+                <?php esc_html_e('Beyond page builders. Custom themes, CPTs, AJAX handlers and REST API integrations — the same engineering standards I apply to .NET and Angular systems.', 'stratos-one-portfolio'); ?>
+            </p>
+        </header>
+
+        <!-- Skills Grid -->
+        <div class="wp-skills-grid">
+
+            <!-- Card 1: Architecture -->
+            <div class="wp-skill-card wp-skill-card--featured reveal">
+                <div class="wp-skill-card-top">
+                    <span class="wp-skill-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <path d="M3 9h18M3 15h18M9 3v18M15 3v18"/>
+                        </svg>
+                    </span>
+                    <span class="wp-skill-tag"><?php esc_html_e('Architecture', 'stratos-one-portfolio'); ?></span>
+                </div>
+                <h3 class="wp-skill-title"><?php esc_html_e('Clean Theme Architecture', 'stratos-one-portfolio'); ?></h3>
+                <p class="wp-skill-desc"><?php esc_html_e('Modular template hierarchy with clear separation of concerns. No page builders, no bloat — just clean PHP following WordPress coding standards.', 'stratos-one-portfolio'); ?></p>
+                <div class="wp-skill-tags">
+                    <span>Template Hierarchy</span>
+                    <span>Child Themes</span>
+                    <span>Hooks & Filters</span>
+                </div>
+            </div>
+
+            <!-- Card 2: CPT -->
+            <div class="wp-skill-card reveal">
+                <div class="wp-skill-card-top">
+                    <span class="wp-skill-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                    </span>
+                    <span class="wp-skill-tag"><?php esc_html_e('Data', 'stratos-one-portfolio'); ?></span>
+                </div>
+                <h3 class="wp-skill-title"><?php esc_html_e('Custom Post Types & Taxonomies', 'stratos-one-portfolio'); ?></h3>
+                <p class="wp-skill-desc"><?php esc_html_e('Structured content models with custom fields, meta boxes and query optimization.', 'stratos-one-portfolio'); ?></p>
+                <div class="wp-skill-tags">
+                    <span>CPT</span>
+                    <span>Custom Taxonomies</span>
+                    <span>WP_Query</span>
+                </div>
+            </div>
+
+            <!-- Card 3: AJAX & REST -->
+            <div class="wp-skill-card reveal">
+                <div class="wp-skill-card-top">
+                    <span class="wp-skill-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                    </span>
+                    <span class="wp-skill-tag"><?php esc_html_e('API', 'stratos-one-portfolio'); ?></span>
+                </div>
+                <h3 class="wp-skill-title"><?php esc_html_e('AJAX & REST API', 'stratos-one-portfolio'); ?></h3>
+                <p class="wp-skill-desc"><?php esc_html_e('Custom AJAX handlers with nonce security and REST API endpoints for headless and hybrid setups.', 'stratos-one-portfolio'); ?></p>
+                <div class="wp-skill-tags">
+                    <span>admin-ajax.php</span>
+                    <span>REST Endpoints</span>
+                    <span>Nonce Auth</span>
+                </div>
+            </div>
+
+            <!-- Card 4: Performance -->
+            <div class="wp-skill-card reveal">
+                <div class="wp-skill-card-top">
+                    <span class="wp-skill-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                    </span>
+                    <span class="wp-skill-tag"><?php esc_html_e('Performance', 'stratos-one-portfolio'); ?></span>
+                </div>
+                <h3 class="wp-skill-title"><?php esc_html_e('Performance & Optimization', 'stratos-one-portfolio'); ?></h3>
+                <p class="wp-skill-desc"><?php esc_html_e('Lighthouse 95+ scores. Asset enqueuing, lazy loading, cache busting and minimal dependency footprint.', 'stratos-one-portfolio'); ?></p>
+                <div class="wp-skill-tags">
+                    <span>Lighthouse 95+</span>
+                    <span>Asset Pipeline</span>
+                    <span>No jQuery</span>
+                </div>
+            </div>
+
+            <!-- Card 5: Security -->
+            <div class="wp-skill-card reveal">
+                <div class="wp-skill-card-top">
+                    <span class="wp-skill-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </span>
+                    <span class="wp-skill-tag"><?php esc_html_e('Security', 'stratos-one-portfolio'); ?></span>
+                </div>
+                <h3 class="wp-skill-title"><?php esc_html_e('Security & Hardening', 'stratos-one-portfolio'); ?></h3>
+                <p class="wp-skill-desc"><?php esc_html_e('Nonce verification, input sanitization, capability checks and anti-spam honeypots on all form handlers.', 'stratos-one-portfolio'); ?></p>
+                <div class="wp-skill-tags">
+                    <span>Nonces</span>
+                    <span>Sanitization</span>
+                    <span>Capability Checks</span>
+                </div>
+            </div>
+
+            <!-- Card 6: Integrations — CTA -->
+            <div class="wp-skill-card wp-skill-card--cta reveal">
+                <div class="wp-skill-card-top">
+                    <span class="wp-skill-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1"/>
+                        </svg>
+                    </span>
+                    <span class="wp-skill-tag"><?php esc_html_e('Integrations', 'stratos-one-portfolio'); ?></span>
+                </div>
+                <h3 class="wp-skill-title"><?php esc_html_e('Plugin & API Integrations', 'stratos-one-portfolio'); ?></h3>
+                <p class="wp-skill-desc"><?php esc_html_e('WooCommerce, ACF, Elementor custom widgets, third-party REST APIs and webhook handlers.', 'stratos-one-portfolio'); ?></p>
+                <div class="wp-skill-tags">
+                    <span>WooCommerce</span>
+                    <span>ACF</span>
+                    <span>Webhooks</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom CTA: open single detail modal -->
+        <div class="wp-showcase-footer reveal">
+            <div class="wp-showcase-note">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 16v-4m0-4h.01"/>
+                </svg>
+                <p><?php esc_html_e('This portfolio is itself a custom WordPress theme built from scratch — architecture, AJAX, CPTs and all.', 'stratos-one-portfolio'); ?></p>
+            </div>
+            <button class="btn btn-secondary stratos-modal-trigger wp-showcase-btn"
+                    type="button"
+                    data-type="inline"
+                    data-title="<?php esc_attr_e('WordPress Engineering — Technical Details', 'stratos-one-portfolio'); ?>"
+                    data-content-ref="#modal-wp-showcase">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                <?php esc_html_e('View Technical Details', 'stratos-one-portfolio'); ?>
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<!-- Single unified modal with all technical details -->
+<div id="modal-wp-showcase" style="display:none;">
+
+    <!-- Tab navigation -->
+    <div class="wp-modal-tabs">
+        <button class="wp-modal-tab active" data-tab="architecture"><?php esc_html_e('Architecture', 'stratos-one-portfolio'); ?></button>
+        <button class="wp-modal-tab" data-tab="performance"><?php esc_html_e('Performance', 'stratos-one-portfolio'); ?></button>
+        <button class="wp-modal-tab" data-tab="security"><?php esc_html_e('Security', 'stratos-one-portfolio'); ?></button>
+        <button class="wp-modal-tab" data-tab="integrations"><?php esc_html_e('Integrations', 'stratos-one-portfolio'); ?></button>
+    </div>
+
+    <!-- Tab: Architecture -->
+    <div class="wp-modal-panel active" data-panel="architecture">
+        <p class="modal-detail-intro"><?php esc_html_e('Modular file structure with clear separation of concerns. No spaghetti code, no page builders.', 'stratos-one-portfolio'); ?></p>
+        <pre class="modal-code"><code>stratos-one-portfolio/       ← child theme
 ├── assets/
 │   ├── css/
 │   │   ├── 01-variables.css
@@ -27,84 +205,36 @@ $modal_content = [
 │   │   ├── 04-components.css
 │   │   ├── 05-sections.css
 │   │   └── 06-responsive.css
-│   ├── js/
-│   │   ├── main.js
-│   │   ├── modal.js
-│   │   └── components/
-│   └── images/
-├── template-parts/
-│   ├── header/
-│   ├── blocks/
-│   └── components/
-├── parts/
-├── patterns/
+│   └── js/
+│       ├── main.js
+│       ├── modal.js
+│       └── components/
+├── parts/                   ← template parts per section
+│   ├── section-hero.php
+│   ├── section-services.php
+│   ├── section-projects.php
+│   ├── section-about.php
+│   └── section-contact.php
+├── inc/
+│   ├── class-form-handler.php
+│   ├── class-asset-loader.php
+│   └── class-cpt-manager.php
 ├── functions.php
 ├── front-page.php
 └── style.css</code></pre>
-    ',
-    'blocks' => '
-        <h3 class="modal-detail-title">Modular Template System</h3>
-        <p class="modal-detail-intro">Each section is a reusable template part following WordPress block theme standards.</p>
-        <div class="feature-list">
-            <div class="feature-list-item">
-                <span class="feature-list-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                </span>
-                <div>
-                    <strong>Hero Section</strong>
-                    <span>Headline, tech stack, CTA buttons, architecture diagram</span>
-                </div>
-            </div>
-            <div class="feature-list-item">
-                <span class="feature-list-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-                </span>
-                <div>
-                    <strong>What I Do</strong>
-                    <span>Services grid with featured project showcase</span>
-                </div>
-            </div>
-            <div class="feature-list-item">
-                <span class="feature-list-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-                </span>
-                <div>
-                    <strong>Projects</strong>
-                    <span>CPT query loop with filterable project cards</span>
-                </div>
-            </div>
-            <div class="feature-list-item">
-                <span class="feature-list-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6m11-7h-6m-6 0H1m15.5-6.5l-4.5 4.5m-4 4L7.5 16.5"/></svg>
-                </span>
-                <div>
-                    <strong>Custom WP Theme</strong>
-                    <span>Feature showcase with detailed modals</span>
-                </div>
-            </div>
-            <div class="feature-list-item">
-                <span class="feature-list-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                </span>
-                <div>
-                    <strong>About</strong>
-                    <span>Bio with parallax photo and skills accordion</span>
-                </div>
-            </div>
-            <div class="feature-list-item">
-                <span class="feature-list-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                </span>
-                <div>
-                    <strong>Contact</strong>
-                    <span>Form with validation and social links</span>
-                </div>
-            </div>
-        </div>
-    ',
-    'performance' => '
-        <h3 class="modal-detail-title">Performance Metrics</h3>
-        <p class="modal-detail-intro">Zero page builders, minimal dependencies, optimized assets.</p>
+        <h4 class="modal-detail-subtitle"><?php esc_html_e('Key patterns:', 'stratos-one-portfolio'); ?></h4>
+        <ul class="modal-detail-list">
+            <li><?php esc_html_e('Child theme inherits parent styles, overrides only what needs changing', 'stratos-one-portfolio'); ?></li>
+            <li><?php esc_html_e('Each section is a self-contained template part', 'stratos-one-portfolio'); ?></li>
+            <li><?php esc_html_e('PHP classes with single responsibility per file', 'stratos-one-portfolio'); ?></li>
+            <li><?php esc_html_e('WordPress hooks and filters — never modifying core', 'stratos-one-portfolio'); ?></li>
+            <li><?php esc_html_e('Namespaced functions to avoid conflicts', 'stratos-one-portfolio'); ?></li>
+        </ul>
+    </div>
+
+    <!-- Tab: Performance -->
+    <div class="wp-modal-panel" data-panel="performance">
+        <p class="modal-detail-intro"><?php esc_html_e('Zero page builders, minimal dependencies, optimized asset delivery.', 'stratos-one-portfolio'); ?></p>
         <div class="performance-grid">
             <div class="performance-card">
                 <span class="performance-value">95+</span>
@@ -119,215 +249,104 @@ $modal_content = [
                 <span class="performance-label">Page Builders</span>
             </div>
             <div class="performance-card">
-                <span class="performance-value">100%</span>
-                <span class="performance-label">Custom Code</span>
+                <span class="performance-value">0</span>
+                <span class="performance-label">jQuery Dependencies</span>
             </div>
         </div>
-        <h4 class="modal-detail-subtitle">Optimizations:</h4>
+        <h4 class="modal-detail-subtitle"><?php esc_html_e('Optimizations applied:', 'stratos-one-portfolio'); ?></h4>
         <ul class="modal-detail-list">
-            <li>Minimal CSS with no frameworks</li>
-            <li>Vanilla JavaScript (no jQuery)</li>
-            <li>Lazy loading images</li>
-            <li>Async script loading</li>
-            <li>Cache busting with filemtime()</li>
-            <li>Optimized asset delivery</li>
+            <li><?php esc_html_e('Vanilla JavaScript — no jQuery', 'stratos-one-portfolio'); ?></li>
+            <li><?php esc_html_e('CSS variables for design tokens — no preprocessor overhead', 'stratos-one-portfolio'); ?></li>
+            <li><?php esc_html_e('Scripts loaded in footer with defer', 'stratos-one-portfolio'); ?></li>
+            <li><?php esc_html_e('Cache busting with filemtime()', 'stratos-one-portfolio'); ?></li>
+            <li><?php esc_html_e('IntersectionObserver for scroll reveal — no scroll event listeners', 'stratos-one-portfolio'); ?></li>
+            <li><?php esc_html_e('Images lazy loaded natively', 'stratos-one-portfolio'); ?></li>
         </ul>
-    ',
-    'security' => '
-        <h3 class="modal-detail-title">Security & Validation</h3>
-        <p class="modal-detail-intro">Production-ready form handling with multiple security layers.</p>
-        <pre class="modal-code"><code>// Form handler with nonce verification
-function stratos_one_handle_form_submission() {
-    // Verify nonce
-    if (!isset($_POST[\'nonce\']) ||
-        !wp_verify_nonce($_POST[\'nonce\'], \'stratos_one_nonce\')) {
-        wp_send_json_error([\'message\' => \'Invalid security token\']);
+    </div>
+
+    <!-- Tab: Security -->
+    <div class="wp-modal-panel" data-panel="security">
+        <p class="modal-detail-intro"><?php esc_html_e('Production-ready form handling with multiple security layers on every endpoint.', 'stratos-one-portfolio'); ?></p>
+        <pre class="modal-code"><code>// Every AJAX handler follows this pattern:
+function handle_form_submission() {
+
+    // 1. Verify nonce
+    if ( ! wp_verify_nonce( $_POST['nonce'], 'my_action' ) ) {
+        wp_send_json_error( [ 'message' => 'Invalid token' ] );
     }
 
-    // Sanitize inputs
-    $name = sanitize_text_field($_POST[\'name\']);
-    $email = sanitize_email($_POST[\'email\']);
-    $message = sanitize_textarea_field($_POST[\'message\']);
-
-    // Validate required fields
-    if (empty($name) || empty($email) || empty($message)) {
-        wp_send_json_error([\'message\' => \'All fields are required\']);
+    // 2. Capability check (where applicable)
+    if ( ! current_user_can( 'read' ) ) {
+        wp_send_json_error( [ 'message' => 'Forbidden' ], 403 );
     }
 
-    // Validate email format
-    if (!is_email($email)) {
-        wp_send_json_error([\'message\' => \'Invalid email address\']);
+    // 3. Sanitize all inputs
+    $name    = sanitize_text_field( $_POST['name'] );
+    $email   = sanitize_email( $_POST['email'] );
+    $message = sanitize_textarea_field( $_POST['message'] );
+
+    // 4. Validate
+    if ( ! is_email( $email ) ) {
+        wp_send_json_error( [ 'message' => 'Invalid email' ] );
     }
 
-    // Anti-spam honeypot
-    if (!empty($_POST[\'website\'])) {
-        wp_send_json_success([\'message\' => \'Message sent\']);
+    // 5. Honeypot anti-spam
+    if ( ! empty( $_POST['website'] ) ) {
+        wp_send_json_success(); // silently discard
     }
 
-    // Process form...
+    // 6. Process...
 }</code></pre>
-        <h4 class="modal-detail-subtitle">Security Features:</h4>
         <ul class="modal-detail-list">
-            <li>WordPress nonce verification</li>
-            <li>Input sanitization (text, email, textarea)</li>
-            <li>Server-side validation</li>
-            <li>Anti-spam honeypot field</li>
-            <li>Minimal plugin dependencies</li>
+            <li><?php esc_html_e('WordPress nonce verification on every request', 'stratos-one-portfolio'); ?></li>
+            <li><?php esc_html_e('Input sanitization — text, email, textarea, absint', 'stratos-one-portfolio'); ?></li>
+            <li><?php esc_html_e('Server-side validation independent of JS', 'stratos-one-portfolio'); ?></li>
+            <li><?php esc_html_e('Anti-spam honeypot field', 'stratos-one-portfolio'); ?></li>
+            <li><?php esc_html_e('No sensitive data exposed in JS global scope', 'stratos-one-portfolio'); ?></li>
         </ul>
-    ',
-];
-?>
-<!-- Custom WP Theme Section - Engineering Showcase -->
-<section class="custom-wp-theme" id="custom-wp-theme">
-    <div class="container">
-        
-        <!-- Section Header -->
-        <header class="section-header reveal">
-            <span class="section-badge">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                </svg>
-                <?php esc_html_e('Engineering Showcase', 'stratos-one-portfolio'); ?>
-            </span>
-            <h2 class="section-title"><?php esc_html_e('Engineering-Grade WordPress Theme', 'stratos-one-portfolio'); ?></h2>
-            <p class="section-subtitle">
-                <?php esc_html_e('Built from scratch — no page builders, no bloat. Clean architecture, custom blocks, and production-ready performance.', 'stratos-one-portfolio'); ?>
-            </p>
-        </header>
+    </div>
 
-        <!-- Features Grid -->
-        <div class="features-grid">
-
-            <!-- Feature 1: Architecture -->
-            <div class="feature-card feature-card-lg" data-modal="architecture">
-                <div class="feature-card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                        <rect x="3" y="3" width="18" height="18" rx="2"/>
-                        <path d="M3 9h18M3 15h18M9 3v18M15 3v18"/>
-                    </svg>
+    <!-- Tab: Integrations -->
+    <div class="wp-modal-panel" data-panel="integrations">
+        <p class="modal-detail-intro"><?php esc_html_e('Extending WordPress with custom integrations and third-party APIs.', 'stratos-one-portfolio'); ?></p>
+        <div class="feature-list">
+            <div class="feature-list-item">
+                <span class="feature-list-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                </span>
+                <div>
+                    <strong>WooCommerce</strong>
+                    <span><?php esc_html_e('Custom product types, checkout hooks, order status integrations', 'stratos-one-portfolio'); ?></span>
                 </div>
-                <div class="feature-card-content">
-                    <h3 class="feature-card-title"><?php esc_html_e('Clean Architecture', 'stratos-one-portfolio'); ?></h3>
-                    <p class="feature-card-text">
-                        <?php esc_html_e('Modular template hierarchy, custom post types, and separation of concerns. No spaghetti code.', 'stratos-one-portfolio'); ?>
-                    </p>
-                </div>
-                <button class="feature-card-btn stratos-modal-trigger"
-                        type="button"
-                        data-type="inline"
-                        data-title="<?php esc_attr_e('Theme Architecture', 'stratos-one-portfolio'); ?>"
-                        data-content-ref="#modal-architecture">
-                    <span><?php esc_html_e('View Architecture', 'stratos-one-portfolio'); ?></span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </button>
             </div>
-
-            <!-- Feature 2: Modular Sections -->
-            <div class="feature-card" data-modal="blocks">
-                <div class="feature-card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                        <rect x="3" y="3" width="7" height="7"/>
-                        <rect x="14" y="3" width="7" height="7"/>
-                        <rect x="14" y="14" width="7" height="7"/>
-                        <rect x="3" y="14" width="7" height="7"/>
-                    </svg>
+            <div class="feature-list-item">
+                <span class="feature-list-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </span>
+                <div>
+                    <strong>ACF / Custom Fields</strong>
+                    <span><?php esc_html_e('Advanced Custom Fields for structured content, flexible content layouts', 'stratos-one-portfolio'); ?></span>
                 </div>
-                <div class="feature-card-content">
-                    <h3 class="feature-card-title"><?php esc_html_e('Modular Sections', 'stratos-one-portfolio'); ?></h3>
-                    <p class="feature-card-text">
-                        <?php esc_html_e('Reusable template parts for each section. Easy maintenance and scalability.', 'stratos-one-portfolio'); ?>
-                    </p>
-                </div>
-                <button class="feature-card-btn stratos-modal-trigger"
-                        type="button"
-                        data-type="inline"
-                        data-title="<?php esc_attr_e('Modular Sections', 'stratos-one-portfolio'); ?>"
-                        data-content-ref="#modal-blocks">
-                    <span><?php esc_html_e('View Details', 'stratos-one-portfolio'); ?></span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </button>
             </div>
-
-            <!-- Feature 3: Performance -->
-            <div class="feature-card" data-modal="performance">
-                <div class="feature-card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-                    </svg>
+            <div class="feature-list-item">
+                <span class="feature-list-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </span>
+                <div>
+                    <strong>REST API & Webhooks</strong>
+                    <span><?php esc_html_e('Custom REST endpoints, webhook receivers, external API consumers', 'stratos-one-portfolio'); ?></span>
                 </div>
-                <div class="feature-card-content">
-                    <h3 class="feature-card-title"><?php esc_html_e('Performance First', 'stratos-one-portfolio'); ?></h3>
-                    <p class="feature-card-text">
-                        <?php esc_html_e('Zero page builders, minimal dependencies. Lighthouse scores 95+.', 'stratos-one-portfolio'); ?>
-                    </p>
-                </div>
-                <button class="feature-card-btn stratos-modal-trigger"
-                        type="button"
-                        data-type="inline"
-                        data-title="<?php esc_attr_e('Performance Metrics', 'stratos-one-portfolio'); ?>"
-                        data-content-ref="#modal-performance">
-                    <span><?php esc_html_e('View Metrics', 'stratos-one-portfolio'); ?></span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </button>
             </div>
-
-            <!-- Feature 4: Security -->
-            <div class="feature-card" data-modal="security">
-                <div class="feature-card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                    </svg>
+            <div class="feature-list-item">
+                <span class="feature-list-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </span>
+                <div>
+                    <strong><?php esc_html_e('Email & Transactional', 'stratos-one-portfolio'); ?></strong>
+                    <span><?php esc_html_e('Custom wp_mail templates, SMTP configuration, Mailcow integration', 'stratos-one-portfolio'); ?></span>
                 </div>
-                <div class="feature-card-content">
-                    <h3 class="feature-card-title"><?php esc_html_e('Security & Validation', 'stratos-one-portfolio'); ?></h3>
-                    <p class="feature-card-text">
-                        <?php esc_html_e('Custom form handlers with nonce verification and input sanitization.', 'stratos-one-portfolio'); ?>
-                    </p>
-                </div>
-                <button class="feature-card-btn stratos-modal-trigger"
-                        type="button"
-                        data-type="inline"
-                        data-title="<?php esc_attr_e('Security Features', 'stratos-one-portfolio'); ?>"
-                        data-content-ref="#modal-security">
-                    <span><?php esc_html_e('View Security', 'stratos-one-portfolio'); ?></span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </button>
             </div>
-
-        </div>
-
-        <!-- Section Note -->
-        <div class="section-note">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M12 16v-4m0-4h.01"/>
-            </svg>
-            <p>
-                <?php esc_html_e('Stratos One is my own WordPress product — this portfolio is both a live demo and a real-world use case.', 'stratos-one-portfolio'); ?>
-            </p>
         </div>
     </div>
-</section>
 
-<!-- Hidden Modal Content -->
-<div id="modal-architecture" style="display:none;">
-    <?php echo $modal_content['architecture']; ?>
-</div>
-<div id="modal-blocks" style="display:none;">
-    <?php echo $modal_content['blocks']; ?>
-</div>
-<div id="modal-performance" style="display:none;">
-    <?php echo $modal_content['performance']; ?>
-</div>
-<div id="modal-security" style="display:none;">
-    <?php echo $modal_content['security']; ?>
 </div>
